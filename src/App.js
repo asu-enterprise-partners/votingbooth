@@ -5,17 +5,25 @@ import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import Chip from '@material-ui/core/Chip';
+
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+
 
 const styles = theme => ({
   appBar: {
@@ -41,7 +49,7 @@ const styles = theme => ({
   mainContent: {
     maxWidth: 600,
     margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+    padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 6}px`,
   },
   layout: {
     width: 'auto',
@@ -71,20 +79,59 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing.unit * 6,
   },
+  checked: {},
 });
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const cards = [1, 2];
 
-function App(props) {
-  const { classes } = props;
+class App extends React.Component {
+  state = {
+    affiliatedwithasu: false,
+    anundergradstudent: false,
+    agraduatestudent: false,
+    faculty: false,
+    universitystaff: false,
+    ownerofcompany: false,
+    companyvaluation: false,
+    interestedinfundingtosupport: false,
+    manufacturinghardware: false,
+    socialsports: false,
+    health: false,
+    veterans: false,
+    media: false,
+    generaltechnology: false,
+    edtech: false,
+    internetofthings: false,
+    other: false,
+  };
+
+  handleChangeAffiliation = name => event => {
+    this.setState({ [name]: event.target.checked });
+  };
+
+  handleChangeRadioCompanyValuation = event => {
+    this.setState({ companyvaluation: event.target.value });
+  };
+
+  handleChangeRadioFundingSupport = event => {
+    this.setState({ interestedinfundingtosupport: event.target.value });
+  };
+
+  handleChangeAreas = name => event => {
+    this.setState({ [name]: event.target.checked });
+  };
+
+  render() {
+    const { classes } = this.props;
+    const isOwnerOfCompany = this.state.ownerofcompany;
 
   return (
+
     <React.Fragment>
       <CssBaseline />
 
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <CameraIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
             ASU Venture Ecosystem
           </Typography>
@@ -103,11 +150,6 @@ function App(props) {
               Description of project goes here.
             </Typography>
 
-            <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-
-              </Grid>
-            </div>
           </div>
         </div>
 
@@ -118,126 +160,159 @@ function App(props) {
           <Steps>
 
             <Step
-              id="first"
-              render={({ next }) => (
-                <React.Fragment>
+            id="first"
+            render={({ next }) => (
+              <React.Fragment>
 
-                  <Typography variant="h4" gutterBottom>
-                    To see available funding tracks, first tell us about yourself ...
-                  </Typography>
+                <Typography variant="h4" gutterBottom>
+                  To see available funding tracks, first tell us about yourself ...
+                </Typography>
 
-                  <Typography variant="h6" gutterBottom>
-                    I am:<br />(Select all that apply)
-                  </Typography>
+                <Typography variant="h6" gutterBottom>
+                  I am:
+                </Typography>
 
-                  <Chip
-                    label="Affiliated with ASU"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                <Typography variant="caption" gutterBottom>
+                  (Select all that apply)
+                </Typography>
 
-                  <Chip
-                    label="An Undergrad Student"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                <FormGroup row>
 
-                  <Chip
-                    label="A Graduate Student"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.affiliatedwithasu}
+                      onChange={this.handleChangeAffiliation('affiliatedwithasu')}
+                      value="affiliatedwithasu"
+                    />
+                  }
+                  label="Affiliated with ASU"
+                />
 
-                  <Chip
-                    label="Faculty"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.anundergradstudent}
+                      onChange={this.handleChangeAffiliation('anundergradstudent')}
+                      value="anundergradstudent"
+                    />
+                  }
+                  label="An Undergrad Student"
+                />
 
-                  <Chip
-                    label="University Staff"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.agraduatestudent}
+                      onChange={this.handleChangeAffiliation('agraduatestudent')}
+                      value="agraduatestudent"
+                    />
+                  }
+                  label="A Graduate Student"
+                />
 
-                  <Chip
-                    label="An Owner of a Company"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.faculty}
+                      onChange={this.handleChangeAffiliation('faculty')}
+                      value="faculty"
+                    />
+                  }
+                  label="Faculty"
+                />
 
-                  <Typography variant="h6" gutterBottom>
-                    Congratulations on owning a company.<br />What is its current valuation?
-                  </Typography>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.universitystaff}
+                      onChange={this.handleChangeAffiliation('universitystaff')}
+                      value="universitystaff"
+                    />
+                  }
+                  label="University Staff"
+                />
 
-                  <Chip
-                    label="$0-500K"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.ownerofcompany}
+                      onChange={this.handleChangeAffiliation('ownerofcompany')}
+                      value="ownerofcompany"
+                    />
+                  }
+                  label="An Owner of a Company"
+                />
 
-                  <Chip
-                    label="$500K-1mil"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                </FormGroup>
 
-                  <Chip
-                    label="$1-3mil"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                  {isOwnerOfCompany ? (
 
-                  <Chip
-                    label="$3-15mil"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                  <div>
+                    <Typography variant="h6" gutterBottom>
+                      Congratulations on owning a company.<br />What is its current valuation?
+                    </Typography>
 
-                  <Chip
-                    label="$15-75mil"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                    <FormControl component="fieldset">
+                      <RadioGroup
+                        aria-label="position"
+                        name="position"
+                        value={this.state.value}
+                        onChange={this.handleChangeRadioCompanyValuation}
+                        row
+                      >
+                        <FormControlLabel
+                          value="$0-500K"
+                          control={<Radio color="secondary" />}
+                          label="$0-500K"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$500K-1mil"
+                          control={<Radio color="secondary" />}
+                          label="$500K-1mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$1-3mil"
+                          control={<Radio color="secondary" />}
+                          label="$1-3mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$3-15mil"
+                          control={<Radio color="secondary" />}
+                          label="$3-15mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$15-75mil"
+                          control={<Radio color="secondary" />}
+                          label="$15-75mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$75-500mil"
+                          control={<Radio color="primary" />}
+                          label="$75-500mil"
+                          labelPlacement="end"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  </div>
 
-                  <Chip
-                    label="$75-500mil"
-                    className={classes.chip}
-                    component="a"
-                    href="#"
-                    clickable
-                  />
+                  ) : (
+                    <div></div>
+                  )}
 
-                  <Grid item>
-                    <Button variant="contained" color="primary" onClick={next}>
-                      Next
-                    </Button>
-                  </Grid>
+                <Grid item>
+                  <Button variant="contained" color="primary" onClick={next}>
+                    Next
+                  </Button>
+                </Grid>
 
-                </React.Fragment>
-              )}
+              </React.Fragment>
+            )}
             />
 
             <Step
@@ -245,37 +320,181 @@ function App(props) {
               render={({ next, previous }) => (
                 <React.Fragment>
 
-                  <p>Summary from first section goes here</p>
+                    <Typography variant="h6" gutterBottom>
+                      I am faculty, affiliated with ASU, and the owner of a company, valued between $1,000,000 and $3,000,000.
+                    </Typography>
 
-                  <h2>I'm interested in funding to support:<br />(Select one)</h2>
-                  <ul>
-                    <li>Ideation to Prototyping</li>
-                    <li>Ideation to Business Formation</li>
-                    <li>Prototype to Business Formation</li>
-                    <li>Prototype to Customer Acquisition</li>
-                    <li>Customer Acquisition &amp; Emerging Growth</li>
-                  </ul>
+                    <Grid item>
+                      <Button variant="contained" color="secondary" onClick={"previous"}>
+                        Edit
+                      </Button>
+                    </Grid>
 
-                  <h2>... in the areas of:<br />(Select all that apply)</h2>
-                  <ul>
-                    <li>Manufacturing/ Hardware</li>
-                    <li>Social/ Sports</li>
-                    <li>Health</li>
-                    <li>Veterans</li>
-                    <li>Media</li>
-                    <li>General Technology</li>
-                    <li>EdTech</li>
-                    <li>Internet of Things</li>
-                    <li>Other</li>
-                  </ul>
+                  <Typography variant="h6" gutterBottom>
+                    I'm interested in funding to support:
+                  </Typography>
+
+                  <Typography variant="caption" gutterBottom>
+                    (Select one)
+                  </Typography>
+
+                  <FormControl component="fieldset">
+                    <RadioGroup
+                      aria-label="position"
+                      name="position"
+                      value={this.state.interestedinfundingtosupport}
+                      onChange={this.handleChangeRadioFundingSupport}
+                      row
+                    >
+                      <FormControlLabel
+                        value="ideationtoprototyping"
+                        control={<Radio color="secondary" />}
+                        label="Ideation to Prototyping"
+                        labelPlacement="end"
+                      />
+                      <FormControlLabel
+                        value="ideationtobusinessformation"
+                        control={<Radio color="secondary" />}
+                        label="Ideation to Business Formation"
+                        labelPlacement="end"
+                      />
+                      <FormControlLabel
+                        value="prototypetobusinessformation"
+                        control={<Radio color="secondary" />}
+                        label="Prototype to Business Formation"
+                        labelPlacement="end"
+                      />
+                      <FormControlLabel
+                        value="prototypetocustomeracquisition"
+                        control={<Radio color="secondary" />}
+                        label="Prototype to Customer Acquisition"
+                        labelPlacement="end"
+                      />
+                      <FormControlLabel
+                        value="customeracquisitionandemerginggrowth"
+                        control={<Radio color="secondary" />}
+                        label="Customer Acquisition &amp; Emerging Growth"
+                        labelPlacement="end"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+
+                  <Typography variant="h6" gutterBottom>
+                    ... in the areas of:
+                  </Typography>
+
+                  <Typography variant="caption" gutterBottom>
+                    (Select all that apply)
+                  </Typography>
+
+                  <FormGroup row>
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.manufacturinghardware}
+                        onChange={this.handleChangeAreas('manufacturinghardware')}
+                        value="manufacturinghardware"
+                      />
+                    }
+                    label="Manufacturing / Hardware"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.socialsports}
+                        onChange={this.handleChangeAreas('socialsports')}
+                        value="socialsports"
+                      />
+                    }
+                    label="Social / Sports"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.health}
+                        onChange={this.handleChangeAreas('health')}
+                        value="health"
+                      />
+                    }
+                    label="Health"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.veterans}
+                        onChange={this.handleChangeAreas('veterans')}
+                        value="veterans"
+                      />
+                    }
+                    label="Veterans"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.media}
+                        onChange={this.handleChangeAffiliation('media')}
+                        value="media"
+                      />
+                    }
+                    label="Media"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.generaltechnology}
+                        onChange={this.handleChangeAreas('generaltechnology')}
+                        value="generaltechnology"
+                      />
+                    }
+                    label="General Technology"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.edtech}
+                        onChange={this.handleChangeAreas('edtech')}
+                        value="edtech"
+                      />
+                    }
+                    label="EdTech"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.internetofthings}
+                        onChange={this.handleChangeAreas('internetofthings')}
+                        value="internetofthings"
+                      />
+                    }
+                    label="Internet of Things"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.other}
+                        onChange={this.handleChangeAreas('other')}
+                        value="other"
+                      />
+                    }
+                    label="Other"
+                  />
+
+                  </FormGroup>
 
                   <Grid item>
-                    <Button variant="contained" color="primary" onClick={previous}>
+                    <Button variant="contained" color="secondary" onClick={previous}>
                       Previous
                     </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="primary" onClick={next}>
+                    <Button variant="contained" color="primary" onClick={next}>
                       Next
                     </Button>
                   </Grid>
@@ -328,12 +547,10 @@ function App(props) {
                   </div>
 
                   <Grid item>
-                    <Button variant="contained" color="primary" onClick={previous}>
+                    <Button variant="contained" color="secondary" onClick={previous}>
                       Previous
                     </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="secondary">
+                    <Button variant="contained" color="primary">
                       Start Over
                     </Button>
                   </Grid>
@@ -346,7 +563,7 @@ function App(props) {
         </Wizard>
 
         </div>
-        </div>
+      </div>
 
       </main>
 
@@ -360,7 +577,10 @@ function App(props) {
       </footer>
 
     </React.Fragment>
+
   );
+};
+
 }
 
 App.propTypes = {
