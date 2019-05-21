@@ -91,8 +91,10 @@ class App extends React.Component {
     agraduatestudent: false,
     faculty: false,
     universitystaff: false,
+
     ownerofcompany: false,
     companyvaluation: false,
+
     interestedinfundingtosupport: false,
     manufacturinghardware: false,
     socialsports: false,
@@ -123,7 +125,15 @@ class App extends React.Component {
 
   render() {
     const { classes } = this.props;
+
+    const isAffiliatedWithASU = this.state.affiliatedwithasu;
+    const isAnUndergradStudent = this.state.anundergradstudent;
+    const isAGraduateStudent = this.state.agraduatestudent;
+    const isFaculty = this.state.faculty;
+    const isUniversityStaff = this.state.universitystaff;
+
     const isOwnerOfCompany = this.state.ownerofcompany;
+    const theCompanyValuation = this.state.companyvaluation;
 
   return (
 
@@ -321,11 +331,19 @@ class App extends React.Component {
                 <React.Fragment>
 
                     <Typography variant="h6" gutterBottom>
-                      I am faculty, affiliated with ASU, and the owner of a company, valued between $1,000,000 and $3,000,000.
+                      I am:
+                      <ul>
+                        {isAffiliatedWithASU ? <li>affiliated with ASU</li> : ''}
+                        {isAnUndergradStudent ? <li>an undergrad student</li> : ''}
+                        {isAGraduateStudent ? <li>a graduate student</li> : ''}
+                        {isFaculty ? <li>a faculty member</li> : ''}
+                        {isUniversityStaff ? <li>university staff</li> : ''}
+                        {isOwnerOfCompany ? <li>the owner of a company valued between {theCompanyValuation}</li> : ''}
+                      </ul>
                     </Typography>
 
                     <Grid item>
-                      <Button variant="contained" color="secondary" onClick={"previous"}>
+                      <Button variant="contained" color="secondary" onClick={previous}>
                         Edit
                       </Button>
                     </Grid>
