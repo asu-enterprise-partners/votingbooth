@@ -526,8 +526,8 @@ class App extends React.Component {
               render={({ previous }) => (
                 <React.Fragment>
 
-                  <p>summary of and edit first section | option to edit first section</p>
-                  <p>summary of and edit second section | option to edit second section</p>
+                  <p>summaries of and edit first section | option to edit first section</p>
+                  <p>summaries of and edit second section | option to edit second section</p>
                   <p>print option</p>
                   <p>email input and send option</p>
                   <h2>Here are all the ways the ASU Venture Ecosystem can help:</h2>
