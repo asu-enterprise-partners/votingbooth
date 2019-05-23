@@ -317,7 +317,6 @@ class App extends React.Component {
                       </RadioGroup>
                     </FormControl>
                   </div>
-
                   ) : (
                     <div></div>
                   )}
@@ -535,7 +534,7 @@ class App extends React.Component {
                     {isAGraduateStudent ? <li>a graduate student</li> : ''}
                     {isFaculty ? <li>a faculty member</li> : ''}
                     {isUniversityStaff ? <li>university staff</li> : ''}
-                    {isOwnerOfCompany ? <li>the owner of a company valued between {theCompanyValuation}.</li> : ''}
+                    {isOwnerOfCompany ? <li>the owner of a company valued between {theCompanyValuation}</li> : ''}
                   </ul>
                 </Typography>
                 <Typography variant="h6" gutterBottom>I'm interested in funding to support {isInterestedinFunding }</Typography>
