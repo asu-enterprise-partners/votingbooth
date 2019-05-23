@@ -129,9 +129,18 @@ class App extends React.Component {
     const isAGraduateStudent = this.state.agraduatestudent;
     const isFaculty = this.state.faculty;
     const isUniversityStaff = this.state.universitystaff;
-
     const isOwnerOfCompany = this.state.ownerofcompany;
     const theCompanyValuation = this.state.companyvaluation;
+    const isInterestedinFunding = this.state.interestedinfundingtosupport;
+    const isManufacturingHardware = this.state.manufacturinghardware;
+    const isSocialSports = this.state.socialsports;
+    const isHealth = this.state.health;
+    const isVeterans = this.state.veterans;
+    const isMedia = this.state.media;
+    const isGeneralTechnology = this.state.generaltechnology;
+    const isEdTech = this.state.edtech;
+    const isInternetofThings = this.state.internetofthings;
+    const isOther = this.state.other;
 
   return (
 
@@ -345,10 +354,6 @@ class App extends React.Component {
                       </Button>
                     </Grid>
 
-                  <Typography variant="h6" gutterBottom>
-                    I'm interested in funding to support:
-                  </Typography>
-
                   <Typography variant="caption" gutterBottom>
                     (Select one)
                   </Typography>
@@ -522,30 +527,37 @@ class App extends React.Component {
               id="summary"
               render={({ previous }) => (
                 <React.Fragment>
-                  <Typography variant ="h6" gutterBottom>
-                    I am:
-                    <ul>
-                      {isAffiliatedWithASU ? <li>affiliated with ASU</li> : ''}
-                      {isAnUndergradStudent ? <li>an undergrad student</li> : ''}
-                      {isAGraduateStudent ? <li>a graduate student</li> : ''}
-                      {isFaculty ? <li>a faculty member</li> : ''}
-                      {isUniversityStaff ? <li>university staff</li> : ''}
-                      {isOwnerOfCompany ? <li>the owner of a company valued between {theCompanyValuation}</li> : ''}
-                    </ul>
-                  </Typography>
+                <Typography variant="h6" gutterBottom>
+                  I am:
+                  <ul>
+                    {isAffiliatedWithASU ? <li>affiliated with ASU</li> : ''}
+                    {isAnUndergradStudent ? <li>an undergrad student</li> : ''}
+                    {isAGraduateStudent ? <li>a graduate student</li> : ''}
+                    {isFaculty ? <li>a faculty member</li> : ''}
+                    {isUniversityStaff ? <li>university staff</li> : ''}
+                    {isOwnerOfCompany ? <li>the owner of a company valued between {theCompanyValuation}.</li> : ''}
+                  </ul>
+                </Typography>
+                <Typography variant="h6" gutterBottom>I'm interested in funding to support {isInterestedinFunding }</Typography>
+                <Typography variant="h6" gutterBottom>
+                In the areas of:
+                  <ul>
+                  {isSocialSports ? <li>social sports</li> : ' ' }
+                  {isHealth ? <li>health</li> : ' ' }
+                  {isVeterans ? <li>veterans</li> : ' ' }
+                  {isMedia ? <li>media</li> : ' ' }
+                  {isGeneralTechnology ? <li>general technology</li> : ' ' }
+                  {isEdTech ? <li>edtech</li> : ' ' }
+                  {isInternetofThings ? <li>Internet of Things</li> : ' ' }
+                  {isOther ? <li>other</li> : ' ' }
+                  </ul>
+                </Typography>
 
                   <Grid item>
                     <Button variant="contained" color="secondary" onClick={previous}>
                       Edit
                     </Button>
                   </Grid>
-
-                  <Typography variant ="h6" gutterBottom>
-                    I am interested in:
-                    
-                  </Typography>
-
-                  <p>summaries of and edit second section | option to edit second section</p>
                   <p>print option</p>
                   <p>email input and send option</p>
                   <h2>Here are all the ways the ASU Venture Ecosystem can help:</h2>
