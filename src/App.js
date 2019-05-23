@@ -91,10 +91,8 @@ class App extends React.Component {
     agraduatestudent: false,
     faculty: false,
     universitystaff: false,
-
     ownerofcompany: false,
     companyvaluation: false,
-
     interestedinfundingtosupport: false,
     manufacturinghardware: false,
     socialsports: false,
@@ -329,7 +327,6 @@ class App extends React.Component {
               id="second"
               render={({ next, previous }) => (
                 <React.Fragment>
-
                     <Typography variant="h6" gutterBottom>
                       I am:
                       <ul>
@@ -525,8 +522,29 @@ class App extends React.Component {
               id="summary"
               render={({ previous }) => (
                 <React.Fragment>
+                  <Typography variant ="h6" gutterBottom>
+                    I am:
+                    <ul>
+                      {isAffiliatedWithASU ? <li>affiliated with ASU</li> : ''}
+                      {isAnUndergradStudent ? <li>an undergrad student</li> : ''}
+                      {isAGraduateStudent ? <li>a graduate student</li> : ''}
+                      {isFaculty ? <li>a faculty member</li> : ''}
+                      {isUniversityStaff ? <li>university staff</li> : ''}
+                      {isOwnerOfCompany ? <li>the owner of a company valued between {theCompanyValuation}</li> : ''}
+                    </ul>
+                  </Typography>
 
-                  <p>summaries of and edit first section | option to edit first section</p>
+                  <Grid item>
+                    <Button variant="contained" color="secondary" onClick={previous}>
+                      Edit
+                    </Button>
+                  </Grid>
+
+                  <Typography variant ="h6" gutterBottom>
+                    I am interested in:
+                    
+                  </Typography>
+
                   <p>summaries of and edit second section | option to edit second section</p>
                   <p>print option</p>
                   <p>email input and send option</p>
