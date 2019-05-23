@@ -1,15 +1,11 @@
 import React from 'react';
 import './App.css';
 import { Wizard, Steps, Step } from 'react-albus';
-
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 import Button from '@material-ui/core/Button';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -23,21 +19,11 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControl from '@material-ui/core/FormControl';
 
+import Nav from './components/Nav.js';
+import Header from './components/Header.js';
+import Step1 from './components/Step1.js';
+
 const styles = theme => ({
-  appBar: {
-    position: 'relative',
-  },
-  icon: {
-    marginRight: theme.spacing.unit * 2,
-  },
-  heroUnit: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
   heroButtons: {
     marginTop: theme.spacing.unit * 4,
   },
@@ -83,6 +69,7 @@ const styles = theme => ({
 const cards = [1, 2];
 
 class App extends React.Component {
+
   state = {
     affiliatedwithasu: false,
     anundergradstudent: false,
@@ -122,6 +109,7 @@ class App extends React.Component {
   };
 
   render() {
+
     const { classes } = this.props;
 
     const isAffiliatedWithASU = this.state.affiliatedwithasu;
@@ -138,28 +126,11 @@ class App extends React.Component {
     <React.Fragment>
       <CssBaseline />
 
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            ASU Venture Ecosystem
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Nav />
 
       <main>
 
-        <div className={classes.heroUnit}>
-          <div className={classes.heroContent}>
-
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              ASU Venture Ecosystem
-            </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" gutterBottom>
-              Description of project goes here.
-            </Typography>
-
-          </div>
-        </div>
+        <Header />
 
         <div className={classes.mainUnit}>
           <div className={classes.mainContent}>
@@ -167,161 +138,7 @@ class App extends React.Component {
         <Wizard>
           <Steps>
 
-            <Step
-            id="first"
-            render={({ next }) => (
-              <React.Fragment>
-
-                <Typography variant="h4" gutterBottom>
-                  To see available funding tracks, first tell us about yourself ...
-                </Typography>
-
-                <Typography variant="h6" gutterBottom>
-                  I am:
-                </Typography>
-
-                <Typography variant="caption" gutterBottom>
-                  (Select all that apply)
-                </Typography>
-
-                <FormGroup row>
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.affiliatedwithasu}
-                      onChange={this.handleChangeAffiliation('affiliatedwithasu')}
-                      value="affiliatedwithasu"
-                    />
-                  }
-                  label="Affiliated with ASU"
-                />
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.anundergradstudent}
-                      onChange={this.handleChangeAffiliation('anundergradstudent')}
-                      value="anundergradstudent"
-                    />
-                  }
-                  label="An Undergrad Student"
-                />
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.agraduatestudent}
-                      onChange={this.handleChangeAffiliation('agraduatestudent')}
-                      value="agraduatestudent"
-                    />
-                  }
-                  label="A Graduate Student"
-                />
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.faculty}
-                      onChange={this.handleChangeAffiliation('faculty')}
-                      value="faculty"
-                    />
-                  }
-                  label="Faculty"
-                />
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.universitystaff}
-                      onChange={this.handleChangeAffiliation('universitystaff')}
-                      value="universitystaff"
-                    />
-                  }
-                  label="University Staff"
-                />
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.ownerofcompany}
-                      onChange={this.handleChangeAffiliation('ownerofcompany')}
-                      value="ownerofcompany"
-                    />
-                  }
-                  label="An Owner of a Company"
-                />
-
-                </FormGroup>
-
-                  {isOwnerOfCompany ? (
-
-                  <div>
-                    <Typography variant="h6" gutterBottom>
-                      Congratulations on owning a company.<br />What is its current valuation?
-                    </Typography>
-
-                    <FormControl component="fieldset">
-                      <RadioGroup
-                        aria-label="position"
-                        name="position"
-                        value={this.state.value}
-                        onChange={this.handleChangeRadioCompanyValuation}
-                        row
-                      >
-                        <FormControlLabel
-                          value="$0-500K"
-                          control={<Radio color="secondary" />}
-                          label="$0-500K"
-                          labelPlacement="end"
-                        />
-                        <FormControlLabel
-                          value="$500K-1mil"
-                          control={<Radio color="secondary" />}
-                          label="$500K-1mil"
-                          labelPlacement="end"
-                        />
-                        <FormControlLabel
-                          value="$1-3mil"
-                          control={<Radio color="secondary" />}
-                          label="$1-3mil"
-                          labelPlacement="end"
-                        />
-                        <FormControlLabel
-                          value="$3-15mil"
-                          control={<Radio color="secondary" />}
-                          label="$3-15mil"
-                          labelPlacement="end"
-                        />
-                        <FormControlLabel
-                          value="$15-75mil"
-                          control={<Radio color="secondary" />}
-                          label="$15-75mil"
-                          labelPlacement="end"
-                        />
-                        <FormControlLabel
-                          value="$75-500mil"
-                          control={<Radio color="primary" />}
-                          label="$75-500mil"
-                          labelPlacement="end"
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  </div>
-
-                  ) : (
-                    <div></div>
-                  )}
-
-                <Grid item>
-                  <Button variant="contained" color="primary" onClick={next}>
-                    Next
-                  </Button>
-                </Grid>
-
-              </React.Fragment>
-            )}
-            />
+            <Step1 isOwnerOfCompany={isOwnerOfCompany}/>
 
             <Step
               id="second"
