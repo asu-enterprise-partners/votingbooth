@@ -21,7 +21,7 @@ import FormControl from '@material-ui/core/FormControl';
 
 import Nav from './components/Nav.js';
 import Header from './components/Header.js';
-import Step1 from './components/Step1.js';
+import Footer from './components/Footer.js';
 
 const styles = theme => ({
   heroButtons: {
@@ -58,10 +58,6 @@ const styles = theme => ({
   },
   cardContent: {
     flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6,
   },
   checked: {},
 });
@@ -121,16 +117,28 @@ class App extends React.Component {
     const isOwnerOfCompany = this.state.ownerofcompany;
     const theCompanyValuation = this.state.companyvaluation;
 
+    const theInterestedInFundingToSupport = this.state.interestedinfundingtosupport;
+
+    const isManufacturingHardware = this.state.manufacturinghardware;
+    const isSocialSports = this.state.socialsports;
+    const isHealth = this.state.health;
+    const isVeterans = this.state.veterans;
+    const isMedia = this.state.media;
+    const isGeneralTechnology = this.state.generaltechnology;
+    const idEdTech = this.state.edtech;
+    const isInternetOfThings = this.state.internetofthings;
+    const isOther = this.state.other;
+
   return (
 
     <React.Fragment>
       <CssBaseline />
 
-      <Nav />
+      <Nav/>
 
       <main>
 
-        <Header />
+        <Header/>
 
         <div className={classes.mainUnit}>
           <div className={classes.mainContent}>
@@ -138,7 +146,161 @@ class App extends React.Component {
         <Wizard>
           <Steps>
 
-            <Step1 isOwnerOfCompany={isOwnerOfCompany}/>
+            <Step
+            id="first"
+            render={({ next }) => (
+              <React.Fragment>
+
+                <Typography variant="h4" gutterBottom>
+                  To see available funding tracks, first tell us about yourself ...
+                </Typography>
+
+                <Typography variant="h6" gutterBottom>
+                  I am:
+                </Typography>
+
+                <Typography variant="caption" gutterBottom>
+                  (Select all that apply)
+                </Typography>
+
+                <FormGroup row>
+
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.affiliatedwithasu}
+                      onChange={this.handleChangeAffiliation('affiliatedwithasu')}
+                      value="affiliatedwithasu"
+                    />
+                  }
+                  label="Affiliated with ASU"
+                />
+
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.anundergradstudent}
+                      onChange={this.handleChangeAffiliation('anundergradstudent')}
+                      value="anundergradstudent"
+                    />
+                  }
+                  label="An Undergrad Student"
+                />
+
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.agraduatestudent}
+                      onChange={this.handleChangeAffiliation('agraduatestudent')}
+                      value="agraduatestudent"
+                    />
+                  }
+                  label="A Graduate Student"
+                />
+
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.faculty}
+                      onChange={this.handleChangeAffiliation('faculty')}
+                      value="faculty"
+                    />
+                  }
+                  label="Faculty"
+                />
+
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.universitystaff}
+                      onChange={this.handleChangeAffiliation('universitystaff')}
+                      value="universitystaff"
+                    />
+                  }
+                  label="University Staff"
+                />
+
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.ownerofcompany}
+                      onChange={this.handleChangeAffiliation('ownerofcompany')}
+                      value="ownerofcompany"
+                    />
+                  }
+                  label="An Owner of a Company"
+                />
+
+                </FormGroup>
+
+                  {isOwnerOfCompany ? (
+
+                  <div>
+                    <Typography variant="h6" gutterBottom>
+                      Congratulations on owning a company.<br />What is its current valuation?
+                    </Typography>
+
+                    <FormControl component="fieldset">
+                      <RadioGroup
+                        aria-label="position"
+                        name="position"
+                        value={this.state.companyvaluation}
+                        onChange={this.handleChangeRadioCompanyValuation}
+                        row
+                      >
+                        <FormControlLabel
+                          value="$0-500K"
+                          control={<Radio color="secondary" />}
+                          label="$0-500K"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$500K-1mil"
+                          control={<Radio color="secondary" />}
+                          label="$500K-1mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$1-3mil"
+                          control={<Radio color="secondary" />}
+                          label="$1-3mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$3-15mil"
+                          control={<Radio color="secondary" />}
+                          label="$3-15mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$15-75mil"
+                          control={<Radio color="secondary" />}
+                          label="$15-75mil"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="$75-500mil"
+                          control={<Radio color="secondary" />}
+                          label="$75-500mil"
+                          labelPlacement="end"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  </div>
+
+                  ) : (
+                    <div></div>
+                  )}
+
+                <Grid item>
+                  <Button variant="contained" color="primary" onClick={next}>
+                    Next
+                  </Button>
+                </Grid>
+
+              </React.Fragment>
+            )}
+            />
 
             <Step
               id="second"
@@ -341,8 +503,55 @@ class App extends React.Component {
               render={({ previous }) => (
                 <React.Fragment>
 
-                  <p>summaries of and edit first section | option to edit first section</p>
-                  <p>summaries of and edit second section | option to edit second section</p>
+                    <Typography variant="h6" gutterBottom>
+                      I am (edit button needed):
+                      <ul>
+                        {isAffiliatedWithASU ? <li>affiliated with ASU</li> : ''}
+                        {isAnUndergradStudent ? <li>an undergrad student</li> : ''}
+                        {isAGraduateStudent ? <li>a graduate student</li> : ''}
+                        {isFaculty ? <li>a faculty member</li> : ''}
+                        {isUniversityStaff ? <li>university staff</li> : ''}
+                        {isOwnerOfCompany ? <li>the owner of a company valued between {theCompanyValuation}</li> : ''}
+                      </ul>
+                    </Typography>
+
+                    <Typography variant="h6" gutterBottom>
+                      I am interested in funding to support (edit button needed):
+                      <ul>
+                        {(function() {
+                                switch(theInterestedInFundingToSupport) {
+                                  case 'ideationtoprototyping':
+                                    return <li>Ideation to Prototyping</li>;
+                                  case 'ideationtobusinessformation':
+                                    return <li>Ideation to Business Formation</li>;
+                                  case 'prototypetobusinessformation':
+                                    return <li>Prototype to Business Formation</li>;
+                                  case 'prototypetocustomeracquisition':
+                                    return <li>Prototype to Customer Acquisition</li>;
+                                  case 'customeracquisitionandemerginggrowth':
+                                    return <li>Customer Acquisition & Emerging Growth</li>;
+                                  default:
+                                    return null;
+                                }
+                              })()}
+                      </ul>
+                    </Typography>
+
+                    <Typography variant="h6" gutterBottom>
+                      In the areas of (edit button needed):
+                      <ul>
+                        {isManufacturingHardware ? <li>Manufacturing / Hardware</li> : ''}
+                        {isSocialSports ? <li>Social / Sports</li> : ''}
+                        {isHealth ? <li>Health</li> : ''}
+                        {isVeterans ? <li>Veterans</li> : ''}
+                        {isMedia ? <li>Media</li> : ''}
+                        {isGeneralTechnology ? <li>General Technology</li> : ''}
+                        {idEdTech ? <li>EdTech</li> : ''}
+                        {isInternetOfThings ? <li>Internet of Things</li> : ''}
+                        {isOther ? <li>Other</li> : ''}
+                      </ul>
+                    </Typography>
+
                   <p>print option</p>
                   <p>email input and send option</p>
                   <h2>Here are all the ways the ASU Venture Ecosystem can help:</h2>
@@ -400,14 +609,7 @@ class App extends React.Component {
 
       </main>
 
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          ASU Venture Ecosystem
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Description of project goes here.
-        </Typography>
-      </footer>
+      <Footer/>
 
     </React.Fragment>
 

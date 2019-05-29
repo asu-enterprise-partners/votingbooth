@@ -13,7 +13,7 @@ const styles = theme => ({
   },
 });
 
-class Nav extends Component {
+class Header extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -33,4 +33,4 @@ class Nav extends Component {
   }
 }
 
-export default withStyles(styles)(Nav);
+export default withStyles(styles)(Header);
