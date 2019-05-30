@@ -12,7 +12,7 @@
    "Description": "A partnership and capital source to refer private equity and IPO-ready companies",
    "Min": "$5,000,000+",
    "Max": "-",
-   "URL": "N/A"
+   "URL": ""
  },
  {
    "Founders": "ASU-Affiliated",
@@ -27,7 +27,7 @@
    "Description": "Provides university-affiliated startups support and access to funding and mentorship from a network of experienced investors",
    "Min": "$100,000",
    "Max": "$2,000,000",
-   "URL": "InvestU.org"
+   "URL": "https://www.investu.org/"
  },
  {
    "Founders": "ASU-Affiliated",
@@ -42,7 +42,7 @@
    "Description": "Co-investment vehicle from philanthropic dollars will co-invest with InvestU",
    "Min": "$25,000",
    "Max": "$50,000",
-   "URL": "N/A"
+   "URL": ""
  },
  {
    "Founders": "Available to Anyone",
@@ -57,7 +57,7 @@
    "Description": "Functional higher education technology accelerator that integrates, tests and validates new technologies",
    "Min": "$25,000",
    "Max": "$50,000",
-   "URL": "scaleu.asu.edu"
+   "URL": "https://scaleu.org/"
  },
  {
    "Founders": "Faculty",
@@ -72,7 +72,7 @@
    "Description": "Fund that invests in ASU or Thunderbird affiliated startups",
    "Min": "$50,000",
    "Max": "$500,000",
-   "URL": "TBD"
+   "URL": ""
  },
  {
    "Founders": "Available to Anyone",
@@ -147,7 +147,7 @@
    "Description": "Provides training, mentors and investment funding for all participants across the university’s various schools and programs",
    "Min": "$100,000",
    "Max": "$100,000",
-   "URL": "TBD"
+   "URL": ""
  },
  {
    "Founders": "Faculty",
@@ -387,7 +387,7 @@
    "Description": "Provides medical device and healthcare IT early stage companies with personalized business development plans to collaborate with Mayo Clinic and ASU",
    "Min": "-",
    "Max": "-",
-   "URL": "medtechaccel.com"
+   "URL": "https://www.medtechaccel.com/"
  },
  {
    "Founders": "Available to Anyone",
