@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppBar from '@material-ui/core/AppBar';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+
+import { withStyles } from '@material-ui/core/styles';
 
 export class FormUserDetails extends Component {
   continue = e => {
@@ -13,7 +15,7 @@ export class FormUserDetails extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <MuiThemeProvider>
+      // <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Enter User Details" />
           <TextField
@@ -44,15 +46,16 @@ export class FormUserDetails extends Component {
             onClick={this.continue}
           />
         </React.Fragment>
-      </MuiThemeProvider>
+      // </MuiThemeProvider>
     );
   }
 }
 
-const styles = {
+const styles = theme => ({
   button: {
     margin: 15
   }
-};
+});
 
-export default FormUserDetails;
+// export default FormUserDetails;
+export default withStyles(styles)(FormUserDetails);

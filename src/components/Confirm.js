@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppBar from '@material-ui/core/AppBar';
 import { List, ListItem } from '@material-ui/core/List';
 import Button from '@material-ui/core/Button';
+
+import { withStyles } from '@material-ui/core/styles';
 
 export class Confirm extends Component {
   continue = e => {
@@ -21,7 +23,7 @@ export class Confirm extends Component {
       values: { firstName, lastName, email, occupation, city, bio }
     } = this.props;
     return (
-      <MuiThemeProvider>
+      // <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Confirm User Data" />
           <List>
@@ -46,7 +48,7 @@ export class Confirm extends Component {
             onClick={this.back}
           />
         </React.Fragment>
-      </MuiThemeProvider>
+      // </MuiThemeProvider>
     );
   }
 }
@@ -57,4 +59,5 @@ const styles = {
   }
 };
 
-export default Confirm;
+// export default Confirm;
+export default withStyles(styles)(Confirm);
