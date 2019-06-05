@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
-import Nav from './Nav.js';
-import Header from './Header.js';
-import Footer from './Footer.js';
-
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
-import StepThree from './StepThree';
 import Results from './Results';
 
 const styles = theme => ({
@@ -25,16 +18,36 @@ const styles = theme => ({
   },
 });
 
+const ourData = require('../Venture_Ecosystem_Data.json');
+console.log(ourData);
+
 class MainForm extends Component {
+
     state = {
-        step: 1,
-        firstName: '',
-        lastName: '',
-        email: '',
-        age: '',
-        city: '',
-        country: ''
-    }
+      step: 1,
+
+      affiliatedwithasu: false,
+      anundergradstudent: false,
+      agraduatestudent: false,
+      faculty: false,
+      universitystaff: false,
+
+      ownerofcompany: false,
+      companyvaluation: false,
+
+      interestedinfundingtosupport: false,
+      manufacturinghardware: false,
+      socialsports: false,
+      health: false,
+      veterans: false,
+      media: false,
+      generaltechnology: false,
+      edtech: false,
+      internetofthings: false,
+      other: false,
+
+      results: ourData,
+    };
 
     nextStep = () => {
         const { step } = this.state
@@ -54,25 +67,57 @@ class MainForm extends Component {
         this.setState({ [input] : event.target.value })
     }
 
+    handleChangeAffiliation = name => event => {
+      this.setState({ [name]: event.target.checked });
+      // console.log(name);
+    };
+
+    handleChangeRadioCompanyValuation = event => {
+      this.setState({ companyvaluation: event.target.value });
+    };
+
+    handleChangeRadioFundingSupport = event => {
+      this.setState({ interestedinfundingtosupport: event.target.value });
+    };
+
+    handleChangeAreas = name => event => {
+      this.setState({ [name]: event.target.checked });
+    };
+
     render(){
 
-        const { classes } = this.props;
+      const step = this.state.step;
 
-        const {step} = this.state;
-        const { firstName, lastName, email, age, city, country } = this.state;
-        const values = { firstName, lastName, email, age, city, country };
+      const isOwnerOfCompany = this.state.ownerofcompany;
+      const isAffiliatedWithASU = this.state.affiliatedwithasu;
+      const isAnUndergradStudent = this.state.anundergradstudent;
+      const isAGraduateStudent = this.state.agraduatestudent;
+      const isFaculty = this.state.faculty;
+      const isUniversityStaff = this.state.universitystaff;
+      const theCompanyValuation = this.state.companyvaluation;
+
+      const theInterestedInFundingToSupport = this.state.interestedinfundingtosupport;
+      const isManufacturingHardware = this.state.manufacturinghardware;
+      const isSocialSports = this.state.socialsports;
+      const isHealth = this.state.health;
+      const isVeterans = this.state.veterans;
+      const isMedia = this.state.media;
+      const isGeneralTechnology = this.state.generaltechnology;
+      const idEdTech = this.state.edtech;
+      const isInternetOfThings = this.state.internetofthings;
+      const isOther = this.state.other;
+
+      const ourResults = this.state.results;
 
       switch(step) {
       case 1:
-          return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} values={values} />
+          return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} />
       case 2:
-          return <StepTwo nextStep={this.nextStep} prevStep={this.prevStep} handleChange = {this.handleChange} values={values} />
+          return <StepTwo nextStep={this.nextStep} prevStep={this.prevStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport}  />
       case 3:
-          return <StepThree nextStep={this.nextStep} prevStep={this.prevStep} values={values} />
-      case 4:
-          return <Results />
+          return <Results nextStep={this.nextStep} prevStep={this.prevStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport} ourResults={ourResults} />
       default:
-          return null
+          return <h2>Please refresh your browser.</h2>
       }
     }
 }
