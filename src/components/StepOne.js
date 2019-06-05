@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
 
-class UserDetails extends Component{
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+
+class StepOne extends Component{
 
     saveAndContinue = (e) => {
         e.preventDefault()
@@ -44,4 +61,4 @@ class UserDetails extends Component{
     }
 }
 
-export default UserDetails;
+export default StepOne;
