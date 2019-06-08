@@ -28,6 +28,7 @@ class StepTwo extends Component{
     saveAndContinue = (e) => {
         e.preventDefault();
         this.props.nextStep();
+        this.props.parseResults();
     }
 
     back = (e) => {

@@ -19,7 +19,7 @@ const styles = theme => ({
 });
 
 const ourData = require('../Venture_Ecosystem_Data.json');
-console.log(ourData);
+console.log(ourData[0]);
 
 class MainForm extends Component {
 
@@ -61,6 +61,30 @@ class MainForm extends Component {
         this.setState({
             step : step - 1
         })
+    }
+
+    parseResults = () => {
+        const ourResults = this.state.results
+        // const ourAffiliatedwithasu = this.state.affiliatedwithasu
+        // access state conditions
+
+        // parse based on each condition BUNCH OF OR STATEMENTS FOR MOST RESULTS
+        // var thisOurAffiliatedwithasu = ourAffiliatedwithasu;
+        var arr = ourResults;
+        var filteredArray = arr.filter(el=>el["Founders"]==="Available to Anyone");
+        // var filteredArray2 = filteredArray.filter(el=>el["Business Stage"]==="Ideation to Prototype");
+        // var filteredArray3 = filteredArray2.filter(el=>el["Focus"]=="Any");
+        const newResults = filteredArray;
+
+        // var filteredArray = arr.filter(el=>el["Founders"]=="ASU-Affiliated"&&el=>el["Business Stage"]=="Ideation to Prototype"&&el=>el["Focus"]=="Tech");
+
+        // var filteredArray = arr.filter(el=>el.type==filterConditionType&&el=>el.type==filterConditionType);
+
+        // console.log(ourResults);
+        this.setState({
+            results: newResults
+        })
+        console.log(newResults);
     }
 
     handleChange = input => event => {
@@ -113,7 +137,7 @@ class MainForm extends Component {
       case 1:
           return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} />
       case 2:
-          return <StepTwo nextStep={this.nextStep} prevStep={this.prevStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport}  />
+          return <StepTwo nextStep={this.nextStep} prevStep={this.prevStep} parseResults={this.parseResults} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport}  />
       case 3:
           return <Results nextStep={this.nextStep} prevStep={this.prevStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport} ourResults={ourResults} />
       default:

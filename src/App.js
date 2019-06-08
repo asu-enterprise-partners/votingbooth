@@ -60,8 +60,6 @@ handleBlakkow () {
 
         <Nav/>
 
-        <main>
-
           <Header/>
 
           <div className={classes.mainUnit}>
@@ -71,8 +69,6 @@ handleBlakkow () {
 
             </div>
           </div>
-
-        </main>
 
         <Footer/>
 
