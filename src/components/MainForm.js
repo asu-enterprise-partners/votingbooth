@@ -68,13 +68,18 @@ class MainForm extends Component {
         // const ourAffiliatedwithasu = this.state.affiliatedwithasu
         // access state conditions
 
+        const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
+        console.log(affiliatedWithASUCHECKED);
+
+        // create all arrays, deduplicate based on ids
+
         // parse based on each condition BUNCH OF OR STATEMENTS FOR MOST RESULTS
         // var thisOurAffiliatedwithasu = ourAffiliatedwithasu;
-        var arr = ourResults;
-        var filteredArray = arr.filter(el=>el["Founders"]==="Available to Anyone");
+        // const arr = ourResults;
+        // const filteredArray = arr.filter(el=>el["Founders"]==="Available to Anyone");
         // var filteredArray2 = filteredArray.filter(el=>el["Business Stage"]==="Ideation to Prototype");
         // var filteredArray3 = filteredArray2.filter(el=>el["Focus"]=="Any");
-        const newResults = filteredArray;
+        // const newResults = filteredArray;
 
         // var filteredArray = arr.filter(el=>el["Founders"]=="ASU-Affiliated"&&el=>el["Business Stage"]=="Ideation to Prototype"&&el=>el["Focus"]=="Tech");
 
@@ -82,9 +87,9 @@ class MainForm extends Component {
 
         // console.log(ourResults);
         this.setState({
-            results: newResults
+            results: affiliatedWithASUCHECKED
         })
-        console.log(newResults);
+        // console.log(newResults);
     }
 
     handleChange = input => event => {

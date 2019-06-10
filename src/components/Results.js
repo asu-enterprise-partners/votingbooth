@@ -142,8 +142,8 @@ class Results extends Component{
             <div className={classNames(classes.layout, classes.cardGrid)}>
 
               <Grid container spacing={32}>
-                {ourResults.map((fund, index) => (
-                  <Grid item key={index} sm={6} md={4} lg={3}>
+                {ourResults.map((fund, id) => (
+                  <Grid item key={id} sm={6} md={4} lg={3}>
                     <Card className={classes.card}>
                       <CardContent className={classes.cardContent}>
                         <Typography gutterBottom variant="h5" component="h2">
