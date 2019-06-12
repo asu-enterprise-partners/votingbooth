@@ -4,9 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#8c1d40',
     padding: theme.spacing.unit * 6,
   },
+  footerText: {
+    color: '#fff !important'
+  }
 });
 
 class Footer extends Component {
@@ -15,11 +18,8 @@ class Footer extends Component {
     return (
 
         <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom>
+          <Typography className={classes.footerText} variant="h6" align="center" gutterBottom>
             ASU Venture Ecosystem
-          </Typography>
-          <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-            Description of project goes here.
           </Typography>
         </footer>
 

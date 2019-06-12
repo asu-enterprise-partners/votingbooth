@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
+import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
-
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -14,15 +13,29 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
-  mainUnit: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  mainContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 6}px`,
-  },
+    questionBackground: {
+      backgroundColor: '#ececec'
+    }
 });
+
+const ASUButton = styled(Button)({
+  background: 'black',
+  border: 0,
+  borderRadius: 10,
+  color: '#ffc627',
+  height: 48,
+  padding: '0 30px',
+  "&:hover": {
+      backgroundColor: "#353535"
+  }
+});
+
+// const ASUCheckbox = styled(Checkbox)({
+//   color: "grey",
+//   '&$checked': {
+//     background: "#555555",
+//   },
+// });
 
 class StepOne extends Component{
 
@@ -33,23 +46,27 @@ class StepOne extends Component{
 
     render(){
 
-        const isOwnerOfCompany = this.props.isOwnerOfCompany;
+        const { classes } = this.props;
+
         const affiliatedwithasu = this.props.isAffiliatedWithASU;
         const anundergradstudent = this.props.isAnUndergradStudent;
         const agraduatestudent = this.props.isAGraduateStudent;
         const faculty = this.props.isFaculty;
         const universitystaff = this.props.isUniversityStaff;
+        const community = this.props.isCommunity;
+        const anyone = this.props.isAnyone;
+
         const companyvaluation = this.props.theCompanyValuation;
 
         return(
 
           <React.Fragment>
 
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h5" gutterBottom>
               To see available funding tracks, first tell us about yourself ...
             </Typography>
 
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom className={classes.questionBackground}>
               I am:
             </Typography>
 
@@ -57,7 +74,7 @@ class StepOne extends Component{
               (Select all that apply)
             </Typography>
 
-            <FormGroup row>
+            <FormGroup>
 
             <FormControlLabel
               control={
@@ -117,21 +134,30 @@ class StepOne extends Component{
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={isOwnerOfCompany}
-                  onChange={this.props.handleChangeAffiliation('ownerofcompany')}
-                  value="ownerofcompany"
+                  checked={community}
+                  onChange={this.props.handleChangeAffiliation('community')}
+                  value="community"
                 />
               }
-              label="An Owner of a Company"
+              label="Community"
+            />
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={anyone}
+                  onChange={this.props.handleChangeAffiliation('anyone')}
+                  value="anyone"
+                />
+              }
+              label="Anyone"
             />
 
             </FormGroup>
 
-              {isOwnerOfCompany ? (
-
               <div>
-                <Typography variant="h6" gutterBottom>
-                  Congratulations on owning a company.<br />What is its current valuation?
+                <Typography variant="h6" gutterBottom className={classes.questionBackground}>
+                  What is your company's current valuation?
                 </Typography>
 
                 <FormControl component="fieldset">
@@ -140,7 +166,7 @@ class StepOne extends Component{
                     name="position"
                     value={companyvaluation}
                     onChange={this.props.handleChangeRadioCompanyValuation}
-                    row
+                    row={false}
                   >
                     <FormControlLabel
                       value="$0-500K"
@@ -182,14 +208,10 @@ class StepOne extends Component{
                 </FormControl>
               </div>
 
-              ) : (
-                <div></div>
-              )}
-
             <Grid item>
-              <Button variant="contained" color="primary" onClick={this.saveAndContinue}>
+              <ASUButton onClick={this.saveAndContinue}>
                 Next
-              </Button>
+              </ASUButton>
             </Grid>
 
           </React.Fragment>

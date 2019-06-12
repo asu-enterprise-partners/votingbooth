@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
+import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
-
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -14,14 +13,43 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
-  mainUnit: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  mainContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 6}px`,
-  },
+    questionBackground: {
+      backgroundColor: '#ececec'
+    },
+    recapSection: {
+      borderColor: '#8c1d40',
+      borderStyle: 'dotted',
+      borderWidth: '1px'
+    },
+});
+
+const ASUButton = styled(Button)({
+  background: 'black',
+  border: 0,
+  borderRadius: 10,
+  color: '#ffc627',
+  height: 48,
+  padding: '0 30px',
+  marginRight: '10px',
+  marginBottom: '10px',
+  "&:hover": {
+      //you want this to be the same as the backgroundColor above
+      backgroundColor: "#353535"
+  }
+});
+
+const ASUButtonEdit = styled(Button)({
+  background: 'black',
+  border: 0,
+  borderRadius: 10,
+  color: '#ffc627',
+  height: 24,
+  padding: '0 20px',
+  marginRight: '10px',
+  "&:hover": {
+      //you want this to be the same as the backgroundColor above
+      backgroundColor: "#353535"
+  }
 });
 
 class StepTwo extends Component{
@@ -38,15 +66,20 @@ class StepTwo extends Component{
 
     render(){
 
-        const isOwnerOfCompany = this.props.isOwnerOfCompany;
+        const { classes } = this.props;
+
         const affiliatedwithasu = this.props.isAffiliatedWithASU;
         const anundergradstudent = this.props.isAnUndergradStudent;
         const agraduatestudent = this.props.isAGraduateStudent;
         const faculty = this.props.isFaculty;
         const universitystaff = this.props.isUniversityStaff;
+        const community = this.props.isCommunity;
+        const anyone = this.props.isAnyone;
+
         const companyvaluation = this.props.theCompanyValuation;
 
         const interestedinfundingtosupport = this.props.theInterestedInFundingToSupport;
+
         const manufacturinghardware = this.props.isManufacturingHardware;
         const socialsports = this.props.isSocialSports;
         const health = this.props.isHealth;
@@ -61,7 +94,7 @@ class StepTwo extends Component{
 
           <React.Fragment>
 
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom className={classes.recapSection}>
                 I am:
                 <ul>
                   {affiliatedwithasu ? <li>affiliated with ASU</li> : ''}
@@ -69,17 +102,16 @@ class StepTwo extends Component{
                   {agraduatestudent ? <li>a graduate student</li> : ''}
                   {faculty ? <li>a faculty member</li> : ''}
                   {universitystaff ? <li>university staff</li> : ''}
-                  {isOwnerOfCompany ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
+                  {community ? <li>community</li> : ''}
+                  {anyone ? <li>anyone</li> : ''}
+                  {companyvaluation ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
                 </ul>
+                <ASUButtonEdit onClick={this.back}>
+                  Edit
+                </ASUButtonEdit>
               </Typography>
 
-              <Grid item>
-                <Button variant="contained" color="secondary" onClick={this.back}>
-                  Edit
-                </Button>
-              </Grid>
-
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom className={classes.questionBackground}>
               I'm interested in funding to support:
             </Typography>
 
@@ -93,7 +125,7 @@ class StepTwo extends Component{
                 name="position"
                 value={interestedinfundingtosupport}
                 onChange={this.props.handleChangeRadioFundingSupport}
-                row
+                row={false}
               >
                 <FormControlLabel
                   value="ideationtoprototyping"
@@ -125,10 +157,16 @@ class StepTwo extends Component{
                   label="Customer Acquisition &amp; Emerging Growth"
                   labelPlacement="end"
                 />
+                <FormControlLabel
+                  value="expansion"
+                  control={<Radio color="secondary" />}
+                  label="Expansion"
+                  labelPlacement="end"
+                />
               </RadioGroup>
             </FormControl>
 
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom className={classes.questionBackground}>
               ... in the areas of:
             </Typography>
 
@@ -136,7 +174,7 @@ class StepTwo extends Component{
               (Select all that apply)
             </Typography>
 
-            <FormGroup row>
+            <FormGroup>
 
             <FormControlLabel
               control={
@@ -240,12 +278,12 @@ class StepTwo extends Component{
             </FormGroup>
 
             <Grid item>
-              <Button variant="contained" color="secondary" onClick={this.back}>
+              <ASUButton onClick={this.back}>
                 Previous
-              </Button>
-              <Button variant="contained" color="primary" onClick={this.saveAndContinue}>
+              </ASUButton>
+              <ASUButton onClick={this.saveAndContinue}>
                 Show Results
-              </Button>
+              </ASUButton>
             </Grid>
 
           </React.Fragment>

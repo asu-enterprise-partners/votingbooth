@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   heroUnit: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#ffc627',
   },
   heroContent: {
     maxWidth: 600,

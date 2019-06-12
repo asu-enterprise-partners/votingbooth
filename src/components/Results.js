@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
+import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -10,6 +9,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import Link from '@material-ui/core/Link';
+
+import { css } from '@emotion/core'
 
 const styles = theme => ({
   layout: {
@@ -28,7 +30,65 @@ const styles = theme => ({
   cardContent: {
     flexGrow: 1,
   },
+  recapSection: {
+    borderColor: '#8c1d40',
+    borderStyle: 'dotted',
+    borderWidth: '1px'
+  },
+  veCard: {
+    backgroundColor: '#ffc627',
+  },
+  fundName: {
+    fontWeight: 900
+  },
+  subFundName: {
+    fontWeight: 900
+  },
+  moreInfoLink: {
+    fontWeight: 900,
+    color: 'black'
+  }
 });
+
+const ASUButton = styled(Button)({
+  background: 'black',
+  border: 0,
+  borderRadius: 10,
+  color: '#ffc627',
+  height: 48,
+  padding: '0 30px',
+  marginRight: '10px',
+  "&:hover": {
+      //you want this to be the same as the backgroundColor above
+      backgroundColor: "#353535"
+  }
+});
+
+const ASUButtonEdit = styled(Button)({
+  background: 'black',
+  border: 0,
+  borderRadius: 10,
+  color: '#ffc627',
+  height: 24,
+  padding: '0 20px',
+  marginRight: '10px',
+  "&:hover": {
+      //you want this to be the same as the backgroundColor above
+      backgroundColor: "#353535"
+  }
+});
+
+// const ASUButtonSmall = styled(Button)({
+//   background: 'black',
+//   border: 0,
+//   borderRadius: 10,
+//   color: '#ffc627',
+//   height: 24,
+//   padding: '0 30px',
+//   "&:hover": {
+//       backgroundColor: "#353535"
+//   }
+// });
 
 class Results extends Component{
     saveAndContinue = (e) => {
@@ -41,16 +101,33 @@ class Results extends Component{
         this.props.prevStep();
     }
 
+    firstStep = (e) => {
+        e.preventDefault();
+        this.props.firstStep();
+    }
+
+    secondStep = (e) => {
+        e.preventDefault();
+        this.props.secondStep();
+    }
+
+    startOver = (e) => {
+        e.preventDefault();
+        this.props.startOver();
+    }
+
     render(){
 
       const { classes } = this.props;
 
-      const isOwnerOfCompany = this.props.isOwnerOfCompany;
       const affiliatedwithasu = this.props.isAffiliatedWithASU;
       const anundergradstudent = this.props.isAnUndergradStudent;
       const agraduatestudent = this.props.isAGraduateStudent;
       const faculty = this.props.isFaculty;
       const universitystaff = this.props.isUniversityStaff;
+      const community = this.props.isCommunity;
+      const anyone = this.props.isAnyone;
+
       const companyvaluation = this.props.theCompanyValuation;
 
       const interestedinfundingtosupport = this.props.theInterestedInFundingToSupport;
@@ -70,26 +147,26 @@ class Results extends Component{
 
           <React.Fragment>
 
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom className={classes.recapSection}>
                 I am:
-                <Button variant="contained" color="secondary" onClick={this.back}>
-                  Edit
-                </Button>
                 <ul>
                   {affiliatedwithasu ? <li>affiliated with ASU</li> : ''}
                   {anundergradstudent ? <li>an undergrad student</li> : ''}
                   {agraduatestudent ? <li>a graduate student</li> : ''}
                   {faculty ? <li>a faculty member</li> : ''}
                   {universitystaff ? <li>university staff</li> : ''}
-                  {isOwnerOfCompany ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
+                  {community ? <li>community</li> : ''}
+                  {anyone ? <li>anyone</li> : ''}
+                  {companyvaluation ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
                 </ul>
+                <ASUButtonEdit onClick={this.firstStep}>
+                  Edit
+                </ASUButtonEdit>
               </Typography>
 
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom className={classes.recapSection}>
                 I am interested in funding to support:
-                <Button variant="contained" color="secondary" onClick={this.back}>
-                  Edit
-                </Button>
+
                 <ul>
                   {(function() {
                           switch(interestedinfundingtosupport) {
@@ -108,13 +185,13 @@ class Results extends Component{
                           }
                         })()}
                 </ul>
+                <ASUButtonEdit onClick={this.secondStep}>
+                  Edit
+                </ASUButtonEdit>
               </Typography>
 
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom className={classes.recapSection}>
                 In the areas of:
-                <Button variant="contained" color="secondary" onClick={this.back}>
-                  Edit
-                </Button>
                 <ul>
                   {manufacturinghardware ? <li>Manufacturing / Hardware</li> : ''}
                   {socialsports ? <li>Social / Sports</li> : ''}
@@ -126,14 +203,12 @@ class Results extends Component{
                   {internetofthings ? <li>Internet of Things</li> : ''}
                   {other ? <li>Other</li> : ''}
                 </ul>
+                <ASUButtonEdit onClick={this.secondStep}>
+                  Edit
+                </ASUButtonEdit>
               </Typography>
 
-            <Button variant="contained" color="secondary" onClick={this.back}>
-              Print
-            </Button>
-            <Button variant="contained" color="secondary" onClick={this.back}>
-              Email Results
-            </Button>
+            <hr />
 
             <Typography variant="h6" gutterBottom>
               Here are all the ways the ASU Venture Ecosystem can help:
@@ -141,22 +216,50 @@ class Results extends Component{
 
             <div className={classNames(classes.layout, classes.cardGrid)}>
 
-              <Grid container spacing={32}>
+              <Grid container spacing={24}>
                 {ourResults.map((fund, id) => (
-                  <Grid item key={id} sm={6} md={4} lg={3}>
-                    <Card className={classes.card}>
-                      <CardContent className={classes.cardContent}>
-                        <Typography gutterBottom variant="h5" component="h2">
+                  <Grid item key={id} xs={6}>
+                    <Card className={classNames(classes.card, classes.veCard)}>
+                      <CardContent className={classes.cardContent}
+                        css={css`
+                          border-radius: 30px;
+                        `}
+                        >
+                        <Typography gutterBottom variant="h5" component="h2" className={classes.fundName}>
                           {fund['Venture Ecosystem']}
                         </Typography>
                         <Typography>
                           {fund.Description}
                         </Typography>
+                        <Typography className={classes.subFundName}>
+                          Program Type:
+                        </Typography>
+                        <Typography>
+                          {fund['Program Type']}
+                        </Typography>
+                        <Typography className={classes.subFundName}>
+                          Funding Available:
+                        </Typography>
+                        <Typography>
+                          {fund.Min} - {fund.Max}
+                        </Typography>
+                        <Typography className={classes.subFundName}>
+                          Funding Stage:
+                        </Typography>
+                        <Typography>
+                          {fund['Funding Stage']}
+                        </Typography>
+                        <Typography className={classes.subFundName}>
+                          Support Type:
+                        </Typography>
+                        <Typography>
+                          {fund['Support Type']}
+                        </Typography>
                       </CardContent>
-                      <CardActions>
-                        <Button size="small" color="primary" href={fund.URL} target="_blank">
-                          More info
-                        </Button>
+                      <CardActions className={classes.moreInfoLink}>
+                          <Link href={fund.URL} className={classes.moreInfoLink} target="_blank">
+                            More info ...
+                          </Link>
                       </CardActions>
                     </Card>
                   </Grid>
@@ -166,12 +269,15 @@ class Results extends Component{
             </div>
 
             <Grid item>
-              <Button variant="contained" color="secondary" onClick={this.back}>
-                Previous
-              </Button>
-              <Button variant="contained" color="primary" onClick={this.back}>
+              <ASUButton onClick={this.back}>
+                Print
+              </ASUButton>
+              <ASUButton onClick={this.back}>
+                Email
+              </ASUButton>
+              <ASUButton onClick={this.startOver}>
                 Start Over
-              </Button>
+              </ASUButton>
             </Grid>
 
           </React.Fragment>

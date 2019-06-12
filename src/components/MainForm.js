@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import _ from 'lodash';
+
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
@@ -19,7 +21,39 @@ const styles = theme => ({
 });
 
 const ourData = require('../Venture_Ecosystem_Data.json');
-console.log(ourData[0]);
+// console.log(ourData[0]);
+
+const initialState = {
+  step: 1,
+
+//Founders filter
+  affiliatedwithasu: false,
+  anundergradstudent: false,
+  agraduatestudent: false,
+  faculty: false,
+  universitystaff: false,
+  community: false,
+  anyone: false,
+
+//Business stage filter
+  interestedinfundingtosupport: false,
+
+//Valuation filter
+  companyvaluation: false,
+
+//Focus filter
+  manufacturinghardware: false,
+  socialsports: false,
+  health: false,
+  veterans: false,
+  media: false,
+  generaltechnology: false,
+  edtech: false,
+  internetofthings: false,
+  other: false,
+
+  results: ourData,
+};
 
 class MainForm extends Component {
 
@@ -31,11 +65,13 @@ class MainForm extends Component {
       agraduatestudent: false,
       faculty: false,
       universitystaff: false,
-
-      ownerofcompany: false,
-      companyvaluation: false,
+      community: false,
+      anyone: false,
 
       interestedinfundingtosupport: false,
+
+      companyvaluation: false,
+
       manufacturinghardware: false,
       socialsports: false,
       health: false,
@@ -63,13 +99,76 @@ class MainForm extends Component {
         })
     }
 
+    firstStep = () => {
+        this.setState({
+            step : 1
+        })
+    }
+
+    secondStep = () => {
+        this.setState({
+            step : 2
+        })
+    }
+
+    startOver = () => {
+        this.setState(initialState)
+    }
+
     parseResults = () => {
         const ourResults = this.state.results
-        // const ourAffiliatedwithasu = this.state.affiliatedwithasu
+
+// affiliated arrays
+        // if undergrad student or graduate student checked
+        console.log(this.state.affiliatedwithasu);
+        const affiliatedAnyStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Any Student");
+        console.log('any student');
+        console.log(affiliatedAnyStudentCHECKED);
+
+        // if affiliated with asu checked
+        console.log(this.state.affiliatedwithasu);
+        const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
+        console.log('affiliated with asu');
+        console.log(affiliatedWithASUCHECKED);
+
+        // if anyone checked
+        const affiliatedAnyoneCHECKED = ourResults.filter(el=>el["Founders"]==="Available to Anyone");
+        console.log('anyone');
+        console.log(affiliatedAnyoneCHECKED);
+
+        // if grad student checked
+        const affiliatedGradStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Grad Student");
+        console.log('grad student');
+        console.log(affiliatedGradStudentCHECKED);
+
+        // if faculty checked
+        const affiliatedFacultyCHECKED = ourResults.filter(el=>el["Founders"]==="Faculty");
+        console.log('faculty');
+        console.log(affiliatedFacultyCHECKED);
+
+        // if community checked
+        const affiliatedCommunityCHECKED = ourResults.filter(el=>el["Founders"]==="Community");
+        console.log('community');
+        console.log(affiliatedCommunityCHECKED);
+
+        // if vets and students checked
+        const affiliatedVetsStudentsCHECKED = ourResults.filter(el=>el["Founders"]==="Veterans and Students");
+        console.log('vets and students');
+        console.log(affiliatedVetsStudentsCHECKED);
+
         // access state conditions
 
-        const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
-        console.log(affiliatedWithASUCHECKED);
+        // affiliations "Available to Anyone", "ASU-Affiliated", "Faculty", "Grad Student", "Any Student", "Veterans and Students", "Community (Women or Minority)", "Community", "Community (Women)"
+
+        // union results
+        var unionizedArray = _.union(affiliatedAnyoneCHECKED, affiliatedWithASUCHECKED, affiliatedGradStudentCHECKED, affiliatedAnyStudentCHECKED, affiliatedFacultyCHECKED, affiliatedCommunityCHECKED, affiliatedVetsStudentsCHECKED)
+        // console.log(unionizedArray);
+
+        // pull uniques
+        var allUniqueIDs = _.uniq(unionizedArray, false, function(item, key, id){ return item.id; });
+        console.log(allUniqueIDs);
+
+
 
         // create all arrays, deduplicate based on ids
 
@@ -87,7 +186,7 @@ class MainForm extends Component {
 
         // console.log(ourResults);
         this.setState({
-            results: affiliatedWithASUCHECKED
+            results: allUniqueIDs
         })
         // console.log(newResults);
     }
@@ -117,15 +216,18 @@ class MainForm extends Component {
 
       const step = this.state.step;
 
-      const isOwnerOfCompany = this.state.ownerofcompany;
       const isAffiliatedWithASU = this.state.affiliatedwithasu;
       const isAnUndergradStudent = this.state.anundergradstudent;
       const isAGraduateStudent = this.state.agraduatestudent;
       const isFaculty = this.state.faculty;
       const isUniversityStaff = this.state.universitystaff;
+      const isCommunity = this.state.community;
+      const isAnyone = this.state.anyone;
+
       const theCompanyValuation = this.state.companyvaluation;
 
       const theInterestedInFundingToSupport = this.state.interestedinfundingtosupport;
+
       const isManufacturingHardware = this.state.manufacturinghardware;
       const isSocialSports = this.state.socialsports;
       const isHealth = this.state.health;
@@ -140,11 +242,11 @@ class MainForm extends Component {
 
       switch(step) {
       case 1:
-          return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} />
+          return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} />
       case 2:
-          return <StepTwo nextStep={this.nextStep} prevStep={this.prevStep} parseResults={this.parseResults} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport}  />
+          return <StepTwo nextStep={this.nextStep} prevStep={this.prevStep} parseResults={this.parseResults} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport} />
       case 3:
-          return <Results nextStep={this.nextStep} prevStep={this.prevStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isOwnerOfCompany={isOwnerOfCompany} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport} ourResults={ourResults} />
+          return <Results nextStep={this.nextStep} prevStep={this.prevStep} firstStep={this.firstStep} secondStep={this.secondStep} startOver={this.startOver} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport} ourResults={ourResults} />
       default:
           return <h2>Please refresh your browser.</h2>
       }
