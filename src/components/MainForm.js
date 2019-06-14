@@ -162,7 +162,7 @@ class MainForm extends Component {
 
         // union results
         var unionizedArray = _.union(affiliatedAnyoneCHECKED, affiliatedWithASUCHECKED, affiliatedGradStudentCHECKED, affiliatedAnyStudentCHECKED, affiliatedFacultyCHECKED, affiliatedCommunityCHECKED, affiliatedVetsStudentsCHECKED)
-        // console.log(unionizedArray);
+        console.log(unionizedArray);
 
         // pull uniques
         var allUniqueIDs = _.uniq(unionizedArray, false, function(item, key, id){ return item.id; });
