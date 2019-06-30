@@ -33,7 +33,8 @@ const styles = theme => ({
   recapSection: {
     borderColor: '#8c1d40',
     borderStyle: 'dotted',
-    borderWidth: '1px'
+    borderWidth: '1px',
+    padding: '10px'
   },
   veCard: {
     backgroundColor: '#ffc627',

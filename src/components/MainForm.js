@@ -118,43 +118,60 @@ class MainForm extends Component {
     parseResults = () => {
         const ourResults = this.state.results
 
-// affiliated arrays
-        // if undergrad student or graduate student checked
-        console.log(this.state.affiliatedwithasu);
-        const affiliatedAnyStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Any Student");
-        console.log('any student');
-        console.log(affiliatedAnyStudentCHECKED);
+// Founders Arrays
+// if undergrad student or graduate student checked
+console.log(this.state.affiliatedwithasu);
+const affiliatedAnyStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Any Student");
+console.log('any student');
+console.log(affiliatedAnyStudentCHECKED);
 
-        // if affiliated with asu checked
-        console.log(this.state.affiliatedwithasu);
-        const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
-        console.log('affiliated with asu');
-        console.log(affiliatedWithASUCHECKED);
+// if affiliated with asu checked
+console.log(this.state.affiliatedwithasu);
+const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
+console.log('affiliated with asu');
+console.log(affiliatedWithASUCHECKED);
 
-        // if anyone checked
-        const affiliatedAnyoneCHECKED = ourResults.filter(el=>el["Founders"]==="Available to Anyone");
-        console.log('anyone');
-        console.log(affiliatedAnyoneCHECKED);
+// if anyone checked
+const affiliatedAnyoneCHECKED = ourResults.filter(el=>el["Founders"]==="Available to Anyone");
+console.log('anyone');
+console.log(affiliatedAnyoneCHECKED);
 
-        // if grad student checked
-        const affiliatedGradStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Grad Student");
-        console.log('grad student');
-        console.log(affiliatedGradStudentCHECKED);
+// if community checked
+const affiliatedCommunityCHECKED = ourResults.filter(el=>el["Founders"]==="Community");
+console.log('community');
+console.log(affiliatedCommunityCHECKED);
 
-        // if faculty checked
-        const affiliatedFacultyCHECKED = ourResults.filter(el=>el["Founders"]==="Faculty");
-        console.log('faculty');
-        console.log(affiliatedFacultyCHECKED);
+// if faculty checked
+const affiliatedFacultyCHECKED = ourResults.filter(el=>el["Founders"]==="Faculty");
+console.log('faculty');
+console.log(affiliatedFacultyCHECKED);
 
-        // if community checked
-        const affiliatedCommunityCHECKED = ourResults.filter(el=>el["Founders"]==="Community");
-        console.log('community');
-        console.log(affiliatedCommunityCHECKED);
+// if grad student checked
+const affiliatedGradStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Grad Student");
+console.log('grad student');
+console.log(affiliatedGradStudentCHECKED);
 
-        // if vets and students checked
-        const affiliatedVetsStudentsCHECKED = ourResults.filter(el=>el["Founders"]==="Veterans and Students");
-        console.log('vets and students');
-        console.log(affiliatedVetsStudentsCHECKED);
+// if vets and students checked
+const affiliatedVetsStudentsCHECKED = ourResults.filter(el=>el["Founders"]==="Veterans and Students");
+console.log('vets and students');
+console.log(affiliatedVetsStudentsCHECKED);
+// Founders Arrays
+
+// Business Stage Arrays
+
+// Business Stage Arrays
+
+// Company Valuation Arrays
+
+// Company Valuation Arrays
+
+// Focus Arrays
+
+// Focus Arrays
+
+// union then uniq the arrays
+
+
 
         // access state conditions
 
