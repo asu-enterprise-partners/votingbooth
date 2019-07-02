@@ -120,201 +120,216 @@ class MainForm extends Component {
 
 // Founders Arrays
 // if undergrad student or graduate student checked
-console.log(this.state.affiliatedwithasu);
 const affiliatedAnyStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Any Student");
-console.log('any student');
-console.log(affiliatedAnyStudentCHECKED);
+// console.log('any student');
+// console.log(affiliatedAnyStudentCHECKED);
 
 // if affiliated with asu checked
-console.log(this.state.affiliatedwithasu);
 const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
-console.log('affiliated with asu');
-console.log(affiliatedWithASUCHECKED);
+// console.log('affiliated with asu');
+// console.log(affiliatedWithASUCHECKED);
 
 // if anyone checked
 const affiliatedAnyoneCHECKED = ourResults.filter(el=>el["Founders"]==="Available to Anyone");
-console.log('anyone');
-console.log(affiliatedAnyoneCHECKED);
+// console.log('anyone');
+// console.log(affiliatedAnyoneCHECKED);
 
 // if community checked
 const affiliatedCommunityCHECKED = ourResults.filter(el=>el["Founders"]==="Community");
-console.log('community');
-console.log(affiliatedCommunityCHECKED);
+// console.log('community');
+// console.log(affiliatedCommunityCHECKED);
 
 // if faculty checked
 const affiliatedFacultyCHECKED = ourResults.filter(el=>el["Founders"]==="Faculty");
-console.log('faculty');
-console.log(affiliatedFacultyCHECKED);
+// console.log('faculty');
+// console.log(affiliatedFacultyCHECKED);
 
 // if grad student checked
 const affiliatedGradStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Grad Student");
-console.log('grad student');
-console.log(affiliatedGradStudentCHECKED);
+// console.log('grad student');
+// console.log(affiliatedGradStudentCHECKED);
 
 // if vets and students checked
 const affiliatedVetsStudentsCHECKED = ourResults.filter(el=>el["Founders"]==="Veterans and Students");
-console.log('vets and students');
-console.log(affiliatedVetsStudentsCHECKED);
+// console.log('vets and students');
+// console.log(affiliatedVetsStudentsCHECKED);
 // Founders Arrays
 
 // Business Stage Arrays
 // if business stage is ideation to prototyping
 const businessStageIdeationToPrototyping = ourResults.filter(el=>el["Business Stage"]==="Ideation to Prototype");
-console.log('ideation to protptyping');
-console.log(businessStageIdeationToPrototyping);
+// console.log('ideation to protptyping');
+// console.log(businessStageIdeationToPrototyping);
 
 // if business stage is ideation to business formation
 const businessStageIdeationToBusinessFormation = ourResults.filter(el=>el["Business Stage"]==="Ideation to Business Formation");
-console.log('ideation to business formation');
-console.log(businessStageIdeationToBusinessFormation);
+// console.log('ideation to business formation');
+// console.log(businessStageIdeationToBusinessFormation);
 
 // if business stage is prototype to business formation
 const businessStagePrototypeToBusinessFormation = ourResults.filter(el=>el["Business Stage"]==="Prototype to Business Formation");
-console.log('prototype to business formation');
-console.log(businessStagePrototypeToBusinessFormation);
+// console.log('prototype to business formation');
+// console.log(businessStagePrototypeToBusinessFormation);
 
 // if business stage is prototype to customer acquisition
 const businessStagePrototypeToCustomerAcquisition = ourResults.filter(el=>el["Business Stage"]==="Prototype to Customer Acquisition");
-console.log('prototype to customer acquisition');
-console.log(businessStagePrototypeToCustomerAcquisition);
+// console.log('prototype to customer acquisition');
+// console.log(businessStagePrototypeToCustomerAcquisition);
 
 // if business stage is customer acquisition & emerging growth
 const businessStageCustomerAcquisitionAndEmergingGrowth = ourResults.filter(el=>el["Business Stage"]==="Customer Acquisition & Emerging Growth");
-console.log('customer acquisition & emerging growth');
-console.log(businessStageCustomerAcquisitionAndEmergingGrowth);
+// console.log('customer acquisition & emerging growth');
+// console.log(businessStageCustomerAcquisitionAndEmergingGrowth);
 
 // if business stage is customer acquisition & emerging growth
 const businessStageExpansion = ourResults.filter(el=>el["Business Stage"]==="Expansion");
-console.log('expansion');
-console.log(businessStageExpansion);
+// console.log('expansion');
+// console.log(businessStageExpansion);
 // Business Stage Arrays
 
 // Company Valuation Arrays
 // if company valuation is $0-$1M
 const companyValuation0To1M = ourResults.filter(el=>el["Company Valuation"]==="$0-$1M");
-console.log('company valuation $0-$1M');
-console.log(companyValuation0To1M);
+// console.log('company valuation $0-$1M');
+// console.log(companyValuation0To1M);
 
 // if company valuation is $1M-$15M
 const companyValuation1MTo15M = ourResults.filter(el=>el["Company Valuation"]==="$1M-$15M");
-console.log('company valuation $1M-$15M');
-console.log(companyValuation1MTo15M);
+// console.log('company valuation $1M-$15M');
+// console.log(companyValuation1MTo15M);
 
 // if company valuation is $500K-$3M
 const companyValuation500KTo3M = ourResults.filter(el=>el["Company Valuation"]==="$500K-$3M");
-console.log('company valuation $500K-$3M');
-console.log(companyValuation500KTo3M);
+// console.log('company valuation $500K-$3M');
+// console.log(companyValuation500KTo3M);
 
 // if company valuation is $75M-$500M+
 const companyValuation74MTo500MPlus = ourResults.filter(el=>el["Company Valuation"]==="$75M-$500M+");
-console.log('company valuation $75M-$500M+');
-console.log(companyValuation74MTo500MPlus);
+// console.log('company valuation $75M-$500M+');
+// console.log(companyValuation74MTo500MPlus);
 // Company Valuation Arrays
 
 // Focus Arrays
 // if focus is Any
 const focusAny = ourResults.filter(el=>el["Focus"]==="Any");
-console.log('focus any');
-console.log(focusAny);
+// console.log('focus any');
+// console.log(focusAny);
 
 // if focus is CleanTech
 const focusCleanTech = ourResults.filter(el=>el["Focus"]==="CleanTech");
-console.log('focus cleantech');
-console.log(focusCleanTech);
+// console.log('focus cleantech');
+// console.log(focusCleanTech);
 
 // if focus is EdTech
 const focusEdTech = ourResults.filter(el=>el["Focus"]==="EdTech");
-console.log('focus edtech');
-console.log(focusEdTech);
+// console.log('focus edtech');
+// console.log(focusEdTech);
 
 // if focus is Engineering
 const focusEngineering = ourResults.filter(el=>el["Focus"]==="Engineering");
-console.log('focus engineering');
-console.log(focusEngineering);
+// console.log('focus engineering');
+// console.log(focusEngineering);
 
 // if focus is Food
 const focusFood = ourResults.filter(el=>el["Focus"]==="Food");
-console.log('focus food');
-console.log(focusFood);
+// console.log('focus food');
+// console.log(focusFood);
 
 // if focus is Hardware
 const focusHardware = ourResults.filter(el=>el["Focus"]==="Hardware");
-console.log('focus hardware');
-console.log(focusHardware);
+// console.log('focus hardware');
+// console.log(focusHardware);
 
 // if focus is Health
 const focusHealth = ourResults.filter(el=>el["Focus"]==="Health");
-console.log('focus health');
-console.log(focusHealth);
+// console.log('focus health');
+// console.log(focusHealth);
 
 // if focus is Health/ Sport
 const focusHealthSport = ourResults.filter(el=>el["Focus"]==="Health/ Sport");
-console.log('focus health/sport');
-console.log(focusHealthSport);
+// console.log('focus health/sport');
+// console.log(focusHealthSport);
 
 // if focus is Manufacturing
 const focusManufacturing = ourResults.filter(el=>el["Focus"]==="Manufacturing");
-console.log('focus manufacturing');
-console.log(focusManufacturing);
+// console.log('focus manufacturing');
+// console.log(focusManufacturing);
 
 // if focus is Media
 const focusMedia = ourResults.filter(el=>el["Focus"]==="Media");
-console.log('focus media');
-console.log(focusMedia);
+// console.log('focus media');
+// console.log(focusMedia);
 
 // if focus is MedTech
 const focusMedTech = ourResults.filter(el=>el["Focus"]==="MedTech");
-console.log('focus medtech');
-console.log(focusMedTech);
+// console.log('focus medtech');
+// console.log(focusMedTech);
 
 // if focus is ProtectedTech
 const focusProtectedTech = ourResults.filter(el=>el["Focus"]==="Protected Tech");
-console.log('focus protectedtech');
-console.log(focusProtectedTech);
+// console.log('focus protectedtech');
+// console.log(focusProtectedTech);
 
 // if focus is Social
 const focusSocial = ourResults.filter(el=>el["Focus"]==="Social");
-console.log('focus social');
-console.log(focusSocial);
+// console.log('focus social');
+// console.log(focusSocial);
 
 // if focus is Social/ Sport
 const focusSocialSport = ourResults.filter(el=>el["Focus"]==="Social/ Sport");
-console.log('focus social/sport');
-console.log(focusSocialSport);
+// console.log('focus social/sport');
+// console.log(focusSocialSport);
 
 // if focus is Tech
 const focusTech = ourResults.filter(el=>el["Focus"]==="Tech");
-console.log('focus tech');
-console.log(focusTech);
+// console.log('focus tech');
+// console.log(focusTech);
 
 // if focus is Tech/ IOT
 const focusTechIOT = ourResults.filter(el=>el["Focus"]==="Tech/ IOT");
-console.log('focus tech/iot');
-console.log(focusTechIOT);
+// console.log('focus tech/iot');
+// console.log(focusTechIOT);
 
 // if focus is Veterans + Any
 const focusVeteransPlusAny = ourResults.filter(el=>el["Focus"]==="Veterans + Any");
-console.log('focus veterans+any');
-console.log(focusVeteransPlusAny);
+// console.log('focus veterans+any');
+// console.log(focusVeteransPlusAny);
 // Focus Arrays
 
-// union then uniq the arrays
+// Empty Starter Array
+var ourEmptyArray = [];
 
+// access current state conditions
+if (this.state.affiliatedwithasu){
+    // var unionizedArray = _.union(emptyAffiliationArray, affiliatedWithASUCHECKED);
+    console.log('merged array 1');
+    // _.merge(ourEmptyArray, affiliatedWithASUCHECKED);
+    ourEmptyArray.concat(affiliatedWithASUCHECKED);
+    console.log(ourEmptyArray);
+}
+if (this.state.anundergradstudent||this.state.agraduatestudent){
+    // var unionizedArray = _.union(emptyAffiliationArray, affiliatedAnyStudentCHECKED, affiliatedGradStudentCHECKED);
+    console.log('merged array 2');
+    // _.merge(ourEmptyArray, affiliatedGradStudentCHECKED);
+    ourEmptyArray.concat(affiliatedGradStudentCHECKED);
+}
+if (this.state.faculty){
+    // var unionizedArray = _.union(emptyAffiliationArray, affiliatedFacultyCHECKED);
+    console.log('merged array 3');
+    // _.merge(ourEmptyArray, affiliatedFacultyCHECKED);
+    ourEmptyArray.concat(affiliatedFacultyCHECKED);
+}
 
-
-        // access state conditions
-
-        // affiliations "Available to Anyone", "ASU-Affiliated", "Faculty", "Grad Student", "Any Student", "Veterans and Students", "Community (Women or Minority)", "Community", "Community (Women)"
+        // union then uniq the arrays based on the current state conditions
 
         // union results
-        var unionizedArray = _.union(affiliatedAnyoneCHECKED, affiliatedWithASUCHECKED, affiliatedGradStudentCHECKED, affiliatedAnyStudentCHECKED, affiliatedFacultyCHECKED, affiliatedCommunityCHECKED, affiliatedVetsStudentsCHECKED)
-        console.log(unionizedArray);
+        // var unionizedArray = _.union(affiliatedAnyoneCHECKED, affiliatedWithASUCHECKED, affiliatedGradStudentCHECKED, affiliatedAnyStudentCHECKED, affiliatedFacultyCHECKED, affiliatedCommunityCHECKED, affiliatedVetsStudentsCHECKED)
+        console.log(ourEmptyArray);
 
         // pull uniques
-        var allUniqueIDs = _.uniq(unionizedArray, false, function(item, key, id){ return item.id; });
+        var allUniqueIDs = _.uniq(ourEmptyArray, false, function(item, key, id){ return item.id; });
+        console.log('all unique ids');
         console.log(allUniqueIDs);
-
-
 
         // create all arrays, deduplicate based on ids
 
