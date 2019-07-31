@@ -1,5 +1,6 @@
 [
  {
+   "id": 1,
    "Founders": "Available to Anyone",
    "Business Stage": "Expansion",
    "Program Type": "Investment Vehicles",
@@ -12,9 +13,10 @@
    "Description": "A partnership and capital source to refer private equity and IPO-ready companies",
    "Min": "$5,000,000+",
    "Max": "-",
-   "URL": "N/A"
+   "URL": ""
  },
  {
+   "id": 2,
    "Founders": "ASU-Affiliated",
    "Business Stage": "Customer Acquisition & Emerging Growth",
    "Program Type": "Programs with Funding",
@@ -27,9 +29,10 @@
    "Description": "Provides university-affiliated startups support and access to funding and mentorship from a network of experienced investors",
    "Min": "$100,000",
    "Max": "$2,000,000",
-   "URL": "InvestU.org"
+   "URL": "https://www.investu.org/"
  },
  {
+   "id": 3,
    "Founders": "ASU-Affiliated",
    "Business Stage": "Customer Acquisition & Emerging Growth",
    "Program Type": "Investment Vehicles",
@@ -42,9 +45,10 @@
    "Description": "Co-investment vehicle from philanthropic dollars will co-invest with InvestU",
    "Min": "$25,000",
    "Max": "$50,000",
-   "URL": "N/A"
+   "URL": ""
  },
  {
+   "id": 4,
    "Founders": "Available to Anyone",
    "Business Stage": "Customer Acquisition & Emerging Growth",
    "Program Type": "Programs with Funding",
@@ -57,9 +61,10 @@
    "Description": "Functional higher education technology accelerator that integrates, tests and validates new technologies",
    "Min": "$25,000",
    "Max": "$50,000",
-   "URL": "scaleu.asu.edu"
+   "URL": "https://scaleu.org/"
  },
  {
+   "id": 5,
    "Founders": "Faculty",
    "Business Stage": "Prototype to Customer Acquisition",
    "Program Type": "Investment Vehicles",
@@ -72,9 +77,10 @@
    "Description": "Fund that invests in ASU or Thunderbird affiliated startups",
    "Min": "$50,000",
    "Max": "$500,000",
-   "URL": "TBD"
+   "URL": ""
  },
  {
+   "id": 6,
    "Founders": "Available to Anyone",
    "Business Stage": "Prototype to Business Formation",
    "Program Type": "Programs with Funding",
@@ -90,6 +96,7 @@
    "URL": "https://asunow.asu.edu/content/foundation-awarded-1m-asu-accelerated-companies"
  },
  {
+   "id": 7,
    "Founders": "Grad Student",
    "Business Stage": "Prototype to Business Formation",
    "Program Type": "Programs with Funding",
@@ -105,6 +112,7 @@
    "URL": "https://wpcarey.asu.edu/research/entrepreneurship/new-venture-challenge"
  },
  {
+   "id": 8,
    "Founders": "Grad Student",
    "Business Stage": "Prototype to Business Formation",
    "Program Type": "Programs with Funding",
@@ -120,6 +128,7 @@
    "URL": "https://entrepreneurship.engineering.asu.edu/efund/"
  },
  {
+   "id": 9,
    "Founders": "Any Student",
    "Business Stage": "Prototype to Business Formation",
    "Program Type": "Programs with Funding",
@@ -135,6 +144,7 @@
    "URL": "http://winasu.io/"
  },
  {
+   "id": 10,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Business Formation",
    "Program Type": "Programs with Funding",
@@ -147,9 +157,10 @@
    "Description": "Provides training, mentors and investment funding for all participants across the university’s various schools and programs",
    "Min": "$100,000",
    "Max": "$100,000",
-   "URL": "TBD"
+   "URL": ""
  },
  {
+   "id": 11,
    "Founders": "Faculty",
    "Business Stage": "Prototype to Business Formation",
    "Program Type": "Investment Vehicles",
@@ -165,6 +176,7 @@
    "URL": "http://www.azte.com/accelerator-competition"
  },
  {
+   "id": 12,
    "Founders": "Faculty",
    "Business Stage": "Prototype to Business Formation",
    "Program Type": "Investment Vehicles",
@@ -180,6 +192,7 @@
    "URL": "http://www.azte.com/accelerator-competition"
  },
  {
+   "id": 13,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -195,6 +208,7 @@
    "URL": "https://entrepreneurship.asu.edu/launch/edson-student-entrepreneur-initiative"
  },
  {
+   "id": 14,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -210,6 +224,7 @@
    "URL": "https://wpcarey.asu.edu/research/entrepreneurship/pakis-social-challenge"
  },
  {
+   "id": 15,
    "Founders": "Grad Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -225,6 +240,7 @@
    "URL": "https://entrepreneurship.engineering.asu.edu/hool-coury-law-grad-tech-challenge/"
  },
  {
+   "id": 16,
    "Founders": "ASU-Affiliated",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -240,6 +256,7 @@
    "URL": "https://entrepreneurship.engineering.asu.edu/amazon-alexa-venture-challenge/"
  },
  {
+   "id": 17,
    "Founders": "ASU-Affiliated",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -255,6 +272,7 @@
    "URL": "https://entrepreneurship.engineering.asu.edu/american-express-venture-challenge/"
  },
  {
+   "id": 18,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -270,6 +288,7 @@
    "URL": "https://entrepreneurship.engineering.asu.edu/eseed-challenge/"
  },
  {
+   "id": 19,
    "Founders": "Veterans and Students",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -285,6 +304,7 @@
    "URL": "https://entrepreneurship.engineering.asu.edu/ashton-family-venture-challenge/"
  },
  {
+   "id": 20,
    "Founders": "ASU-Affiliated",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -300,6 +320,7 @@
    "URL": "https://entrepreneurship.asu.edu/launch/global-sport-venture-challenge"
  },
  {
+   "id": 21,
    "Founders": "ASU-Affiliated",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -315,7 +336,8 @@
    "URL": "https://entrepreneurship.asu.edu/launch/global-sport-social-impact-challenge"
  },
  {
-   "Founders": "Community (Women or Minority)",
+   "id": 22,
+   "Founders": "Community",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
    "Focus": "Any",
@@ -330,6 +352,7 @@
    "URL": "https://entrepreneurship.asu.edu/asu-kauffman-inclusion-challenge"
  },
  {
+   "id": 23,
    "Founders": "Community",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -345,6 +368,7 @@
    "URL": "https://entrepreneurship.asu.edu/community/prepped"
  },
  {
+   "id": 24,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -354,12 +378,13 @@
    "Funding Stage": "Research & Development",
    "Funding Track": "Changemaker Challenge",
    "Support Type": "Grant",
-   "Description": "Studennts to make make innovative project, prototype, venture or community partnership ideas happen",
+   "Description": "Students to make make innovative project, prototype, venture or community partnership ideas happen",
    "Min": "$250",
    "Max": "$2,500",
    "URL": "https://eoss.asu.edu/changemaker-challenge"
  },
  {
+   "id": 25,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
@@ -375,6 +400,7 @@
    "URL": "https://changemaker.asu.edu/programs/woodside-grant"
  },
  {
+   "id": 26,
    "Founders": "Available to Anyone",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
@@ -387,9 +413,10 @@
    "Description": "Provides medical device and healthcare IT early stage companies with personalized business development plans to collaborate with Mayo Clinic and ASU",
    "Min": "-",
    "Max": "-",
-   "URL": "medtechaccel.com"
+   "URL": "https://www.medtechaccel.com/"
  },
  {
+   "id": 27,
    "Founders": "Available to Anyone",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
@@ -405,6 +432,7 @@
    "URL": "https://entrepreneurship.asu.edu/startup-mill"
  },
  {
+   "id": 28,
    "Founders": "Community",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
@@ -420,7 +448,8 @@
    "URL": "https://sustainability.asu.edu/resourceinnovation/risnincubator/"
  },
  {
-   "Founders": "Community (Women)",
+   "id": 29,
+   "Founders": "Community",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
    "Focus": "Any",
@@ -435,6 +464,7 @@
    "URL": "https://entrepreneurship.asu.edu/community/sparxx"
  },
  {
+   "id": 30,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
@@ -450,6 +480,7 @@
    "URL": "https://poly.engineering.asu.edu/research/innovationhub/"
  },
  {
+   "id": 31,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
@@ -465,6 +496,7 @@
    "URL": "https://cronkite.asu.edu/real-world-experiences/professional-programs/media-innovation-and-entrepreneurship-lab"
  },
  {
+   "id": 32,
    "Founders": "Available to Anyone",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
@@ -480,6 +512,7 @@
    "URL": "https://entrepreneurship.asu.edu/entrepreneurship-innovation-healab"
  },
  {
+   "id": 33,
    "Founders": "Any Student",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Development Program",
@@ -495,6 +528,7 @@
    "URL": "https://entrepreneurship.engineering.asu.edu/generator-labs/"
  },
  {
+   "id": 34,
    "Founders": "Available to Anyone",
    "Business Stage": "Ideation to Prototype",
    "Program Type": "Programs with Funding",
