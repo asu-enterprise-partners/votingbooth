@@ -119,15 +119,20 @@ class MainForm extends Component {
         const ourResults = this.state.results
 
 // Founders Arrays
+// if affiliated with asu checked
+const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
+// console.log('affiliated with asu');
+// console.log(affiliatedWithASUCHECKED);
+
 // if undergrad student or graduate student checked
 const affiliatedAnyStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Any Student");
 // console.log('any student');
 // console.log(affiliatedAnyStudentCHECKED);
 
-// if affiliated with asu checked
-const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
-// console.log('affiliated with asu');
-// console.log(affiliatedWithASUCHECKED);
+// if grad student checked
+const affiliatedGradStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Grad Student");
+// console.log('grad student');
+// console.log(affiliatedGradStudentCHECKED);
 
 // if anyone checked
 const affiliatedAnyoneCHECKED = ourResults.filter(el=>el["Founders"]==="Available to Anyone");
@@ -144,16 +149,13 @@ const affiliatedFacultyCHECKED = ourResults.filter(el=>el["Founders"]==="Faculty
 // console.log('faculty');
 // console.log(affiliatedFacultyCHECKED);
 
-// if grad student checked
-const affiliatedGradStudentCHECKED = ourResults.filter(el=>el["Founders"]==="Grad Student");
-// console.log('grad student');
-// console.log(affiliatedGradStudentCHECKED);
-
 // if vets and students checked
 const affiliatedVetsStudentsCHECKED = ourResults.filter(el=>el["Founders"]==="Veterans and Students");
 // console.log('vets and students');
 // console.log(affiliatedVetsStudentsCHECKED);
 // Founders Arrays
+
+// -- -- -- -- --
 
 // Business Stage Arrays
 // if business stage is ideation to prototyping
@@ -187,6 +189,8 @@ const businessStageExpansion = ourResults.filter(el=>el["Business Stage"]==="Exp
 // console.log(businessStageExpansion);
 // Business Stage Arrays
 
+// -- -- -- -- --
+
 // Company Valuation Arrays
 // if company valuation is $0-$1M
 const companyValuation0To1M = ourResults.filter(el=>el["Company Valuation"]==="$0-$1M");
@@ -208,6 +212,8 @@ const companyValuation74MTo500MPlus = ourResults.filter(el=>el["Company Valuatio
 // console.log('company valuation $75M-$500M+');
 // console.log(companyValuation74MTo500MPlus);
 // Company Valuation Arrays
+
+// -- -- -- -- --
 
 // Focus Arrays
 // if focus is Any
@@ -296,38 +302,232 @@ const focusVeteransPlusAny = ourResults.filter(el=>el["Focus"]==="Veterans + Any
 // console.log(focusVeteransPlusAny);
 // Focus Arrays
 
+// -- -- -- -- --
+
+// Founders Arrays Processing
 // Empty Starter Array
-var ourEmptyArray = [];
+// var ourEmptyArray = [];
 
 // access current state conditions
-if (this.state.affiliatedwithasu){
-    // var unionizedArray = _.union(emptyAffiliationArray, affiliatedWithASUCHECKED);
-    console.log('merged array 1');
-    // _.merge(ourEmptyArray, affiliatedWithASUCHECKED);
-    ourEmptyArray.concat(affiliatedWithASUCHECKED);
-    console.log(ourEmptyArray);
+  var affiliatedwithasuBOOM = []
+  if (this.state.affiliatedwithasu){
+    affiliatedwithasuBOOM = affiliatedWithASUCHECKED
+  } else {
+    affiliatedwithasuBOOM = []
+  }
+  console.log('affiliatedwithasuBOOM');
+  console.log(affiliatedwithasuBOOM);
+
+  var anundergradstudentBOOM = []
+  if (this.state.anundergradstudent){
+    anundergradstudentBOOM = affiliatedAnyStudentCHECKED
+  } else {
+    anundergradstudentBOOM = []
+  }
+  console.log('anundergradstudentBOOM');
+  console.log(anundergradstudentBOOM);
+
+  var agraduatestudentBOOM = []
+  if (this.state.agraduatestudent){
+    agraduatestudentBOOM = affiliatedGradStudentCHECKED
+  } else {
+    agraduatestudentBOOM = []
+  }
+  console.log('agraduatestudentBOOM');
+  console.log(agraduatestudentBOOM);
+
+  var facultyBOOM = []
+  if (this.state.faculty){
+    facultyBOOM = affiliatedFacultyCHECKED
+  } else {
+    facultyBOOM = []
+  }
+  console.log('facultyBOOM');
+  console.log(facultyBOOM);
+
+  var universitystaffBOOM = []
+  if (this.state.universitystaff){
+    universitystaffBOOM = affiliatedVetsStudentsCHECKED
+  } else {
+    universitystaffBOOM = []
+  }
+  console.log('universitystaffBOOM');
+  console.log(universitystaffBOOM);
+
+  var communityBOOM = []
+  if (this.state.community){
+    communityBOOM = affiliatedCommunityCHECKED
+  } else {
+    communityBOOM = []
+  }
+  console.log('communityBOOM');
+  console.log(communityBOOM);
+
+  var anyoneBOOM = []
+  if (this.state.anyone){
+    anyoneBOOM = affiliatedAnyoneCHECKED
+  } else {
+    anyoneBOOM = []
+  }
+  console.log('anyoneBOOM');
+  console.log(anyoneBOOM);
+
+  var unionizedFoundersArray = _.union(affiliatedwithasuBOOM, anundergradstudentBOOM, agraduatestudentBOOM, facultyBOOM, universitystaffBOOM, communityBOOM, anyoneBOOM);
+  console.log(unionizedFoundersArray);
+  var foundersArrays = _.uniq(unionizedFoundersArray, false, function(item, key, id){ return item.id; });
+  console.log(foundersArrays);
+// Founders Arrays Processing
+
+// Business Stage Arrays Processing
+var businessStageArrays = []
+switch (this.state.interestedinfundingtosupport) {
+  case 'ideationtoprototyping':
+  console.log('we hit ideationtoprototyping')
+  businessStageArrays = businessStageIdeationToPrototyping
+  break
+  case 'ideationtobusinessformation':
+  console.log('we hit ideationtobusinessformation')
+  businessStageArrays = businessStageIdeationToBusinessFormation
+  break
+  case 'prototypetobusinessformation':
+  console.log('we hit prototypetobusinessformation')
+  businessStageArrays = businessStagePrototypeToBusinessFormation
+  break
+  case 'prototypetocustomeracquisition':
+  console.log('we hit prototypetocustomeracquisition')
+  businessStageArrays = businessStagePrototypeToCustomerAcquisition
+  break
+  case 'customeracquisitionandemerginggrowth':
+  console.log('we hit customeracquisitionandemerginggrowth')
+  businessStageArrays = businessStageCustomerAcquisitionAndEmergingGrowth
+  break
+  case 'expansion':
+  console.log('we hit expansion')
+  businessStageArrays = businessStageExpansion
+  break
+  default:
+  businessStageArrays = []
 }
-if (this.state.anundergradstudent||this.state.agraduatestudent){
-    // var unionizedArray = _.union(emptyAffiliationArray, affiliatedAnyStudentCHECKED, affiliatedGradStudentCHECKED);
-    console.log('merged array 2');
-    // _.merge(ourEmptyArray, affiliatedGradStudentCHECKED);
-    ourEmptyArray.concat(affiliatedGradStudentCHECKED);
+// Business Stage Arrays Processing
+
+// Company Valuation Arrays Processing
+var companyValuationArrays = []
+switch (this.state.companyvaluation) {
+  case '$0-$1M':
+  console.log('we hit $0-$1M')
+  companyValuationArrays = companyValuation0To1M
+  break
+  case '$1M-$15M':
+  console.log('we hit $1M-$15M')
+  companyValuationArrays = companyValuation1MTo15M
+  break
+  case '$500K-$3M':
+  console.log('we hit $500K-$3M')
+  companyValuationArrays = companyValuation500KTo3M
+  break
+  case '$75M-$500M+':
+  console.log('we hit $75M-$500M+')
+  companyValuationArrays = companyValuation74MTo500MPlus
+  break
+  default:
+  companyValuationArrays = []
 }
-if (this.state.faculty){
-    // var unionizedArray = _.union(emptyAffiliationArray, affiliatedFacultyCHECKED);
-    console.log('merged array 3');
-    // _.merge(ourEmptyArray, affiliatedFacultyCHECKED);
-    ourEmptyArray.concat(affiliatedFacultyCHECKED);
+// Company Valuation Arrays Processing
+
+// Focus Arrays Processing
+var focusManuHardBOOM = []
+if (this.state.manufacturinghardware){
+  focusManuHardBOOM = _.union(focusManufacturing, focusHardware);
+} else {
+  focusManuHardBOOM = []
 }
+console.log('focusManuHardBOOM');
+console.log(focusManuHardBOOM);
+
+var focusSocialSportsBOOM = []
+if (this.state.socialsports){
+  focusSocialSportsBOOM = _.union(focusHealthSport, focusSocial, focusSocialSport);
+} else {
+  focusSocialSportsBOOM = []
+}
+console.log('focusSocialSportsBOOM');
+console.log(focusSocialSportsBOOM);
+
+var focusHealthBOOM = []
+if (this.state.health){
+  focusHealthBOOM = _.union(focusHealth, focusFood);
+} else {
+  focusHealthBOOM = []
+}
+console.log('focusHealthBOOM');
+console.log(focusHealthBOOM);
+
+var focusVeteransBOOM = []
+if (this.state.veterans){
+  focusVeteransBOOM = focusVeteransPlusAny;
+} else {
+  focusVeteransBOOM = []
+}
+console.log('focusVeteransBOOM');
+console.log(focusVeteransBOOM);
+
+var focusMediaBOOM = []
+if (this.state.media){
+  focusMediaBOOM = focusMedia;
+} else {
+  focusMediaBOOM = []
+}
+console.log('focusMediaBOOM');
+console.log(focusMediaBOOM);
+
+var focusGenTechBOOM = []
+if (this.state.generaltechnology){
+  focusGenTechBOOM = _.union(focusTechIOT, focusTech, focusProtectedTech, focusMedTech, focusEngineering, focusEdTech, focusCleanTech);
+} else {
+  focusGenTechBOOM = []
+}
+console.log('focusGenTechBOOM');
+console.log(focusGenTechBOOM);
+
+var focusEdTechBOOM = []
+if (this.state.edtech){
+  focusEdTechBOOM = focusEdTech;
+} else {
+  focusEdTechBOOM = []
+}
+console.log('focusEdTechBOOM');
+console.log(focusEdTechBOOM);
+
+var focusIOTBOOM = []
+if (this.state.internetofthings){
+  focusIOTBOOM = focusTechIOT;
+} else {
+  focusIOTBOOM = []
+}
+console.log('focusIOTBOOM');
+console.log(focusIOTBOOM);
+
+var focusOtherBOOM = []
+if (this.state.other){
+  focusOtherBOOM = focusAny;
+} else {
+  focusOtherBOOM = []
+}
+console.log('focusOtherBOOM');
+console.log(focusOtherBOOM);
+
+var unionizedFocusArrays = _.union(focusManuHardBOOM, focusSocialSportsBOOM, focusHealthBOOM, focusVeteransBOOM, focusMediaBOOM, focusGenTechBOOM, focusEdTechBOOM, focusIOTBOOM, focusOtherBOOM);
+// Focus Arrays Processing
+
 
         // union then uniq the arrays based on the current state conditions
 
         // union results
-        // var unionizedArray = _.union(affiliatedAnyoneCHECKED, affiliatedWithASUCHECKED, affiliatedGradStudentCHECKED, affiliatedAnyStudentCHECKED, affiliatedFacultyCHECKED, affiliatedCommunityCHECKED, affiliatedVetsStudentsCHECKED)
-        console.log(ourEmptyArray);
+        var unionizedArray = _.union(foundersArrays, businessStageArrays, companyValuationArrays, unionizedFocusArrays)
+        console.log(unionizedArray);
 
         // pull uniques
-        var allUniqueIDs = _.uniq(ourEmptyArray, false, function(item, key, id){ return item.id; });
+        var allUniqueIDs = _.uniq(unionizedArray, false, function(item, key, id){ return item.id; });
         console.log('all unique ids');
         console.log(allUniqueIDs);
 
