@@ -20,7 +20,7 @@ const styles = theme => ({
       borderColor: '#8c1d40',
       borderStyle: 'dotted',
       borderWidth: '1px',
-      padding: '10px'      
+      padding: '10px'
     },
 });
 
@@ -107,9 +107,9 @@ class StepTwo extends Component{
                   {anyone ? <li>anyone</li> : ''}
                   {companyvaluation ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
                 </ul>
-                <ASUButtonEdit onClick={this.back}>
+                {/*<ASUButtonEdit onClick={this.firstStep}>
                   Edit
-                </ASUButtonEdit>
+                </ASUButtonEdit>*/}
               </Typography>
 
             <Typography variant="h6" gutterBottom className={classes.questionBackground}>

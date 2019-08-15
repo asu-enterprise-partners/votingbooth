@@ -160,9 +160,9 @@ class Results extends Component{
                   {anyone ? <li>anyone</li> : ''}
                   {companyvaluation ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
                 </ul>
-                <ASUButtonEdit onClick={this.firstStep}>
+                {/*<ASUButtonEdit onClick={this.firstStep}>
                   Edit
-                </ASUButtonEdit>
+                </ASUButtonEdit>*/}
               </Typography>
 
               <Typography variant="h6" gutterBottom className={classes.recapSection}>
@@ -186,9 +186,9 @@ class Results extends Component{
                           }
                         })()}
                 </ul>
-                <ASUButtonEdit onClick={this.secondStep}>
+                {/*<ASUButtonEdit onClick={this.secondStep}>
                   Edit
-                </ASUButtonEdit>
+                </ASUButtonEdit>*/}
               </Typography>
 
               <Typography variant="h6" gutterBottom className={classes.recapSection}>
@@ -204,16 +204,17 @@ class Results extends Component{
                   {internetofthings ? <li>Internet of Things</li> : ''}
                   {other ? <li>Other</li> : ''}
                 </ul>
-                <ASUButtonEdit onClick={this.secondStep}>
+                {/*<ASUButtonEdit onClick={this.secondStep}>
                   Edit
-                </ASUButtonEdit>
+                </ASUButtonEdit>*/}
               </Typography>
 
             <hr />
 
-            <Typography variant="h6" gutterBottom>
-              Here are all the ways the ASU Venture Ecosystem can help:
-            </Typography>
+            {ourResults.length > 0 ? <Typography variant="h6" gutterBottom>Here are the {ourResults.length} ways the ASU Venture Ecosystem can help:</Typography> : 'No results found. Please try again.'}
+            <ASUButton onClick={this.startOver}>
+              Start Over
+            </ASUButton>
 
             <div className={classNames(classes.layout, classes.cardGrid)}>
 

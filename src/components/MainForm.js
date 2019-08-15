@@ -27,7 +27,7 @@ const initialState = {
   step: 1,
 
 //Founders filter
-  affiliatedwithasu: false,
+  affiliatedwithasu: true,
   anundergradstudent: false,
   agraduatestudent: false,
   faculty: false,
@@ -36,13 +36,13 @@ const initialState = {
   anyone: false,
 
 //Business stage filter
-  interestedinfundingtosupport: false,
+  interestedinfundingtosupport: "ideationtoprototyping",
 
 //Valuation filter
-  companyvaluation: false,
+  companyvaluation: "$0-500K",
 
 //Focus filter
-  manufacturinghardware: false,
+  manufacturinghardware: true,
   socialsports: false,
   health: false,
   veterans: false,
@@ -60,7 +60,7 @@ class MainForm extends Component {
     state = {
       step: 1,
 
-      affiliatedwithasu: false,
+      affiliatedwithasu: true,
       anundergradstudent: false,
       agraduatestudent: false,
       faculty: false,
@@ -68,11 +68,11 @@ class MainForm extends Component {
       community: false,
       anyone: false,
 
-      interestedinfundingtosupport: false,
+      interestedinfundingtosupport: "ideationtoprototyping",
 
-      companyvaluation: false,
+      companyvaluation: "$0-500K",
 
-      manufacturinghardware: false,
+      manufacturinghardware: true,
       socialsports: false,
       health: false,
       veterans: false,
