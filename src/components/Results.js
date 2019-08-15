@@ -271,12 +271,12 @@ class Results extends Component{
             </div>
 
             <Grid item>
-              <ASUButton onClick={this.back}>
+              {/*<ASUButton onClick={this.back}>
                 Print
               </ASUButton>
               <ASUButton onClick={this.back}>
                 Email
-              </ASUButton>
+              </ASUButton>*/}
               <ASUButton onClick={this.startOver}>
                 Start Over
               </ASUButton>
