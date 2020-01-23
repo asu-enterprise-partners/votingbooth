@@ -19,12 +19,11 @@ class Header extends Component {
     return (
       <div className={classes.heroUnit}>
         <div className={classes.heroContent}>
-
           <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-            ASU Venture Ecosystem
+            Sun Devil Giving Day Prototype
           </Typography>
-          <Typography variant="h6" align="center" color="textSecondary" gutterBottom>
-            Description of project goes here.
+          <Typography variant="h5" align="center" color="textSecondary" gutterBottom>
+            Vote for the cause you're passionate about!
           </Typography>
 
         </div>

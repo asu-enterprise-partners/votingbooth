@@ -13,7 +13,7 @@ import Footer from './components/Footer.js';
 
 const styles = theme => ({
   mainUnit: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#ffc627',
   },
   mainContent: {
     maxWidth: 600,
