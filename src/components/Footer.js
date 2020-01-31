@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   footer: {
-    backgroundColor: '#8c1d40',
-    padding: theme.spacing.unit * 6,
+    backgroundColor: '#000000',
+    padding: theme.spacing.unit * 12,
   },
   footerText: {
     color: '#fff !important'
@@ -19,7 +19,7 @@ class Footer extends Component {
 
         <footer className={classes.footer}>
           <Typography className={classes.footerText} variant="h6" align="center" gutterBottom>
-            ASU Venture Ecosystem
+
           </Typography>
         </footer>
 

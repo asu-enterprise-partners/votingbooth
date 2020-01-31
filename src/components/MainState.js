@@ -81,21 +81,21 @@ export default function CustomizedDialogs() {
       <Grid item xs={4} align = "center" >
         <ContentButton onClick={handleClickOpen}  >
         <Typography variant="h6" gutterBottom  >
-          Environment
+          <b>Environment</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
-          Arts & Culture
+          <b>Arts & Culture</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
-          Health
+          <b>Health</b>
         </Typography>
         </ContentButton>
       </Grid>
@@ -104,21 +104,21 @@ export default function CustomizedDialogs() {
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
-          Education
+          <b>Education</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
-          Colleges & Programs
+          <b>Colleges & Programs</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
-          Other
+          <b>Other</b>
         </Typography>
         </ContentButton>
       </Grid>
@@ -142,11 +142,6 @@ export default function CustomizedDialogs() {
             auctor fringilla.
           </Typography>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
-          </Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

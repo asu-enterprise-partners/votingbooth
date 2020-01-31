@@ -19,11 +19,11 @@ class Header extends Component {
     return (
       <div className={classes.heroUnit}>
         <div className={classes.heroContent}>
-          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-            Sun Devil Giving Day Prototype
+          <Typography component="h2" variant="h2" align="center" color="textPrimary" gutterBottom>
+            <b>Sun Devil GIVING DAY</b>
           </Typography>
-          <Typography variant="h5" align="center" color="textSecondary" gutterBottom>
-            Vote for the cause you're passionate about!
+          <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+            <b>Vote for the cause you're passionate about!</b>
           </Typography>
 
         </div>
