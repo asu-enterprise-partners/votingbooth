@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function EnvironmentCard() {
+export default function CardClickedStep() {
   const classes = useStyles();
   return (
     <div style={{ display:'flex', justifyContent:'center' }}>

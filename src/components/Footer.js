@@ -19,7 +19,7 @@ class Footer extends Component {
 
         <footer className={classes.footer}>
           <Typography className={classes.footerText} variant="h6" align="center" gutterBottom>
-
+            Footer copy goes here.
           </Typography>
         </footer>
 
