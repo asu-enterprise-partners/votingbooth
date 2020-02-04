@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import CloseIcon from '@material-ui/icons/Close';
+import CancelIcon from '@material-ui/icons/Cancel';
 import IconButton from '@material-ui/core/IconButton';
 import { styled } from '@material-ui/styles';
 
@@ -18,10 +18,10 @@ const styles = theme => ({
     padding: '25px',
   },
   closeButton: {
-    position: 'absolute',
-    right: '25px',
-    top: '25px',
-    color: theme.palette.grey[500],
+    float: 'right',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: '#000000',
   },
 });
 
@@ -39,24 +39,22 @@ const useStyles = makeStyles({
 
 export default function EnvironmentCard() {
   const classes = useStyles();
-
   return (
     <div style={{ display:'flex', justifyContent:'center' }}>
     <Card className={classes.card}>
+      <div style={{ float:'right', margin:'20px' }}><CancelIcon style={{fontSize:35}}/></div>
       <CardActionArea>
-      <IconButton aria-label="close" className={classes.closeButton}>
-        <CloseIcon />
-      </IconButton>
         <CardContent style={{ display:'flex', justifyContent:'center' }}>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          <b>Environment</b>
+          <b>[Default Title]</b>
         </Typography>
         </CardContent>
-        <CardMedia
-        />
+        <CardMedia/>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+          lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+          lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
           lacus vel augue laoreet rutrum faucibus dolor auctor.
           </Typography>
         </CardContent>
