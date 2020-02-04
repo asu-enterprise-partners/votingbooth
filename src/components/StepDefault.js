@@ -60,7 +60,7 @@ class StepDefault extends Component {
   render(){
     return(
     <React.Fragment>
-    <div >
+    <div>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
         <ContentButton onClick={this.choiceOfUser}  >
@@ -100,6 +100,7 @@ class StepDefault extends Component {
         </ContentButton>
       </Grid>
     </Grid>
+    <div style={{marginTop:"20px"}}>
     <Grid p={1} align = "center">
     <SubmitButton>
     <Typography variant="h6">
@@ -107,6 +108,7 @@ class StepDefault extends Component {
     </Typography>
     </SubmitButton>
     </Grid>
+    </div>
     </div>
     </React.Fragment>
     )
