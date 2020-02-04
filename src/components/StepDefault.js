@@ -9,6 +9,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import NatureIcon from '@material-ui/icons/Nature';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -16,7 +17,7 @@ import Grid from '@material-ui/core/Grid';
 const styles = theme => ({
   root: {
     margin: 0,
-    padding:'25px',
+    padding: '25px',
   },
   closeButton: {
     position: 'absolute',
@@ -25,25 +26,35 @@ const styles = theme => ({
     color: theme.palette.grey[500],
   },
 });
-
 const ContentButton = styled(Button)({
   background: '#F1F1F1',
   border: 'solid 10px #ffffff',
   borderRadius: '20px',
-  height: '200px',
-  width: '200px',
-  padding: '0 30px',
+  height: '100%',
+  width: '100%',
+  padding: '50px 80px',
   "&:hover": {
     backgroundColor: "#ACACAC"
   },
   fontSize: '110%',
 });
 
+const SubmitButton = styled(Button)({
+  background: '#8c1d40',
+  color: '#ffffff',
+  border: '0',
+  borderRadius: '40px',
+  height: 48,
+  padding: '0 10%',
+  "&:hover": {
+    backgroundColor: "#353535"
+  },
+});
 const DialogTitle = withStyles(styles)(props => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography variant="h5">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
@@ -67,17 +78,21 @@ const DialogActions = withStyles(theme => ({
 }))(MuiDialogActions);
 
 export default function CustomizedDialogs() {
+
   const [open, setOpen] = React.useState(false);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
+
     <div >
-    <Grid container spacing ={24} justify = "center" >
+    <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
         <ContentButton onClick={handleClickOpen}  >
         <Typography variant="h6" gutterBottom  >
@@ -100,7 +115,7 @@ export default function CustomizedDialogs() {
         </ContentButton>
       </Grid>
     </Grid>
-    <Grid container spacing ={24} justify = "center">
+    <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
@@ -115,13 +130,13 @@ export default function CustomizedDialogs() {
         </Typography>
         </ContentButton>
       </Grid>
-      <Grid item xs={4} align = "center">
-        <ContentButton onClick={handleClickOpen}>
-        <Typography variant="h6" gutterBottom  >
-          <b>Other</b>
-        </Typography>
-        </ContentButton>
-      </Grid>
+    </Grid>
+    <Grid p={1} align = "center">
+    <SubmitButton>
+    <Typography variant="h6">
+      <b>Submit</b>
+    </Typography>
+    </SubmitButton>
     </Grid>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
