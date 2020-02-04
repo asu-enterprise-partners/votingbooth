@@ -17,11 +17,8 @@ const styles = theme => ({
     margin: 0,
     padding: '25px',
   },
-  closeButton: {
-    float: 'right',
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: '#000000',
+  iconButton: {
+    color: "#000000",
   },
 });
 
@@ -42,7 +39,7 @@ export default function CardClickedStep() {
   return (
     <div style={{ display:'flex', justifyContent:'center' }}>
     <Card className={classes.card}>
-      <div style={{ float:'right', margin:'20px' }}><CancelIcon style={{fontSize:35}}/></div>
+      <div style={{ float:'right', margin:'20px' }}><IconButton><CancelIcon style={{fontSize:35, fill:"black"}}/></IconButton></div>
       <CardActionArea>
         <CardContent style={{ display:'flex', justifyContent:'center' }}>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
