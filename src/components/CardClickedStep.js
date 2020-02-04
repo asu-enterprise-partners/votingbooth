@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,6 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import CancelIcon from '@material-ui/icons/Cancel';
 import IconButton from '@material-ui/core/IconButton';
 import { styled } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   root: {
@@ -34,29 +36,49 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CardClickedStep() {
-  const classes = useStyles();
-  return (
-    <div style={{ display:'flex', justifyContent:'center' }}>
-    <Card className={classes.card}>
-      <div style={{ float:'right', margin:'20px' }}><IconButton><CancelIcon style={{fontSize:35, fill:"black"}}/></IconButton></div>
-      <CardActionArea>
-        <CardContent style={{ display:'flex', justifyContent:'center' }}>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          <b>[Default Title]</b>
-        </Typography>
-        </CardContent>
-        <CardMedia/>
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-          lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-          lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-          lacus vel augue laoreet rutrum faucibus dolor auctor.
+class CardClickedStep extends Component{
+
+  choiceOfUser = (e) => {
+    e.preventDefault()
+    this.props.nextStep()
+  }
+
+  back = (e) => {
+    e.preventDefault();
+    this.props.prevStep();
+  }
+
+  render(){
+
+    return(
+      <React.Fragment><div style={{ display:'flex', justifyContent:'center' }}>
+      <Card className={useStyles.card}>
+        <div style={{ float:'right', margin:'20px' }}><IconButton onClick={this.back}><CancelIcon style={{fontSize:35, fill:"black"}}/></IconButton></div>
+        <CardActionArea>
+          <CardContent style={{ display:'flex', justifyContent:'center' }}>
+          <Typography className={useStyles.title} color="textSecondary" gutterBottom>
+            <b>[Default Title]</b>
           </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </div>
-  );
+          </CardContent>
+          <CardMedia/>
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+            lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+            lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+            lacus vel augue laoreet rutrum faucibus dolor auctor.
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      </div>
+      </React.Fragment>
+    )
+  }
 }
+
+CardClickedStep.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(CardClickedStep);
