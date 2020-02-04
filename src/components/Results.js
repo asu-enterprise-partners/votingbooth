@@ -149,124 +149,19 @@ class Results extends Component{
           <React.Fragment>
 
               <Typography variant="h6" gutterBottom className={classes.recapSection}>
-                I am:
-                <ul>
-                  {affiliatedwithasu ? <li>affiliated with ASU</li> : ''}
-                  {anundergradstudent ? <li>an undergrad student</li> : ''}
-                  {agraduatestudent ? <li>a graduate student</li> : ''}
-                  {faculty ? <li>a faculty member</li> : ''}
-                  {universitystaff ? <li>university staff</li> : ''}
-                  {community ? <li>community</li> : ''}
-                  {anyone ? <li>anyone</li> : ''}
-                  {companyvaluation ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
-                </ul>
-                {/*<ASUButtonEdit onClick={this.firstStep}>
-                  Edit
-                </ASUButtonEdit>*/}
-              </Typography>
-
-              <Typography variant="h6" gutterBottom className={classes.recapSection}>
-                I am interested in funding to support:
-
-                <ul>
-                  {(function() {
-                          switch(interestedinfundingtosupport) {
-                            case 'ideationtoprototyping':
-                              return <li>Ideation to Prototyping</li>;
-                            case 'ideationtobusinessformation':
-                              return <li>Ideation to Business Formation</li>;
-                            case 'prototypetobusinessformation':
-                              return <li>Prototype to Business Formation</li>;
-                            case 'prototypetocustomeracquisition':
-                              return <li>Prototype to Customer Acquisition</li>;
-                            case 'customeracquisitionandemerginggrowth':
-                              return <li>Customer Acquisition & Emerging Growth</li>;
-                            default:
-                              return null;
-                          }
-                        })()}
-                </ul>
-                {/*<ASUButtonEdit onClick={this.secondStep}>
-                  Edit
-                </ASUButtonEdit>*/}
-              </Typography>
-
-              <Typography variant="h6" gutterBottom className={classes.recapSection}>
-                In the areas of:
-                <ul>
-                  {manufacturinghardware ? <li>Manufacturing / Hardware</li> : ''}
-                  {socialsports ? <li>Social / Sports</li> : ''}
-                  {health ? <li>Health</li> : ''}
-                  {veterans ? <li>Veterans</li> : ''}
-                  {media ? <li>Media</li> : ''}
-                  {generaltechnology ? <li>General Technology</li> : ''}
-                  {edtech ? <li>EdTech</li> : ''}
-                  {internetofthings ? <li>Internet of Things</li> : ''}
-                  {other ? <li>Other</li> : ''}
-                </ul>
-                {/*<ASUButtonEdit onClick={this.secondStep}>
-                  Edit
-                </ASUButtonEdit>*/}
+                <p>results go here 1</p>
               </Typography>
 
             <hr />
 
-            {ourResults.length > 0 ? <Typography variant="h6" gutterBottom>Here are the {ourResults.length} ways the ASU Venture Ecosystem can help:</Typography> : 'No results found. Please try again.'}
+
             <ASUButton onClick={this.startOver}>
               Start Over
             </ASUButton>
 
             <div className={classNames(classes.layout, classes.cardGrid)}>
 
-              <Grid container spacing={24}>
-                {ourResults.map((fund, id) => (
-                  <Grid item key={id} xs={6}>
-                    <Card className={classNames(classes.card, classes.veCard)}>
-                      <CardContent className={classes.cardContent}
-                        css={css`
-                          border-radius: 30px;
-                        `}
-                        >
-                        <Typography gutterBottom variant="h5" component="h2" className={classes.fundName}>
-                          {fund['Venture Ecosystem']}
-                        </Typography>
-                        <Typography>
-                          {fund.Description}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Program Type:
-                        </Typography>
-                        <Typography>
-                          {fund['Program Type']}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Funding Available:
-                        </Typography>
-                        <Typography>
-                          {fund.Min} - {fund.Max}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Funding Stage:
-                        </Typography>
-                        <Typography>
-                          {fund['Funding Stage']}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Support Type:
-                        </Typography>
-                        <Typography>
-                          {fund['Support Type']}
-                        </Typography>
-                      </CardContent>
-                      <CardActions className={classes.moreInfoLink}>
-                          <Link href={fund.URL} className={classes.moreInfoLink} target="_blank">
-                            More info ...
-                          </Link>
-                      </CardActions>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
+              <p>results go here 2</p>
 
             </div>
 
@@ -278,7 +173,7 @@ class Results extends Component{
                 Email
               </ASUButton>*/}
               <ASUButton onClick={this.startOver}>
-                Start Over
+                Vote again
               </ASUButton>
             </Grid>
 

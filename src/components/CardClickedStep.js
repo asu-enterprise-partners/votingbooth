@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function EnvironmentCard() {
+export default function CardClickedStep() {
   const classes = useStyles();
 
   return (
@@ -49,15 +49,14 @@ export default function EnvironmentCard() {
       </IconButton>
         <CardContent style={{ display:'flex', justifyContent:'center' }}>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          <b>Environment</b>
+          <b>title title title title</b>
         </Typography>
         </CardContent>
         <CardMedia
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-          lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
           </Typography>
         </CardContent>
       </CardActionArea>
