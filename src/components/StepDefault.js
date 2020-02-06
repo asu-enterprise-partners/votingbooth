@@ -38,6 +38,18 @@ const ContentButton = styled(Button)({
   },
   fontSize: '110%',
 });
+const ClickedCauseButton = styled(Button)({
+  background: '#F1F1F1',
+  border: 'solid 10px #78be20',
+  borderRadius: '20px',
+  height: '100%',
+  width: '100%',
+  padding: '50px 80px',
+  "&:hover": {
+    backgroundColor: "#ACACAC"
+  },
+  fontSize: '110%',
+});
 
 const SubmitButton = styled(Button)({
   background: '#8c1d40',
@@ -89,21 +101,23 @@ export default function CustomizedDialogs() {
     setOpen(false);
   };
 
+  const clickedvote = this.props.clickedvote;
+
   return (
 
-    <div >
+    <div>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
-        <ContentButton onClick={handleClickOpen}  >
+        <ClickedCauseButton onClick={handleClickOpen}  >
         <Typography variant="h6" gutterBottom  >
           <b>Environment</b>
         </Typography>
-        </ContentButton>
+        </ClickedCauseButton>
       </Grid>
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
-          <b>Arts & Culture</b>
+          <b>Arts &amp; Culture</b>
         </Typography>
         </ContentButton>
       </Grid>
@@ -126,7 +140,7 @@ export default function CustomizedDialogs() {
       <Grid item xs={4} align = "center">
         <ContentButton onClick={handleClickOpen}>
         <Typography variant="h6" gutterBottom  >
-          <b>Colleges & Programs</b>
+          <b>Colleges &amp; Programs</b>
         </Typography>
         </ContentButton>
       </Grid>
@@ -138,26 +152,6 @@ export default function CustomizedDialogs() {
     </Typography>
     </SubmitButton>
     </Grid>
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
-        </DialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-            scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-            auctor fringilla.
-          </Typography>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

@@ -581,6 +581,12 @@ class MainForm extends Component {
 
     render(){
 
+      console.log('step is:');
+      console.log(this.state.step);
+
+      console.log('clickedvote is:');
+      console.log(this.state.clickedvote);
+
       const step = this.state.step;
       const clickedvote = this.state.clickedvote;
 
@@ -611,7 +617,7 @@ class MainForm extends Component {
       switch(step) {
       case 1:
           //return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} />
-          return <StepDefault />
+          return <StepDefault clickedvote={clickedvote} />
       case 2:
           return <CardClickedStep clickedvote={clickedvote} />
       case 3:
