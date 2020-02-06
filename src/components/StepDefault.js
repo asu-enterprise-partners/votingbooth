@@ -79,7 +79,7 @@ class StepDefault extends Component {
         <Typography variant="h6" gutterBottom  >
           <b>Environment</b>
         </Typography>
-        </ClickedCauseButton>
+        </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
         <ContentButton onClick={this.choiceOfUser}>
