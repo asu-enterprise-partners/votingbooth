@@ -65,31 +65,45 @@ const SubmitButton = styled(Button)({
 });
 
 class StepDefault extends Component {
+
+
   choiceOfUser = (e) => {
     e.preventDefault()
     this.props.nextStep()
   }
+
+  environmentChoice = (e) => {
+    e.preventDefault()
+    this.props.environmentChoice()
+    this.props.nextStep()
+  }
+
   render(){
+
+    const {classes} = this.props;
+    const voted = this.props.clickedvote;
+    const environment = true;
+
     return(
     <React.Fragment>
     <div>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
-        <ContentButton onClick={this.choiceOfUser}  >
+        <ContentButton value={environment} onClick={this.environmentChoice} >
         <Typography variant="h6" gutterBottom  >
           <b>Environment</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={this.choiceOfUser}>
+        <ContentButton value="artsculture" onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Arts &amp; Culture</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={this.choiceOfUser}>
+        <ContentButton value="health" onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Health</b>
         </Typography>
@@ -98,28 +112,28 @@ class StepDefault extends Component {
     </Grid>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={this.choiceOfUser}>
+        <ContentButton value="education" onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Education</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={this.choiceOfUser}>
+        <ContentButton value="collegesprograms" onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Colleges &amp; Programs</b>
         </Typography>
         </ContentButton>
       </Grid>
     </Grid>
-    <div style={{marginTop:"20px"}}>
-    <Grid p={1} align = "center">
-    <SubmitButton>
-    <Typography variant="h6">
-      <b>Submit</b>
-    </Typography>
-    </SubmitButton>
-    </Grid>
+    <div style={{marginTop:"20px", textAlign: "center"}}>
+    {this.props.clickedvote === 'false' ? (
+      <SubmitButton>
+        <Typography variant="h6">
+          <b>Submit</b>
+        </Typography>
+      </SubmitButton>
+    ) : null }
     </div>
     </div>
     </React.Fragment>

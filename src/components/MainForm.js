@@ -30,7 +30,7 @@ const styles = theme => ({
 const initialState = {
   step: 1,
   clickedvote: false,
-
+/*
 //Founders filter
   // affiliatedwithasu: true,
   // anundergradstudent: false,
@@ -58,6 +58,7 @@ const initialState = {
   // other: false,
 
   // results: ourData,
+  */
 };
 
 class MainForm extends Component {
@@ -65,7 +66,7 @@ class MainForm extends Component {
     state = {
       step: 1,
       clickedvote: false,
-
+/*
       // affiliatedwithasu: true,
       // anundergradstudent: false,
       // agraduatestudent: false,
@@ -89,6 +90,7 @@ class MainForm extends Component {
       // other: false,
       //
       // results: ourData,
+      */
     };
 
     nextStep = () => {
@@ -121,9 +123,33 @@ class MainForm extends Component {
         this.setState(initialState)
     }
 
+    environmentChoice = () => {
+        this.setState({
+          clickedvote: "environment"
+        })
+    }
+
+    artscultureChoice = () => {
+        this.setState({
+          clickedvote: "artsculture"
+        })
+    }
+
+    healthChoice = () => {
+        this.setState({
+          clickedvote: "health"
+        })
+    }
+
+    educationChoice = () => {
+        this.setState({
+          clickedvote: "education"
+        })
+    }
+
     parseResults = () => {
         const ourResults = this.state.results
-
+/*
 // Founders Arrays
 // if affiliated with asu checked
 // const affiliatedWithASUCHECKED = ourResults.filter(el=>el["Founders"]==="ASU-Affiliated");
@@ -556,12 +582,14 @@ class MainForm extends Component {
         //     results: allUniqueIDs
         // })
         // console.log(newResults);
+        */
     }
 
     handleChange = input => event => {
         this.setState({ [input] : event.target.value })
+        console.log(input);
     }
-
+/*
     handleChangeAffiliation = name => event => {
       this.setState({ [name]: event.target.checked });
       // console.log(name);
@@ -578,6 +606,7 @@ class MainForm extends Component {
     handleChangeAreas = name => event => {
       this.setState({ [name]: event.target.checked });
     };
+    */
 
     render(){
 
@@ -589,7 +618,7 @@ class MainForm extends Component {
 
       const step = this.state.step;
       const clickedvote = this.state.clickedvote;
-
+/*
       // const isAffiliatedWithASU = this.state.affiliatedwithasu;
       // const isAnUndergradStudent = this.state.anundergradstudent;
       // const isAGraduateStudent = this.state.agraduatestudent;
@@ -614,10 +643,12 @@ class MainForm extends Component {
       //
       // const ourResults = this.state.results;
 
+      */
+
       switch(step) {
       case 1:
           //return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} />
-          return <StepDefault clickedvote={clickedvote} />
+          return <StepDefault nextStep={this.nextStep} clickedvote={this.clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} />
       case 2:
           return <CardClickedStep prevStep={this.prevStep} nextStep={this.nextStep} clickedvote={clickedvote} />
       case 3:
