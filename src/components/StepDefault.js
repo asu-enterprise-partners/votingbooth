@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { styled } from '@material-ui/styles';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -30,8 +31,8 @@ const ContentButton = styled(Button)({
   background: '#F1F1F1',
   border: 'solid 10px #ffffff',
   borderRadius: '20px',
-  height: '100%',
-  width: '100%',
+  height: '200px',
+  width: '200px',
   padding: '50px 80px',
   "&:hover": {
     backgroundColor: "#ACACAC"
@@ -62,67 +63,33 @@ const SubmitButton = styled(Button)({
     backgroundColor: "#353535"
   },
 });
-const DialogTitle = withStyles(styles)(props => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h5">{children}</Typography>
-      {onClose ? (
-        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
 
-const DialogContent = withStyles(theme => ({
-  root: {
-    padding:'25px',
-  },
-}))(MuiDialogContent);
-
-const DialogActions = withStyles(theme => ({
-  root: {
-    margin: 0,
-    padding:'25px',
-  },
-}))(MuiDialogActions);
-
-export default function CustomizedDialogs() {
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const clickedvote = this.props.clickedvote;
-
-  return (
-
+class StepDefault extends Component {
+  choiceOfUser = (e) => {
+    e.preventDefault()
+    this.props.nextStep()
+  }
+  render(){
+    return(
+    <React.Fragment>
     <div>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
-        <ClickedCauseButton onClick={handleClickOpen}  >
+        <ContentButton onClick={this.choiceOfUser}  >
         <Typography variant="h6" gutterBottom  >
           <b>Environment</b>
         </Typography>
         </ClickedCauseButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={handleClickOpen}>
+        <ContentButton onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Arts &amp; Culture</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={handleClickOpen}>
+        <ContentButton onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Health</b>
         </Typography>
@@ -131,20 +98,21 @@ export default function CustomizedDialogs() {
     </Grid>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={handleClickOpen}>
+        <ContentButton onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Education</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton onClick={handleClickOpen}>
+        <ContentButton onClick={this.choiceOfUser}>
         <Typography variant="h6" gutterBottom  >
           <b>Colleges &amp; Programs</b>
         </Typography>
         </ContentButton>
       </Grid>
     </Grid>
+    <div style={{marginTop:"20px"}}>
     <Grid p={1} align = "center">
     <SubmitButton>
     <Typography variant="h6">
@@ -153,5 +121,14 @@ export default function CustomizedDialogs() {
     </SubmitButton>
     </Grid>
     </div>
-  );
+    </div>
+    </React.Fragment>
+    )
+  }
 }
+
+StepDefault.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(StepDefault);
