@@ -66,7 +66,6 @@ const SubmitButton = styled(Button)({
 
 class StepDefault extends Component {
 
-
   choiceOfUser = (e) => {
     e.preventDefault()
     this.props.nextStep()
@@ -78,32 +77,56 @@ class StepDefault extends Component {
     this.props.nextStep()
   }
 
+  artscultureChoice = (e) => {
+    e.preventDefault()
+    this.props.artscultureChoice()
+    this.props.nextStep()
+  }
+
+  healthChoice = (e) => {
+    e.preventDefault()
+    this.props.healthChoice()
+    this.props.nextStep()
+  }
+
+  educationChoice = (e) => {
+    e.preventDefault()
+    this.props.educationChoice()
+    this.props.nextStep()
+  }
+
+  collegeChoice = (e) => {
+    e.preventDefault()
+    this.props.collegeChoice()
+    this.props.nextStep()
+  }
+
   render(){
 
     const {classes} = this.props;
     const voted = this.props.clickedvote;
-    const environment = true;
+    console.log(voted);
 
     return(
     <React.Fragment>
     <div>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
-        <ContentButton value={environment} onClick={this.environmentChoice} >
+        <ContentButton value={"environment"} onClick={this.environmentChoice} >
         <Typography variant="h6" gutterBottom  >
           <b>Environment</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton value="artsculture" onClick={this.choiceOfUser}>
+        <ContentButton value="artsculture" onClick={this.artscultureChoice}>
         <Typography variant="h6" gutterBottom  >
           <b>Arts &amp; Culture</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton value="health" onClick={this.choiceOfUser}>
+        <ContentButton value="health" onClick={this.healthChoice}>
         <Typography variant="h6" gutterBottom  >
           <b>Health</b>
         </Typography>
@@ -112,28 +135,32 @@ class StepDefault extends Component {
     </Grid>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center">
-        <ContentButton value="education" onClick={this.choiceOfUser}>
+        <ContentButton value="education" onClick={this.educationChoice}>
         <Typography variant="h6" gutterBottom  >
           <b>Education</b>
         </Typography>
         </ContentButton>
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton value="collegesprograms" onClick={this.choiceOfUser}>
+        <ContentButton value="collegesprograms" onClick={this.collegeChoice}>
         <Typography variant="h6" gutterBottom  >
           <b>Colleges &amp; Programs</b>
         </Typography>
         </ContentButton>
       </Grid>
     </Grid>
+
     <div style={{marginTop:"20px", textAlign: "center"}}>
-    {this.props.clickedvote === 'false' ? (
-      <SubmitButton>
+    {
+      (this.props.clickedvote === false)
+      ?  null
+      : <SubmitButton>
         <Typography variant="h6">
           <b>Submit</b>
         </Typography>
       </SubmitButton>
-    ) : null }
+    }
+
     </div>
     </div>
     </React.Fragment>

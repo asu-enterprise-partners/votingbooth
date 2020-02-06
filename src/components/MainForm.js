@@ -29,7 +29,7 @@ const styles = theme => ({
 
 const initialState = {
   step: 1,
-  clickedvote: false,
+  clickedvote: "false",
 /*
 //Founders filter
   // affiliatedwithasu: true,
@@ -144,6 +144,12 @@ class MainForm extends Component {
     educationChoice = () => {
         this.setState({
           clickedvote: "education"
+        })
+    }
+
+    collegeChoice = () => {
+        this.setState({
+          clickedvote: "college"
         })
     }
 
@@ -654,7 +660,7 @@ class MainForm extends Component {
       switch(step) {
       case 1:
           //return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} />
-          return <StepDefault nextStep={this.nextStep} clickedvote={this.clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} />
+          return <StepDefault nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice} />
       case 2:
           return <CardClickedStep prevStep={this.prevStep} nextStep={this.nextStep} clickedvote={clickedvote} />
       case 3:
