@@ -608,6 +608,12 @@ class MainForm extends Component {
     };
     */
 
+    chooseEnvironment = () => {
+        this.setState({
+            clickedvote : "environment"
+        })
+    }
+
     render(){
 
       console.log('step is:');
