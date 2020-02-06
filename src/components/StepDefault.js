@@ -54,6 +54,11 @@ const SubmitButton = styled(Button)({
 
 class StepDefault extends Component {
 
+  submitResults = (e) => {
+    e.preventDefault()
+    this.props.skipStep()
+  }
+
   choiceOfUser = (e) => {
     e.preventDefault()
     this.props.nextStep()
@@ -182,8 +187,8 @@ class StepDefault extends Component {
     {
       (this.props.clickedvote === false)
       ?  null
-      : <SubmitButton>
-        <Typography variant="h6">
+      : <SubmitButton onClick={this.submitResults}>
+        <Typography variant="h6" >
           <b>Submit</b>
         </Typography>
       </SubmitButton>

@@ -50,7 +50,6 @@ class CardClickedStep extends Component{
   }
 
   render(){
-
     return(
       <React.Fragment><div style={{ display:'flex', justifyContent:'center' }}>
       <Card style={{maxWidth:345, backgroundColor:"#ffffff" }}className={useStyles.card}>
@@ -58,16 +57,37 @@ class CardClickedStep extends Component{
         <CardActionArea>
           <CardContent style={{ display:'flex', justifyContent:'center' }}>
           <Typography style={{fontSize:30, color:"#000000"}} color="textSecondary" gutterBottom>
-            <b>[Default Title]</b>
+          {
+            (this.props.clickedvote == "environment")
+            ? <b>Environment</b>
+            : (this.props.clickedvote == "artsculture")
+              ? <b>Arts &amp; Culture</b>
+              : (this.props.clickedvote == "health")
+                ? <b>Health</b>
+                : (this.props.clickedvote == "education")
+                  ? <b>Education</b>
+                  : (this.props.clickedvote == "college")
+                    ? <b>College &amp; Programs</b>
+                    : null
+          }
           </Typography>
           </CardContent>
           <CardMedia/>
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor.
+            {
+              (this.props.clickedvote == "environment")
+              ? <p>Paragraph about the environment.</p>
+              : (this.props.clickedvote == "artsculture")
+                ? <p>Paragraph about the arts and culture.</p>
+                : (this.props.clickedvote == "health")
+                  ? <p>Paragraph about the health programs.</p>
+                  : (this.props.clickedvote == "education")
+                    ? <p>Paragraph about the education.</p>
+                    : (this.props.clickedvote == "college")
+                      ? <p>Paragraph about the college and programs.</p>
+                      : null
+            }
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -81,5 +101,4 @@ class CardClickedStep extends Component{
 CardClickedStep.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
 export default withStyles(styles)(CardClickedStep);
