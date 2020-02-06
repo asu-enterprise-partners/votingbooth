@@ -69,13 +69,17 @@ class StepDefault extends Component {
     e.preventDefault()
     this.props.nextStep()
   }
+  chooseEnvironment = (e) => {
+    e.preventDefault()
+    this.props.chooseEnvironment()
+  }
   render(){
     return(
     <React.Fragment>
     <div>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
-        <ContentButton onClick={this.choiceOfUser}  >
+        <ContentButton onClick={this.chooseEnvironment}  >
         <Typography variant="h6" gutterBottom  >
           <b>Environment</b>
         </Typography>

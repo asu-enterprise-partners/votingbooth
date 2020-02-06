@@ -579,6 +579,12 @@ class MainForm extends Component {
       this.setState({ [name]: event.target.checked });
     };
 
+    chooseEnvironment = () => {
+        this.setState({
+            clickedvote : "environment"
+        })
+    }
+
     render(){
 
       console.log('step is:');
@@ -617,7 +623,7 @@ class MainForm extends Component {
       switch(step) {
       case 1:
           //return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} />
-          return <StepDefault clickedvote={clickedvote} />
+          return <StepDefault nextStep={this.nextStep} chooseEnvironment={this.chooseEnvironment} clickedvote={clickedvote} />
       case 2:
           return <CardClickedStep prevStep={this.prevStep} nextStep={this.nextStep} clickedvote={clickedvote} />
       case 3:
