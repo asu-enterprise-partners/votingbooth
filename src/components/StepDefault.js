@@ -39,18 +39,6 @@ const ContentButton = styled(Button)({
   },
   fontSize: '110%',
 });
-const ClickedCauseButton = styled(Button)({
-  background: '#F1F1F1',
-  border: 'solid 10px #78be20',
-  borderRadius: '20px',
-  height: '100%',
-  width: '100%',
-  padding: '50px 80px',
-  "&:hover": {
-    backgroundColor: "#ACACAC"
-  },
-  fontSize: '110%',
-});
 
 const SubmitButton = styled(Button)({
   background: '#8c1d40',
@@ -112,41 +100,81 @@ class StepDefault extends Component {
     <div>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center" >
-        <ContentButton value={"environment"} onClick={this.environmentChoice} >
+      {
+        (this.props.clickedvote === "environment")
+        ?  <ContentButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice} >
         <Typography variant="h6" gutterBottom  >
           <b>Environment</b>
         </Typography>
         </ContentButton>
+        : <ContentButton value={"environment"} onClick={this.environmentChoice} >
+        <Typography variant="h6" gutterBottom  >
+          <b>Environment</b>
+        </Typography>
+        </ContentButton>
+      }
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton value="artsculture" onClick={this.artscultureChoice}>
+      {
+        (this.props.clickedvote === "artsculture")
+        ?  <ContentButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice} >
         <Typography variant="h6" gutterBottom  >
           <b>Arts &amp; Culture</b>
         </Typography>
         </ContentButton>
+        : <ContentButton value="artsculture" onClick={this.artscultureChoice} >
+        <Typography variant="h6" gutterBottom  >
+          <b>Arts &amp; Culture</b>
+        </Typography>
+        </ContentButton>
+      }
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton value="health" onClick={this.healthChoice}>
+      {
+        (this.props.clickedvote === "health")
+        ?  <ContentButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice} >
         <Typography variant="h6" gutterBottom  >
           <b>Health</b>
         </Typography>
         </ContentButton>
+        : <ContentButton value="health" onClick={this.healthChoice}>
+        <Typography variant="h6" gutterBottom  >
+          <b>Health</b>
+        </Typography>
+        </ContentButton>
+      }
       </Grid>
     </Grid>
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center">
-        <ContentButton value="education" onClick={this.educationChoice}>
+      {
+        (this.props.clickedvote === "education")
+        ?  <ContentButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
         <Typography variant="h6" gutterBottom  >
           <b>Education</b>
         </Typography>
         </ContentButton>
+        : <ContentButton value="education" onClick={this.educationChoice}>
+        <Typography variant="h6" gutterBottom  >
+          <b>Education</b>
+        </Typography>
+        </ContentButton>
+      }
       </Grid>
       <Grid item xs={4} align = "center">
-        <ContentButton value="collegesprograms" onClick={this.collegeChoice}>
+      {
+        (this.props.clickedvote === "college")
+        ?  <ContentButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice} >
         <Typography variant="h6" gutterBottom  >
           <b>Colleges &amp; Programs</b>
         </Typography>
         </ContentButton>
+        : <ContentButton value="collegesprograms" onClick={this.collegeChoice}>
+        <Typography variant="h6" gutterBottom  >
+          <b>Colleges &amp; Programs</b>
+        </Typography>
+        </ContentButton>
+      }
       </Grid>
     </Grid>
 
@@ -160,7 +188,6 @@ class StepDefault extends Component {
         </Typography>
       </SubmitButton>
     }
-
     </div>
     </div>
     </React.Fragment>
