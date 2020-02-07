@@ -125,7 +125,6 @@ class MainForm extends Component {
             step : 2
         })
     }
-    
     startOver = () => {
         this.setState(initialState)
     }
