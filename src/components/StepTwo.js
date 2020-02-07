@@ -275,7 +275,6 @@ class StepTwo extends Component{
               }
               label="Other"
             />
-
             </FormGroup>
 
             <Grid item>

@@ -89,7 +89,6 @@ class GraphicDisplayStep extends Component {
             : (this.props.clickedvote == "college")
               ? <img src={turtleGIF}/>
               : null
-
     }
     </div>
       {this.timeOut()}

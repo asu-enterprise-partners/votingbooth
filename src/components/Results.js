@@ -92,90 +92,12 @@ const ASUButtonEdit = styled(Button)({
 // });
 
 class Results extends Component{
-    saveAndContinue = (e) => {
-        e.preventDefault();
-        this.props.nextStep();
-    }
-
-    back = (e) => {
-        e.preventDefault();
-        this.props.prevStep();
-    }
-
-    firstStep = (e) => {
-        e.preventDefault();
-        this.props.firstStep();
-    }
-
-    secondStep = (e) => {
-        e.preventDefault();
-        this.props.secondStep();
-    }
-
-    startOver = (e) => {
-        e.preventDefault();
-        this.props.startOver();
-    }
-
     render(){
 
-      const { classes } = this.props;
-
-      const affiliatedwithasu = this.props.isAffiliatedWithASU;
-      const anundergradstudent = this.props.isAnUndergradStudent;
-      const agraduatestudent = this.props.isAGraduateStudent;
-      const faculty = this.props.isFaculty;
-      const universitystaff = this.props.isUniversityStaff;
-      const community = this.props.isCommunity;
-      const anyone = this.props.isAnyone;
-
-      const companyvaluation = this.props.theCompanyValuation;
-
-      const interestedinfundingtosupport = this.props.theInterestedInFundingToSupport;
-      const manufacturinghardware = this.props.isManufacturingHardware;
-      const socialsports = this.props.isSocialSports;
-      const health = this.props.isHealth;
-      const veterans = this.props.isVeterans;
-      const media = this.props.isMedia;
-      const generaltechnology = this.props.isGeneralTechnology;
-      const edtech = this.props.idEdTech;
-      const internetofthings = this.props.isInternetOfThings;
-      const other = this.props.isOther;
-
-      const ourResults = this.props.ourResults;
-
         return(
-
           <React.Fragment>
 
-              <Typography variant="h6" gutterBottom className={classes.recapSection}>
-                <p>results go here 1</p>
-              </Typography>
 
-            <hr />
-
-
-            <ASUButton onClick={this.startOver}>
-              Start Over
-            </ASUButton>
-
-            <div className={classNames(classes.layout, classes.cardGrid)}>
-
-              <p>results go here 2</p>
-
-            </div>
-
-            <Grid item>
-              {/*<ASUButton onClick={this.back}>
-                Print
-              </ASUButton>
-              <ASUButton onClick={this.back}>
-                Email
-              </ASUButton>*/}
-              <ASUButton onClick={this.startOver}>
-                Vote again
-              </ASUButton>
-            </Grid>
 
           </React.Fragment>
 

@@ -18,10 +18,8 @@ class Header extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.heroUnit}>
-        <div className={classes.heroContent}>
-          <Typography component="h2" variant="h2" align="center" color="textPrimary" gutterBottom>
-            <b>Sun Devil GIVING DAY</b>
-          </Typography>
+        <div className={classes.heroContent} style={{textAlign:"center"}}>
+          <div style={{paddingBottom:"40px"}}> <img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/dee63ed5-88d5-4ad0-ad05-db5420d80c7a.png" height="70px"/></div>
           <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
             <b>Vote for the cause you're passionate about!</b>
           </Typography>
