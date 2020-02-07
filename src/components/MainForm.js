@@ -30,6 +30,7 @@ const styles = theme => ({
 const initialState = {
   step: 1,
   clickedvote: "false",
+  showText:  "false",
 /*
 //Founders filter
   // affiliatedwithasu: true,
@@ -66,6 +67,7 @@ class MainForm extends Component {
     state = {
       step: 1,
       clickedvote: false,
+      showText: false,
 /*
       // affiliatedwithasu: true,
       // anundergradstudent: false,
@@ -668,11 +670,11 @@ class MainForm extends Component {
           //return <StepOne nextStep={this.nextStep} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioCompanyValuation = {this.handleChangeRadioCompanyValuation} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} />
           return <StepDefault skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice} />
       case 2:
-          return <CardClickedStep prevStep={this.prevStep} nextStep={this.nextStep} clickedvote={clickedvote} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice} />
+          return <CardClickedStep showText={this.showText} prevStep={this.prevStep} nextStep={this.nextStep} clickedvote={clickedvote} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice} />
       case 3:
           // return <Results nextStep={this.nextStep} prevStep={this.prevStep} firstStep={this.firstStep} secondStep={this.secondStep} startOver={this.startOver} handleChange = {this.handleChange} handleChangeAffiliation = {this.handleChangeAffiliation} handleChangeRadioFundingSupport = {this.handleChangeRadioFundingSupport} handleChangeAreas = {this.handleChangeAreas} isAffiliatedWithASU={isAffiliatedWithASU} isAnUndergradStudent={isAnUndergradStudent} isAGraduateStudent={isAGraduateStudent} isFaculty={isFaculty} isUniversityStaff={isUniversityStaff} isCommunity={isCommunity} isAnyone={isAnyone} theCompanyValuation={theCompanyValuation} isManufacturingHardware={isManufacturingHardware} isSocialSports={isSocialSports} isHealth={isHealth} isVeterans={isVeterans} isMedia={isMedia} isGeneralTechnology={isGeneralTechnology} idEdTech={idEdTech} isInternetOfThings={isInternetOfThings} isOther={isOther} theInterestedInFundingToSupport={theInterestedInFundingToSupport} ourResults={ourResults} />
           //return <Results startOver={this.startOver} />
-          return <GraphicDisplayStep skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice}/>
+          return <GraphicDisplayStep showText={this.showText} skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice}/>
 
       default:
           return <h2>Please refresh your browser.</h2>

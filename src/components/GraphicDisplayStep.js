@@ -3,17 +3,15 @@ import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import NatureIcon from '@material-ui/icons/Nature';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import bartDancing from '../icons/bart-dancing.gif';
+import catGIF from '../icons/cat.gif';
+import drinkingGIF from '../icons/drinking.gif';
+import pugGIF from '../icons/pug.gif';
+import turtleGIF from '../icons/turtle.gif';
+
 
 
 const styles = theme => ({
@@ -28,32 +26,17 @@ const styles = theme => ({
     color: theme.palette.grey[500],
   },
 });
-const ContentButton = styled(Button)({
-  background: '#F1F1F1',
-  border: 'solid 10px #ffffff',
-  borderRadius: '20px',
-  height: '200px',
-  width: '200px',
-  padding: '50px 80px',
-  "&:hover": {
-    backgroundColor: "#ACACAC"
-  },
-  fontSize: '110%',
-});
-
-const SubmitButton = styled(Button)({
-  background: '#8c1d40',
-  color: '#ffffff',
-  border: '0',
-  borderRadius: '40px',
-  height: 48,
-  padding: '0 10%',
-  "&:hover": {
-    backgroundColor: "#353535"
-  },
-});
 
 class GraphicDisplayStep extends Component {
+
+  timeOut(){
+    setTimeout(() => {this.props.nextStep()}, 5000)
+  }
+
+  submitResults = (e) => {
+    e.preventDefault()
+    this.props.skipStep()
+  }
 
   choiceOfUser = (e) => {
     e.preventDefault()
@@ -91,14 +74,25 @@ class GraphicDisplayStep extends Component {
   }
 
   render(){
-
-    const {classes} = this.props;
-    const voted = this.props.clickedvote;
-    console.log(voted);
-
     return(
     <React.Fragment>
-    
+    <div style={{textAlign:"center"}}>
+    {
+      (this.props.clickedvote == "environment")
+      ? <img src={bartDancing}/>
+      : (this.props.clickedvote == "artsculture")
+        ? <img src={catGIF}/>
+        : (this.props.clickedvote == "health")
+          ? <img src={drinkingGIF}/>
+          : (this.props.clickedvote == "education")
+            ? <img src={pugGIF}/>
+            : (this.props.clickedvote == "college")
+              ? <img src={turtleGIF}/>
+              : null
+
+    }
+    </div>
+      {this.timeOut()}
     </React.Fragment>
     )
   }
