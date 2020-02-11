@@ -37,7 +37,7 @@ class MainForm extends Component {
 
     state = {
       step: 1,
-      clickedvote: false,
+      clickedvote: "false",
       showText: false,
     };
 
@@ -64,7 +64,7 @@ class MainForm extends Component {
 
     firstStep = () => {
         this.setState({
-            step : 1
+            step : 1,
         })
     }
 
@@ -74,7 +74,11 @@ class MainForm extends Component {
         })
     }
     startOver = () => {
-        this.setState(initialState)
+        this.setState({
+          step: 1,
+          clickedvote: "false",
+          showText: false,
+        })
     }
 
     environmentChoice = () => {
@@ -144,7 +148,7 @@ class MainForm extends Component {
           //return <Results startOver={this.startOver} />
           return <GraphicDisplayStep showText={this.showText} skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice}/>
       case 4:
-          return <Results/>
+          return <Results initialState={this.initialState} firstStep={this.firstStep} startOver={this.startOver} />
       default:
           return <h2>Please refresh your browser.</h2>
       }

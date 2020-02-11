@@ -14,6 +14,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 // import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import growthIcon from '../icons/growth.png';
+import artIcon from '../icons/art.png';
+import healthIcon from '../icons/medicine.png';
+import educationIcon from '../icons/diploma.png';
+import collegeIcon from '../icons/school.png';
 
 const styles = theme => ({
   root: {
@@ -33,7 +38,7 @@ const ContentButton = styled(Button)({
   borderRadius: '20px',
   height: '200px',
   width: '200px',
-  padding: '50px 80px',
+  padding: '30px 30px',
   "&:hover": {
     backgroundColor: "#ACACAC"
   },
@@ -103,81 +108,162 @@ class StepDefault extends Component {
     return(
     <React.Fragment>
     <div>
-    <Grid container spacing ={8} justify = "center">
-      <Grid item xs={4} align = "center" >
+    <Grid container spacing={8} alignItems = "center" justify = "center">
+      <Grid item xs={4} align = "center">
       {
         (this.props.clickedvote === "environment")
-        ?  <ContentButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice} >
-        <Typography variant="h6" gutterBottom  >
-          <b>Environment</b>
-        </Typography>
-        </ContentButton>
-        : <ContentButton value={"environment"} onClick={this.environmentChoice} >
-        <Typography variant="h6" gutterBottom  >
-          <b>Environment</b>
-        </Typography>
+        ?
+            <ContentButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice} >
+            <Grid direction="column">
+              <Grid alignItems = "center">
+                <img src={growthIcon}/>
+              </Grid>
+              <Grid alignItems = "center">
+                <Typography variant="body1" gutterBottom  >
+                  <b>Environment</b>
+                  </Typography>
+              </Grid>
+            </Grid>
+            </ContentButton>
+        :
+        <ContentButton value={"environment"} onClick={this.environmentChoice} >
+        <Grid direction="column">
+          <Grid alignItems = "center">
+            <img src={growthIcon}/>
+          </Grid>
+          <Grid alignItems = "center">
+            <Typography variant="body1" gutterBottom  >
+              <b>Environment</b>
+              </Typography>
+          </Grid>
+        </Grid>
         </ContentButton>
       }
       </Grid>
       <Grid item xs={4} align = "center">
       {
         (this.props.clickedvote === "artsculture")
-        ?  <ContentButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice} >
-        <Typography variant="h6" gutterBottom  >
-          <b>Arts &amp; Culture</b>
-        </Typography>
-        </ContentButton>
-        : <ContentButton value="artsculture" onClick={this.artscultureChoice} >
-        <Typography variant="h6" gutterBottom  >
-          <b>Arts &amp; Culture</b>
-        </Typography>
+        ?
+            <ContentButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice} >
+            <Grid direction="column">
+              <Grid alignItems = "center">
+                <img src={artIcon}/>
+              </Grid>
+              <Grid alignItems = "center">
+                <Typography variant="body1" gutterBottom  >
+                  <b>Arts &amp; Culture</b>
+                  </Typography>
+              </Grid>
+            </Grid>
+            </ContentButton>
+        :
+        <ContentButton value="artsculture" onClick={this.artscultureChoice} >
+        <Grid direction="column">
+          <Grid alignItems = "center">
+            <img src={artIcon}/>
+          </Grid>
+          <Grid alignItems = "center">
+            <Typography variant="body1" gutterBottom  >
+              <b>Arts &amp; Culture</b>
+              </Typography>
+          </Grid>
+        </Grid>
         </ContentButton>
       }
       </Grid>
-      <Grid item xs={4} align = "center">
+    <Grid item xs={4} align = "center">
       {
         (this.props.clickedvote === "health")
-        ?  <ContentButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice} >
-        <Typography variant="h6" gutterBottom  >
-          <b>Health</b>
-        </Typography>
-        </ContentButton>
-        : <ContentButton value="health" onClick={this.healthChoice}>
-        <Typography variant="h6" gutterBottom  >
-          <b>Health</b>
-        </Typography>
+        ?
+            <ContentButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice} >
+            <Grid direction="column">
+              <Grid alignItems = "center">
+                <img src={healthIcon}/>
+              </Grid>
+              <Grid alignItems = "center">
+                <Typography variant="body1" gutterBottom  >
+                  <b>Health</b>
+                  </Typography>
+              </Grid>
+            </Grid>
+            </ContentButton>
+        :
+        <ContentButton value="health" onClick={this.healthChoice} >
+        <Grid direction="column">
+          <Grid alignItems = "center">
+            <img src={healthIcon}/>
+          </Grid>
+          <Grid alignItems = "center">
+            <Typography variant="body1" gutterBottom  >
+              <b>Health</b>
+              </Typography>
+          </Grid>
+        </Grid>
         </ContentButton>
       }
       </Grid>
     </Grid>
+
     <Grid container spacing ={8} justify = "center">
       <Grid item xs={4} align = "center">
       {
         (this.props.clickedvote === "education")
-        ?  <ContentButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
-        <Typography variant="h6" gutterBottom  >
-          <b>Education</b>
-        </Typography>
-        </ContentButton>
-        : <ContentButton value="education" onClick={this.educationChoice}>
-        <Typography variant="h6" gutterBottom  >
-          <b>Education</b>
-        </Typography>
+        ?
+            <ContentButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
+            <Grid direction="column">
+              <Grid alignItems = "center">
+                <img src={educationIcon}/>
+              </Grid>
+              <Grid alignItems = "center">
+                <Typography variant="body1" gutterBottom  >
+                  <b>Education</b>
+                  </Typography>
+              </Grid>
+            </Grid>
+            </ContentButton>
+        :
+        <ContentButton value="education" onClick={this.educationChoice} >
+        <Grid direction="column">
+          <Grid alignItems = "center">
+            <img src={educationIcon}/>
+          </Grid>
+          <Grid alignItems = "center">
+            <Typography variant="body1" gutterBottom  >
+              <b>Education</b>
+              </Typography>
+          </Grid>
+        </Grid>
         </ContentButton>
       }
       </Grid>
       <Grid item xs={4} align = "center">
       {
         (this.props.clickedvote === "college")
-        ?  <ContentButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice} >
-        <Typography variant="h6" gutterBottom  >
-          <b>Colleges &amp; Programs</b>
-        </Typography>
-        </ContentButton>
-        : <ContentButton value="collegesprograms" onClick={this.collegeChoice}>
-        <Typography variant="h6" gutterBottom  >
-          <b>Colleges &amp; Programs</b>
-        </Typography>
+        ?
+            <ContentButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice} >
+            <Grid direction="column">
+              <Grid alignItems = "center">
+                <img src={collegeIcon}/>
+              </Grid>
+              <Grid alignItems = "center">
+                <Typography variant="body1" gutterBottom  >
+                  <b>Colleges &amp; Programs</b>
+                  </Typography>
+              </Grid>
+            </Grid>
+            </ContentButton>
+        :
+        <ContentButton value="college" onClick={this.collegeChoice} >
+        <Grid direction="column">
+          <Grid alignItems = "center">
+            <img src={collegeIcon}/>
+          </Grid>
+          <Grid alignItems = "center">
+            <Typography variant="body1" gutterBottom  >
+              <b>Colleges &amp; Programs</b>
+              </Typography>
+          </Grid>
+        </Grid>
         </ContentButton>
       }
       </Grid>
@@ -185,7 +271,7 @@ class StepDefault extends Component {
 
     <div style={{marginTop:"20px", textAlign: "center"}}>
     {
-      (this.props.clickedvote === false)
+      (this.props.clickedvote === "false")
       ?  null
       : <SubmitButton onClick={this.submitResults}>
         <Typography variant="h6" >
