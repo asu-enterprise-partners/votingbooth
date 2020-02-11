@@ -3,16 +3,16 @@ import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import NatureIcon from '@material-ui/icons/Nature';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+// import Dialog from '@material-ui/core/Dialog';
+// import MuiDialogTitle from '@material-ui/core/DialogTitle';
+// import MuiDialogContent from '@material-ui/core/DialogContent';
+// import MuiDialogActions from '@material-ui/core/DialogActions';
+// import IconButton from '@material-ui/core/IconButton';
+// import CloseIcon from '@material-ui/icons/Close';
+// import NatureIcon from '@material-ui/icons/Nature';
+// import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
@@ -96,7 +96,7 @@ class StepDefault extends Component {
 
   render(){
 
-    const {classes} = this.props;
+    // const {classes} = this.props;
     const voted = this.props.clickedvote;
     console.log(voted);
 

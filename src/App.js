@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-// import Nav from './components/Nav.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 

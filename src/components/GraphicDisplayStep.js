@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { styled } from '@material-ui/styles';
+// import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+// import Button from '@material-ui/core/Button';
+// import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+// import Typography from '@material-ui/core/Typography';
+// import Grid from '@material-ui/core/Grid';
 import bartDancing from '../icons/bart-dancing.gif';
 import catGIF from '../icons/cat.gif';
 import drinkingGIF from '../icons/drinking.gif';
@@ -78,16 +78,16 @@ class GraphicDisplayStep extends Component {
     <React.Fragment>
     <div style={{textAlign:"center"}}>
     {
-      (this.props.clickedvote == "environment")
-      ? <img src={bartDancing}/>
-      : (this.props.clickedvote == "artsculture")
-        ? <img src={catGIF}/>
-        : (this.props.clickedvote == "health")
-          ? <img src={drinkingGIF}/>
-          : (this.props.clickedvote == "education")
-            ? <img src={pugGIF}/>
-            : (this.props.clickedvote == "college")
-              ? <img src={turtleGIF}/>
+      (this.props.clickedvote === "environment")
+      ? <img src={bartDancing} alt="alt description goes here" />
+      : (this.props.clickedvote === "artsculture")
+        ? <img src={catGIF} alt="alt description goes here" />
+        : (this.props.clickedvote === "health")
+          ? <img src={drinkingGIF} alt="alt description goes here" />
+          : (this.props.clickedvote === "education")
+            ? <img src={pugGIF} alt="alt description goes here" />
+            : (this.props.clickedvote === "college")
+              ? <img src={turtleGIF} alt="alt description goes here" />
               : null
     }
     </div>
