@@ -37,12 +37,13 @@ const ContentButton = styled(Button)({
   border: 'solid 10px #ffffff',
   position: 'relative',
   borderRadius: '20px',
-  padding: '10%',
   width: '100%',
+  maxWidth: '300px',
+
+  height: 'auto',
   "&:hover": {
     backgroundColor: "#ACACAC"
   },
-  fontSize: '1.5rem',
 });
 
 const SubmitButton = styled(Button)({
@@ -57,11 +58,6 @@ const SubmitButton = styled(Button)({
   },
 });
 
-const imageStyle = {
-  maxWidth : '64px',
-  width: '100%',
-  height: 'auto',
-};
 
 class StepDefault extends Component {
 
@@ -114,18 +110,18 @@ class StepDefault extends Component {
     return(
     <React.Fragment>
     <div>
-    <Grid container spacing={8} alignItems = "center" justify = "center">
-      <Grid item xs={4} align = "center">
+    <Grid container spacing={8} style={{padding:'5%'}} alignItems = "center" justify = "center">
+      <Grid item xs={4} style={{padding:'20px', marginBottom:'1%'}} align = "center">
       {
         (this.props.clickedvote === "environment")
         ?
             <ContentButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice} >
             <Grid direction="column">
               <Grid alignItems = "center">
-                <img style={imageStyle} src={growthIcon}/>
+                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" gutterBottom  >
+                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
                   <b>Environment</b>
                   </Typography>
               </Grid>
@@ -135,10 +131,10 @@ class StepDefault extends Component {
         <ContentButton value={"environment"} onClick={this.environmentChoice} >
         <Grid direction="column">
           <Grid alignItems = "center">
-            <img style={imageStyle} src={growthIcon}/>
+            <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" gutterBottom  >
+            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
               <b>Environment</b>
               </Typography>
           </Grid>
@@ -146,17 +142,17 @@ class StepDefault extends Component {
         </ContentButton>
       }
       </Grid>
-      <Grid item xs={4} align = "center">
+      <Grid item xs={4} style={{padding:'20px', marginBottom:'1%'}}  align = "center">
       {
         (this.props.clickedvote === "artsculture")
         ?
             <ContentButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice} >
             <Grid direction="column">
               <Grid alignItems = "center">
-                <img src={artIcon}/>
+                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" gutterBottom  >
+                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
                   <b>Arts</b>
                   </Typography>
               </Grid>
@@ -166,10 +162,10 @@ class StepDefault extends Component {
         <ContentButton value="artsculture" onClick={this.artscultureChoice} >
         <Grid direction="column">
           <Grid alignItems = "center">
-            <img src={artIcon}/>
+            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" gutterBottom  >
+            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
               <b>Arts</b>
               </Typography>
           </Grid>
@@ -177,17 +173,17 @@ class StepDefault extends Component {
         </ContentButton>
       }
       </Grid>
-    <Grid item xs={4} align = "center">
+    <Grid item xs={4} style={{padding:'20px', marginBottom:'1%'}}  align = "center">
       {
         (this.props.clickedvote === "health")
         ?
             <ContentButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice} >
             <Grid direction="column">
               <Grid alignItems = "center">
-                <img src={healthIcon}/>
+                <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" gutterBottom  >
+                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
                   <b>Health</b>
                   </Typography>
               </Grid>
@@ -197,10 +193,10 @@ class StepDefault extends Component {
         <ContentButton value="health" onClick={this.healthChoice} >
         <Grid direction="column">
           <Grid alignItems = "center">
-            <img src={healthIcon}/>
+            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" gutterBottom  >
+            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
               <b>Health</b>
               </Typography>
           </Grid>
@@ -211,17 +207,17 @@ class StepDefault extends Component {
     </Grid>
 
     <Grid container spacing ={8} justify = "center">
-      <Grid item xs={4} align = "center">
+      <Grid item xs={4} style={{padding:'20px', marginBottom:'1%'}}  align = "center">
       {
         (this.props.clickedvote === "education")
         ?
             <ContentButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
             <Grid direction="column">
               <Grid alignItems = "center">
-                <img src={educationIcon}/>
+                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" gutterBottom  >
+                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
                   <b>Education</b>
                   </Typography>
               </Grid>
@@ -231,10 +227,10 @@ class StepDefault extends Component {
         <ContentButton value="education" onClick={this.educationChoice} >
         <Grid direction="column">
           <Grid alignItems = "center">
-            <img src={educationIcon}/>
+            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" gutterBottom  >
+            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
               <b>Education</b>
               </Typography>
           </Grid>
@@ -242,17 +238,17 @@ class StepDefault extends Component {
         </ContentButton>
       }
       </Grid>
-      <Grid item xs={4} align = "center">
+      <Grid item xs={4} style={{padding:'20px', marginBottom:'1%'}} align = "center">
       {
         (this.props.clickedvote === "college")
         ?
             <ContentButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice} >
             <Grid direction="column">
               <Grid alignItems = "center">
-                <img src={collegeIcon}/>
+                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" gutterBottom  >
+                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
                   <b>Colleges</b>
                   </Typography>
               </Grid>
@@ -262,10 +258,10 @@ class StepDefault extends Component {
         <ContentButton value="college" onClick={this.collegeChoice} >
         <Grid direction="column">
           <Grid alignItems = "center">
-            <img src={collegeIcon}/>
+            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" gutterBottom  >
+            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
               <b>Colleges</b>
               </Typography>
           </Grid>
