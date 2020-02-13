@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     maxWidth: "345",
     width: "200px",
     backgroundColor: '#ffffff',
-    borderRadius: 40,
+    borderRadius: 40,    
   },
   title: {
     fontSize: 30,
@@ -52,9 +52,9 @@ class CardClickedStep extends Component{
   render(){
     return(
       <React.Fragment><div style={{ display:'flex', justifyContent:'center' }}>
-      <Card style={{maxWidth:345, backgroundColor:"#ffffff" }}className={useStyles.card}>
+      <Card style={{maxWidth:345, backgroundColor:"#ffffff"}}className={useStyles.card}>
         <div style={{ float:'right', margin:'20px' }}><IconButton onClick={this.back}><CancelIcon style={{fontSize:35, fill:"black"}}/></IconButton></div>
-        <CardActionArea>
+        <CardActionArea >
           <CardContent style={{ display:'flex', justifyContent:'center' }}>
           <Typography style={{fontSize:30, color:"#000000"}} color="textSecondary" gutterBottom>
           {

@@ -35,14 +35,14 @@ const styles = theme => ({
 const ContentButton = styled(Button)({
   background: '#F1F1F1',
   border: 'solid 10px #ffffff',
+  position: 'relative',
   borderRadius: '20px',
-  height: '200px',
-  width: '200px',
-  padding: '30px 30px',
+  padding: '10%',
+  width: '100%',
   "&:hover": {
     backgroundColor: "#ACACAC"
   },
-  fontSize: '110%',
+  fontSize: '1.5rem',
 });
 
 const SubmitButton = styled(Button)({
@@ -56,6 +56,12 @@ const SubmitButton = styled(Button)({
     backgroundColor: "#353535"
   },
 });
+
+const imageStyle = {
+  maxWidth : '64px',
+  width: '100%',
+  height: 'auto',
+};
 
 class StepDefault extends Component {
 
@@ -116,7 +122,7 @@ class StepDefault extends Component {
             <ContentButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice} >
             <Grid direction="column">
               <Grid alignItems = "center">
-                <img src={growthIcon}/>
+                <img style={imageStyle} src={growthIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" gutterBottom  >
@@ -129,7 +135,7 @@ class StepDefault extends Component {
         <ContentButton value={"environment"} onClick={this.environmentChoice} >
         <Grid direction="column">
           <Grid alignItems = "center">
-            <img src={growthIcon}/>
+            <img style={imageStyle} src={growthIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography variant="body1" gutterBottom  >
@@ -151,7 +157,7 @@ class StepDefault extends Component {
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" gutterBottom  >
-                  <b>Arts &amp; Culture</b>
+                  <b>Arts</b>
                   </Typography>
               </Grid>
             </Grid>
@@ -164,7 +170,7 @@ class StepDefault extends Component {
           </Grid>
           <Grid alignItems = "center">
             <Typography variant="body1" gutterBottom  >
-              <b>Arts &amp; Culture</b>
+              <b>Arts</b>
               </Typography>
           </Grid>
         </Grid>
@@ -247,7 +253,7 @@ class StepDefault extends Component {
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" gutterBottom  >
-                  <b>Colleges &amp; Programs</b>
+                  <b>Colleges</b>
                   </Typography>
               </Grid>
             </Grid>
@@ -260,7 +266,7 @@ class StepDefault extends Component {
           </Grid>
           <Grid alignItems = "center">
             <Typography variant="body1" gutterBottom  >
-              <b>Colleges &amp; Programs</b>
+              <b>Colleges</b>
               </Typography>
           </Grid>
         </Grid>
