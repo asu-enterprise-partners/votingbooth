@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useState } from 'react';
 import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 // import classNames from 'classnames';
@@ -6,10 +7,13 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-// import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import Link from '@material-ui/core/Link';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+//import TwitterIcon from '@material-ui/icons/Twitter';
+
 
 // import { css } from '@emotion/core'
 
@@ -82,7 +86,10 @@ const initialState = {
 };
 
 
+
+
 class Results extends Component{
+
 
   startOverStep = (e) => {
     e.preventDefault();
@@ -94,15 +101,18 @@ class Results extends Component{
     this.props.firstStep();
   }
 
+  handleClickOpen = () => {
+
+  }
+
 
     render(){
 
       const voted = this.props.clickedvote;
-
         return(
           <React.Fragment>
           <div style={{marginTop:"20px", textAlign: "center"}}>
-            <Grid container spacing = {3}>
+            <Grid container spacing = {3} justify = "center">
               <Grid item xs={6}>
               <SubmitButton onClick={this.startOverStep}>
                 <Typography variant="h6" >
@@ -110,19 +120,29 @@ class Results extends Component{
                 </Typography>
               </SubmitButton>
               </Grid>
+            </Grid>
+            <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
-              <SubmitButton onClick={this.startOver}>
-                <Typography variant="h6" >
-                  <b>Share</b>
+                <Typography variant="body1" >
+                  <b>Share Your Results</b>
                 </Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing = {0} justify = "center" style={{paddingTop:"5%"}}>
+              <Grid item xs={6}>
+              <SubmitButton onClick={this.startOverStep}>
+                <img src={TwitterIcon}/>
+              </SubmitButton>
+              </Grid>
+              <Grid item xs={6}>
+              <SubmitButton onClick={this.startOverStep}>
               </SubmitButton>
               </Grid>
             </Grid>
           </div>
           </React.Fragment>
-
         )
-    }
+  }
 }
 
 Results.propTypes = {
