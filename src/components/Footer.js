@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   footer: {
-    backgroundColor: '#000000',
+    backgroundColor: '#ffc627',
     padding: theme.spacing.unit * 12,
   },
   footerText: {
@@ -18,9 +18,6 @@ class Footer extends Component {
     return (
 
         <footer className={classes.footer}>
-          <Typography className={classes.footerText} variant="h6" align="center" gutterBottom>
-            Sun Devil Giving Day 2020
-          </Typography>
         </footer>
 
     )
