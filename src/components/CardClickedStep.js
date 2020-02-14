@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 // import Grid from '@material-ui/core/Grid';
 import CancelIcon from '@material-ui/icons/Cancel';
 import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 // import { styled } from '@material-ui/styles';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -29,7 +30,7 @@ const useStyles = makeStyles({
     maxWidth: "345",
     width: "200px",
     backgroundColor: '#ffffff',
-    borderRadius: 40,    
+    borderRadius: 40,
   },
   title: {
     fontSize: 30,
@@ -53,7 +54,7 @@ class CardClickedStep extends Component{
     return(
       <React.Fragment><div style={{ display:'flex', justifyContent:'center' }}>
       <Card style={{maxWidth:345, backgroundColor:"#ffffff"}}className={useStyles.card}>
-        <div style={{ float:'right', margin:'20px' }}><IconButton onClick={this.back}><CancelIcon style={{fontSize:35, fill:"black"}}/></IconButton></div>
+        <div style={{ float:'left', margin:'20px' }}><IconButton onClick={this.back}><ArrowBackIcon style={{fontSize:35, fill:"black"}}/></IconButton></div>
         <CardActionArea >
           <CardContent style={{ display:'flex', justifyContent:'center' }}>
           <Typography style={{fontSize:30, color:"#000000"}} color="textSecondary" gutterBottom>

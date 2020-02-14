@@ -25,7 +25,6 @@ class Header extends Component {
           <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
             <b>Vote for the cause you're passionate about!</b>
           </Typography>
-
         </div>
       </div>
     )

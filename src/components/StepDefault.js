@@ -117,11 +117,16 @@ class StepDefault extends Component {
         ?
             <ContentButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice} >
             <Grid direction="column">
+              <Grid justify = "flex-end">
+                <Typography style={{fontSize:"3vmin"}} >
+                🛈
+                </Typography>
+              </Grid>
               <Grid alignItems = "center">
                 <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
+                <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}} >
                   <b>Environment</b>
                   </Typography>
               </Grid>
@@ -130,11 +135,16 @@ class StepDefault extends Component {
         :
         <ContentButton value={"environment"} onClick={this.environmentChoice} >
         <Grid direction="column">
+        <Grid justify = "flex-end">
+          <Typography style={{fontSize:"3vmin"}} >
+          🛈
+          </Typography>
+        </Grid>
           <Grid alignItems = "center">
             <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
+            <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
               <b>Environment</b>
               </Typography>
           </Grid>
@@ -147,26 +157,38 @@ class StepDefault extends Component {
         (this.props.clickedvote === "artsculture")
         ?
             <ContentButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice} >
+
             <Grid direction="column">
+            <Grid justify = "flex-end">
+              <Typography style={{fontSize:"3vmin"}} >
+              🛈
+              </Typography>
+            </Grid>
               <Grid alignItems = "center">
                 <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
-                  <b>Arts</b>
+                <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
+                  <b>Arts & Culture</b>
                   </Typography>
               </Grid>
             </Grid>
             </ContentButton>
         :
         <ContentButton value="artsculture" onClick={this.artscultureChoice} >
+
         <Grid direction="column">
+        <Grid justify = "flex-end">
+          <Typography style={{fontSize:"3vmin"}} >
+          🛈
+          </Typography>
+        </Grid>
           <Grid alignItems = "center">
             <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
-              <b>Arts</b>
+            <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
+              <b>Arts & Culture</b>
               </Typography>
           </Grid>
         </Grid>
@@ -179,11 +201,16 @@ class StepDefault extends Component {
         ?
             <ContentButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice} >
             <Grid direction="column">
+            <Grid justify = "flex-end">
+              <Typography style={{fontSize:"3vmin"}} >
+              🛈
+              </Typography>
+            </Grid>
               <Grid alignItems = "center">
                 <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
+                <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
                   <b>Health</b>
                   </Typography>
               </Grid>
@@ -192,11 +219,16 @@ class StepDefault extends Component {
         :
         <ContentButton value="health" onClick={this.healthChoice} >
         <Grid direction="column">
+        <Grid justify = "flex-end">
+          <Typography style={{fontSize:"3vmin"}} >
+          🛈
+          </Typography>
+        </Grid>
           <Grid alignItems = "center">
             <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
+            <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
               <b>Health</b>
               </Typography>
           </Grid>
@@ -213,11 +245,16 @@ class StepDefault extends Component {
         ?
             <ContentButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
             <Grid direction="column">
+            <Grid justify = "flex-end">
+              <Typography style={{fontSize:"3vmin"}} >
+              🛈
+              </Typography>
+            </Grid>
               <Grid alignItems = "center">
                 <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
+                <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
                   <b>Education</b>
                   </Typography>
               </Grid>
@@ -226,11 +263,16 @@ class StepDefault extends Component {
         :
         <ContentButton value="education" onClick={this.educationChoice} >
         <Grid direction="column">
+        <Grid justify = "flex-end">
+          <Typography style={{fontSize:"3vmin"}} >
+          🛈
+          </Typography>
+        </Grid>
           <Grid alignItems = "center">
             <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
+            <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
               <b>Education</b>
               </Typography>
           </Grid>
@@ -244,12 +286,17 @@ class StepDefault extends Component {
         ?
             <ContentButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice} >
             <Grid direction="column">
+            <Grid justify = "flex-end">
+              <Typography style={{fontSize:"3vmin"}} >
+              🛈
+              </Typography>
+            </Grid>
               <Grid alignItems = "center">
                 <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
-                  <b>Colleges</b>
+                <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"} }  >
+                  <b>Colleges & Programs</b>
                   </Typography>
               </Grid>
             </Grid>
@@ -257,12 +304,17 @@ class StepDefault extends Component {
         :
         <ContentButton value="college" onClick={this.collegeChoice} >
         <Grid direction="column">
+        <Grid justify = "flex-end">
+          <Typography style={{fontSize:"3vmin"}} >
+          🛈
+          </Typography>
+        </Grid>
           <Grid alignItems = "center">
             <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" style={{fontSize:"2.2vmin"}} gutterBottom  >
-              <b>Colleges</b>
+            <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
+              <b>Colleges & Programs</b>
               </Typography>
           </Grid>
         </Grid>
@@ -277,7 +329,7 @@ class StepDefault extends Component {
       ?  null
       : <SubmitButton onClick={this.submitResults}>
         <Typography variant="h6" >
-          <b>Submit</b>
+          <b>Submit Vote</b>
         </Typography>
       </SubmitButton>
     }

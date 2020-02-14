@@ -68,7 +68,7 @@ const SubmitButton = styled(Button)({
 });
 
 const ShareButton = styled(Button)({
-  background: 'none',  
+  background: 'none',
   border: '0',
   borderRadius: '40px',
   height: 48,
@@ -113,8 +113,6 @@ class Results extends Component{
   handleClickOpen = () => {
 
   }
-
-
     render(){
       const voted = this.props.clickedvote;
         return(
@@ -132,7 +130,7 @@ class Results extends Component{
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
               <Typography variant="h6" >
-                <b>Share your results!</b>
+                <b>Share!</b>
               </Typography>
               </Grid>
             </Grid>
