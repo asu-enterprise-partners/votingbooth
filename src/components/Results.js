@@ -67,6 +67,15 @@ const SubmitButton = styled(Button)({
   },
 });
 
+const ShareButton = styled(Button)({
+  background: 'none',  
+  border: '0',
+  borderRadius: '40px',
+  height: 48,
+  padding: '0 10%',
+});
+
+
 // const ASUButtonSmall = styled(Button)({
 //   background: 'black',
 //   border: 0,
@@ -107,7 +116,6 @@ class Results extends Component{
 
 
     render(){
-
       const voted = this.props.clickedvote;
         return(
           <React.Fragment>
@@ -123,28 +131,28 @@ class Results extends Component{
             </Grid>
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
-                <Typography variant="body1" >
-                  <b>Share Your Results</b>
-                </Typography>
+              <Typography variant="h6" >
+                <b>Share your results!</b>
+              </Typography>
               </Grid>
             </Grid>
-            <Grid container spacing = {0} justify = "center" style={{paddingTop:"5%"}}>
-              <Grid item xs={6}>
-              <SubmitButton onClick={this.startOverStep}>
-                <img src={TwitterIcon}/>
-              </SubmitButton>
+            <Grid container spacing = {0} justify = "center">
+              <Grid>
+              <ShareButton onClick={this.startOverStep}>
+                <a><img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/></a>
+              </ShareButton>
               </Grid>
-              <Grid item xs={6}>
-              <SubmitButton onClick={this.startOverStep}>
-              </SubmitButton>
+              <Grid>
+              <ShareButton onClick={this.startOverStep}>
+                <img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
+              </ShareButton>
               </Grid>
             </Grid>
           </div>
           </React.Fragment>
         )
-  }
+      }
 }
-
 Results.propTypes = {
   classes: PropTypes.object.isRequired,
 };

@@ -30,7 +30,7 @@ const styles = theme => ({
 class GraphicDisplayStep extends Component {
 
   timeOut(){
-    setTimeout(() => {this.props.nextStep()}, 8000)
+    setTimeout(() => {this.props.nextStep()}, 6000)
   }
 
   submitResults = (e) => {
