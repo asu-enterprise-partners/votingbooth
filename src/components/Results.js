@@ -1,59 +1,11 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
-import { styled } from '@material-ui/styles';
-import PropTypes from 'prop-types';
-// import classNames from 'classnames';
+import React, { Component } from 'react'
+import Chart from 'chart.js';
+import classes from './BarGraph.module.css';
+
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-//import TwitterIcon from '@material-ui/icons/Twitter';
-
-
-// import { css } from '@emotion/core'
-
-const styles = theme => ({
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-  },
-  cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  recapSection: {
-    borderColor: '#8c1d40',
-    borderStyle: 'dotted',
-    borderWidth: '1px',
-    padding: '10px'
-  },
-  veCard: {
-    backgroundColor: '#ffc627',
-  },
-  fundName: {
-    fontWeight: 900
-  },
-  subFundName: {
-    fontWeight: 900
-  },
-  moreInfoLink: {
-    fontWeight: 900,
-    color: 'black'
-  }
-});
+import { styled } from '@material-ui/styles';
 
 const SubmitButton = styled(Button)({
   background: '#8c1d40',
@@ -75,54 +27,82 @@ const ShareButton = styled(Button)({
   padding: '0 10%',
 });
 
+export default class Results extends Component {
+    chartRef = React.createRef();
 
-// const ASUButtonSmall = styled(Button)({
-//   background: 'black',
-//   border: 0,
-//   borderRadius: 10,
-//   color: '#ffc627',
-//   height: 24,
-//   padding: '0 30px',
-//   "&:hover": {
-//       backgroundColor: "#353535"
-//   }
-// });
+    startOverStep = (e) => {
+      e.preventDefault();
+      this.props.startOver();
+    }
 
-const initialState = {
-  step: 1,
-  clickedvote: "false",
-  showText:  "false",
-};
+    componentDidMount() {
+        const myChartRef = this.chartRef.current.getContext('2d');
 
-
-
-
-class Results extends Component{
-
-
-  startOverStep = (e) => {
-    e.preventDefault();
-    this.props.startOver();
-  }
-
-  firstStep = (e) => {
-    e.preventDefault();
-    this.props.firstStep();
-  }
-
-  handleClickOpen = () => {
-
-  }
-    render(){
-      const voted = this.props.clickedvote;
-        return(
+        new Chart(myChartRef, {
+            type: 'bar',
+            data: {
+                //Bring in data
+                labels: ['Environment', 'Arts & Culture', 'Health', 'Education', 'Colleges & Programs'],
+                datasets: [
+                    {
+                        label: 'Total Votes',
+                        data: [299, 333, 200, 122, 88],
+                        backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(0, 0, 0, 1)']
+                    },
+                ]
+            },
+            options: {
+                responsive: true,
+                //Customize chart options
+                title: {
+                    display: true,
+                    text: 'Total Votes',
+                    fontColor: '#000000',
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [
+                      {
+                      ticks: {
+                            autoSkip: false,
+                            maxRotation: 0,
+                            minRotation: 0,
+                            fontColor: '#000000',
+                        }
+                      }
+                    ],
+                    yAxes: [
+                      {
+                      gridLines: {
+                            display: true
+                        },
+                      ticks: {
+                            fontColor: '#000000',
+                            beginAtZero: true
+                        }
+                      }
+                    ]
+              }
+            }
+        });
+    }
+    render() {
+        return (
           <React.Fragment>
+          <div className={classes.graphContainer}>
+              <canvas
+                  id='myChart'
+                  ref={this.chartRef}
+              />
+          </div>
           <div style={{marginTop:"20px", textAlign: "center"}}>
             <Grid container spacing = {3} justify = "center">
               <Grid item xs={6}>
               <SubmitButton onClick={this.startOverStep}>
                 <Typography variant="h6" >
-                  <b>Vote again</b>
+                  <b>Vote again!</b>
                 </Typography>
               </SubmitButton>
               </Grid>
@@ -136,23 +116,18 @@ class Results extends Component{
             </Grid>
             <Grid container spacing = {0} justify = "center">
               <Grid>
-              <ShareButton onClick={this.startOverStep}>
-                <a><img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/></a>
+              <ShareButton href="https://www.facebook.com/sharer/sharer.php?u=asufoundation.org" target="_blank">
+                <img alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/>
               </ShareButton>
               </Grid>
               <Grid>
-              <ShareButton onClick={this.startOverStep}>
-                <img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
+              <ShareButton href="https://twitter.com/intent/tweet?url=asufoundation.org&text=Vote%20for%20your%20favorite%20cause%20now!%20%23GivingDay" target="_blank">
+                <img alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
               </ShareButton>
               </Grid>
             </Grid>
           </div>
           </React.Fragment>
         )
-      }
+    }
 }
-Results.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Results);

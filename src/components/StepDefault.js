@@ -123,7 +123,7 @@ class StepDefault extends Component {
                 </Typography>
               </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}} >
@@ -141,7 +141,7 @@ class StepDefault extends Component {
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -165,7 +165,7 @@ class StepDefault extends Component {
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -184,7 +184,7 @@ class StepDefault extends Component {
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -207,7 +207,7 @@ class StepDefault extends Component {
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -225,7 +225,7 @@ class StepDefault extends Component {
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -251,7 +251,7 @@ class StepDefault extends Component {
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
@@ -269,7 +269,7 @@ class StepDefault extends Component {
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
@@ -292,7 +292,7 @@ class StepDefault extends Component {
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"} }  >
@@ -310,7 +310,7 @@ class StepDefault extends Component {
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
