@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import Chart from 'chart.js';
 import classes from './BarGraph.module.css';
-
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { styled } from '@material-ui/styles';
+
+import firebase from './../Firebase.js'
 
 const SubmitButton = styled(Button)({
   background: '#8c1d40',
@@ -37,55 +38,65 @@ export default class Results extends Component {
 
     componentDidMount() {
         const myChartRef = this.chartRef.current.getContext('2d');
+        console.log('pull in the results here and distribute the data');
 
-        new Chart(myChartRef, {
-            type: 'bar',
-            data: {
-                //Bring in data
-                labels: ['Environment', 'Arts & Culture', 'Health', 'Education', 'Colleges & Programs'],
-                datasets: [
-                    {
-                        label: 'Total Votes',
-                        data: [299, 333, 200, 122, 88],
-                        backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(0, 0, 0, 1)']
-                    },
-                ]
-            },
-            options: {
-                responsive: true,
-                //Customize chart options
-                title: {
-                    display: true,
-                    text: 'Total Votes',
-                    fontColor: '#000000',
-                },
-                legend: {
-                    display: false
-                },
-                scales: {
-                    xAxes: [
+        const db = firebase.firestore();
+        db.collection("causes")
+        .get()
+        .then(querySnapshot => {
+          const voteData = querySnapshot.docs.map(doc => doc.data());
+          console.log(voteData); // array of cities objects
+
+          new Chart(myChartRef, {
+              type: 'bar',
+              data: {
+                  //Bring in data
+                  labels: ['Environment', 'Arts & Culture', 'Health', 'Education', 'Colleges & Programs'],
+                  datasets: [
                       {
-                      ticks: {
-                            autoSkip: false,
-                            maxRotation: 0,
-                            minRotation: 0,
-                            fontColor: '#000000',
+                          label: 'Total Votes',
+                          data: [voteData[3].votes, voteData[0].votes, voteData[4].votes, voteData[2].votes, voteData[1].votes],
+                          backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(0, 0, 0, 1)']
+                      },
+                  ]
+              },
+              options: {
+                  responsive: true,
+                  //Customize chart options
+                  title: {
+                      display: true,
+                      text: 'Total Votes',
+                      fontColor: '#000000',
+                  },
+                  legend: {
+                      display: false
+                  },
+                  scales: {
+                      xAxes: [
+                        {
+                        ticks: {
+                              autoSkip: false,
+                              maxRotation: 0,
+                              minRotation: 0,
+                              fontColor: '#000000',
+                          }
                         }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                      gridLines: {
-                            display: true
-                        },
-                      ticks: {
-                            fontColor: '#000000',
-                            beginAtZero: true
+                      ],
+                      yAxes: [
+                        {
+                        gridLines: {
+                              display: true
+                          },
+                        ticks: {
+                              fontColor: '#000000',
+                              beginAtZero: true
+                          }
                         }
-                      }
-                    ]
+                      ]
+                }
               }
-            }
+          });
+
         });
     }
     render() {
@@ -102,7 +113,7 @@ export default class Results extends Component {
               <Grid item xs={6}>
               <SubmitButton onClick={this.startOverStep}>
                 <Typography variant="h6" >
-                  <b>Vote again!</b>
+                  <b>Vote Again</b>
                 </Typography>
               </SubmitButton>
               </Grid>
@@ -110,7 +121,7 @@ export default class Results extends Component {
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
               <Typography variant="h6" >
-                <b>Share!</b>
+                <b>Share This</b>
               </Typography>
               </Grid>
             </Grid>

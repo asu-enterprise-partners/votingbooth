@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-
-// import _ from 'lodash';
-
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-
-// import StepOne from './StepOne';
-// import StepTwo from './StepTwo';
-
 import StepDefault from './StepDefault';
 import CardClickedStep from './CardClickedStep';
 import GraphicDisplayStep from './GraphicDisplayStep';
@@ -24,20 +17,18 @@ const styles = theme => ({
   },
 });
 
-// const ourData = require('../Venture_Ecosystem_Data.json');
-// console.log(ourData[0]);
-
+// eslint-disable-next-line
 const initialState = {
   step: 1,
-  clickedvote: "false",
-  showText:  "false",
+  clickedvote: false,
+  showText:  false,
 };
 
 class MainForm extends Component {
 
     state = {
       step: 1,
-      clickedvote: "false",
+      clickedvote: false,
       showText: false,
     };
 
@@ -76,7 +67,7 @@ class MainForm extends Component {
     startOver = () => {
         this.setState({
           step: 1,
-          clickedvote: "false",
+          clickedvote: false,
           showText: false,
         })
     }
@@ -107,13 +98,9 @@ class MainForm extends Component {
 
     collegeChoice = () => {
         this.setState({
-          clickedvote: "college"
+          clickedvote: "collegesprograms"
         })
     }
-
-    // parseResults = () => {
-    //     const ourResults = this.state.results
-    // }
 
     handleChange = input => event => {
         this.setState({ [input] : event.target.value })
@@ -133,6 +120,9 @@ class MainForm extends Component {
 
       console.log('clickedvote is:');
       console.log(this.state.clickedvote);
+
+      console.log('showText is:');
+      console.log(this.state.showText);
 
       const step = this.state.step;
       const clickedvote = this.state.clickedvote;
