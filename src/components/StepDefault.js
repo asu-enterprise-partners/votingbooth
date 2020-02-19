@@ -3,22 +3,15 @@ import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-// import Dialog from '@material-ui/core/Dialog';
-// import MuiDialogTitle from '@material-ui/core/DialogTitle';
-// import MuiDialogContent from '@material-ui/core/DialogContent';
-// import MuiDialogActions from '@material-ui/core/DialogActions';
-// import IconButton from '@material-ui/core/IconButton';
-// import CloseIcon from '@material-ui/icons/Close';
-// import NatureIcon from '@material-ui/icons/Nature';
-// import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-// import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import growthIcon from '../icons/growth.png';
 import artIcon from '../icons/art.png';
 import healthIcon from '../icons/medicine.png';
 import educationIcon from '../icons/diploma.png';
 import collegeIcon from '../icons/school.png';
+
+import firebase from './../Firebase.js'
 
 const styles = theme => ({
   root: {
@@ -32,6 +25,7 @@ const styles = theme => ({
     color: theme.palette.grey[500],
   },
 });
+
 const ContentButton = styled(Button)({
   background: '#F1F1F1',
   border: 'solid 10px #ffffff',
@@ -39,7 +33,6 @@ const ContentButton = styled(Button)({
   borderRadius: '20px',
   width: '100%',
   maxWidth: '300px',
-
   height: 'auto',
   "&:hover": {
     backgroundColor: "#ACACAC"
@@ -58,12 +51,24 @@ const SubmitButton = styled(Button)({
   },
 });
 
-
 class StepDefault extends Component {
 
   submitResults = (e) => {
+
     e.preventDefault()
     this.props.skipStep()
+    console.log('you voted for:');
+    console.log(this.props.clickedvote);
+    console.log('now increment the value');
+
+    const db = firebase.firestore();
+
+    const increment = firebase.firestore.FieldValue.increment(1);
+
+    const voteIncrementRef = db.collection('causes').doc(this.props.clickedvote);
+
+    voteIncrementRef.update({ votes: increment });
+
   }
 
   choiceOfUser = (e) => {
@@ -103,10 +108,6 @@ class StepDefault extends Component {
 
   render(){
 
-    // const {classes} = this.props;
-    const voted = this.props.clickedvote;
-    console.log(voted);
-
     return(
     <React.Fragment>
     <div>
@@ -119,11 +120,11 @@ class StepDefault extends Component {
             <Grid direction="column">
               <Grid justify = "flex-end">
                 <Typography style={{fontSize:"3vmin"}} >
-                🛈
+                info
                 </Typography>
               </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}} >
@@ -137,11 +138,11 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          🛈
+          info
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -161,11 +162,11 @@ class StepDefault extends Component {
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              🛈
+              info
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -180,11 +181,11 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          🛈
+          info
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -203,11 +204,11 @@ class StepDefault extends Component {
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              🛈
+              info
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -221,11 +222,11 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          🛈
+          info
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -247,11 +248,11 @@ class StepDefault extends Component {
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              🛈
+              info
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
@@ -265,11 +266,11 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          🛈
+          info
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
@@ -282,17 +283,17 @@ class StepDefault extends Component {
       </Grid>
       <Grid item xs={4} style={{padding:'20px', marginBottom:'1%'}} align = "center">
       {
-        (this.props.clickedvote === "college")
+        (this.props.clickedvote === "collegesprograms")
         ?
             <ContentButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice} >
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              🛈
+              info
               </Typography>
             </Grid>
               <Grid alignItems = "center">
-                <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
+                <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
               </Grid>
               <Grid alignItems = "center">
                 <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"} }  >
@@ -302,15 +303,15 @@ class StepDefault extends Component {
             </Grid>
             </ContentButton>
         :
-        <ContentButton value="college" onClick={this.collegeChoice} >
+        <ContentButton value="collegesprograms" onClick={this.collegeChoice} >
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          🛈
+          info
           </Typography>
         </Grid>
           <Grid alignItems = "center">
-            <img  style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
+            <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
           </Grid>
           <Grid alignItems = "center">
             <Typography style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
@@ -325,11 +326,11 @@ class StepDefault extends Component {
 
     <div style={{marginTop:"20px", textAlign: "center"}}>
     {
-      (this.props.clickedvote === "false")
+      (this.props.clickedvote === false)
       ?  null
       : <SubmitButton onClick={this.submitResults}>
         <Typography variant="h6" >
-          <b>Submit Vote</b>
+          <b>Submit Your Vote</b>
         </Typography>
       </SubmitButton>
     }

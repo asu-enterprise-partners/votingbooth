@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-// import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
-// import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-// import Typography from '@material-ui/core/Typography';
-// import Grid from '@material-ui/core/Grid';
 import bartDancing from '../icons/bart-dancing.gif';
 import catGIF from '../icons/cat.gif';
 import drinkingGIF from '../icons/drinking.gif';
 import pugGIF from '../icons/pug.gif';
 import turtleGIF from '../icons/turtle.gif';
-
-
 
 const styles = theme => ({
   root: {
@@ -86,7 +79,7 @@ class GraphicDisplayStep extends Component {
           ? <img src={drinkingGIF} alt="alt description goes here" />
           : (this.props.clickedvote === "education")
             ? <img src={pugGIF} alt="alt description goes here" />
-            : (this.props.clickedvote === "college")
+            : (this.props.clickedvote === "collegesprograms")
               ? <img src={turtleGIF} alt="alt description goes here" />
               : null
     }
