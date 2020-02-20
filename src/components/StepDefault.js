@@ -271,8 +271,8 @@ class StepDefault extends Component {
                 <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
               </Grid>
               <Grid alignItems = "center">
-                <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
-                  <b>Education</b>
+                <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
+                  <b>Education & Scholarship</b>
                   </Typography>
               </Grid>
             </Grid>
@@ -289,8 +289,8 @@ class StepDefault extends Component {
             <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
           </Grid>
           <Grid alignItems = "center">
-            <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin", paddingBottom:"10%"}}  >
-              <b>Education</b>
+            <Typography variant="body1" style={{fontSize:"1.6vmin", lineHeight:"1.6vmin"}}  >
+              <b>Education & Scholarship</b>
               </Typography>
           </Grid>
         </Grid>

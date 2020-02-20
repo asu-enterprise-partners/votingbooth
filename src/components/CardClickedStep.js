@@ -79,7 +79,7 @@ class CardClickedStep extends Component{
                 : (this.props.clickedvote === "health")
                   ? <b>Health</b>
                   : (this.props.clickedvote === "education")
-                    ? <b>Education</b>
+                    ? <b>Education &amp; Scholarship</b>
                     : (this.props.clickedvote === "collegesprograms")
                       ? <b>Colleges &amp; Programs</b>
                       : null
