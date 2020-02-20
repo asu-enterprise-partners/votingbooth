@@ -32,19 +32,13 @@ class App extends React.Component {
 
       <React.Fragment>
         <CssBaseline />
-
           <Header/>
-
            <div className={classes.mainUnit}>
             <div className={classes.mainContent}>
-
               <MainForm />
-
             </div>
           </div>
-
         <Footer/>
-
         </React.Fragment>
 
       );

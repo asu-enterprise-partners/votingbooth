@@ -24,10 +24,16 @@ const styles = theme => ({
     top: '25px',
     color: theme.palette.grey[500],
   },
+  defaultContent: {
+    padding: `${theme.spacing.unit * 1}px 0 ${theme.spacing.unit * 6}px`,
+  },
+
+
 });
 
 const ContentButton = styled(Button)({
   background: '#F1F1F1',
+  paddingBottom: 'inherit',
   border: 'solid 10px #ffffff',
   position: 'relative',
   borderRadius: '20px',
@@ -108,8 +114,18 @@ class StepDefault extends Component {
 
   render(){
 
+      const { classes } = this.props;
+
     return(
     <React.Fragment>
+    <div className={classes.defaultContent} style={{textAlign:"center"}}>
+      <Typography style={{fontSize:"3.0vmin"}} color="textPrimary">
+        <b>Vote for the cause you're passionate about!</b>
+      </Typography>
+      <Typography style={{fontSize:"2.0vmin"}} color="textPrimary">
+        <b>Click these buttons below to learn more</b>
+      </Typography>
+    </div>
     <div>
     <Grid container spacing={8} style={{padding:'5%'}} alignItems = "center" justify = "center">
       <Grid item xs={4} style={{padding:'20px', marginBottom:'1%'}} align = "center">
@@ -120,7 +136,7 @@ class StepDefault extends Component {
             <Grid direction="column">
               <Grid justify = "flex-end">
                 <Typography style={{fontSize:"3vmin"}} >
-                info
+                🛈
                 </Typography>
               </Grid>
               <Grid alignItems = "center">
@@ -138,7 +154,7 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          info
+          🛈
           </Typography>
         </Grid>
           <Grid alignItems = "center">
@@ -162,7 +178,7 @@ class StepDefault extends Component {
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              info
+              🛈
               </Typography>
             </Grid>
               <Grid alignItems = "center">
@@ -181,7 +197,7 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          info
+          🛈
           </Typography>
         </Grid>
           <Grid alignItems = "center">
@@ -204,7 +220,7 @@ class StepDefault extends Component {
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              info
+              🛈
               </Typography>
             </Grid>
               <Grid alignItems = "center">
@@ -222,7 +238,7 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          info
+          🛈
           </Typography>
         </Grid>
           <Grid alignItems = "center">
@@ -248,7 +264,7 @@ class StepDefault extends Component {
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              info
+              🛈
               </Typography>
             </Grid>
               <Grid alignItems = "center">
@@ -266,7 +282,7 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          info
+          🛈
           </Typography>
         </Grid>
           <Grid alignItems = "center">
@@ -289,7 +305,7 @@ class StepDefault extends Component {
             <Grid direction="column">
             <Grid justify = "flex-end">
               <Typography style={{fontSize:"3vmin"}} >
-              info
+              🛈
               </Typography>
             </Grid>
               <Grid alignItems = "center">
@@ -307,7 +323,7 @@ class StepDefault extends Component {
         <Grid direction="column">
         <Grid justify = "flex-end">
           <Typography style={{fontSize:"3vmin"}} >
-          info
+          🛈
           </Typography>
         </Grid>
           <Grid alignItems = "center">

@@ -11,7 +11,7 @@ const styles = theme => ({
     width: '100%',
     height: 'auto',
     margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 1}px`,
   },
 });
 
@@ -21,10 +21,8 @@ class Header extends Component {
     return (
       <div className={classes.heroUnit}>
         <div className={classes.heroContent} style={{textAlign:"center"}}>
-          <div style={{paddingBottom:"40px"}}> <img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/dee63ed5-88d5-4ad0-ad05-db5420d80c7a.png" height="auto" width="50%" alt="Sun Devil Giving Day" /></div>
-          <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
-            <b>Vote for the cause you're passionate about!</b>
-          </Typography>
+          <div style={{paddingBottom:"0px"}}> <img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/dee63ed5-88d5-4ad0-ad05-db5420d80c7a.png" height="auto" width="50%" alt="Sun Devil Giving Day" /></div>
+
         </div>
       </div>
     )

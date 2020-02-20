@@ -102,6 +102,15 @@ export default class Results extends Component {
     render() {
         return (
           <React.Fragment>
+          <div style={{textAlign:"center", paddingBottom:"10%"}}>
+            <Typography style={{fontSize:"3.0vmin"}} color="textPrimary">
+              <b>Thanks for voting!</b>
+            </Typography>
+            <Typography style={{fontSize:"2.0vmin"}} color="textPrimary">
+              <b>Vote again or share with friends</b>
+            </Typography>
+          </div>
+
           <div className={classes.graphContainer}>
               <canvas
                   id='myChart'
@@ -112,7 +121,7 @@ export default class Results extends Component {
             <Grid container spacing = {3} justify = "center">
               <Grid item xs={6}>
               <SubmitButton onClick={this.startOverStep}>
-                <Typography variant="h6" >
+                <Typography style={{fontSize:"2.5vmin"}} >
                   <b>Vote Again</b>
                 </Typography>
               </SubmitButton>
@@ -120,7 +129,7 @@ export default class Results extends Component {
             </Grid>
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
-              <Typography variant="h6" >
+              <Typography style={{fontSize:"2.5vmin"}} >
                 <b>Share This</b>
               </Typography>
               </Grid>
@@ -128,12 +137,12 @@ export default class Results extends Component {
             <Grid container spacing = {0} justify = "center">
               <Grid>
               <ShareButton href="https://www.facebook.com/sharer/sharer.php?u=asufoundation.org" target="_blank">
-                <img alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/>
+                <img style={{height:"auto", width:"80%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/>
               </ShareButton>
               </Grid>
               <Grid>
               <ShareButton href="https://twitter.com/intent/tweet?url=asufoundation.org&text=Vote%20for%20your%20favorite%20cause%20now!%20%23GivingDay" target="_blank">
-                <img alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
+                <img style={{height:"auto", width:"80%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
               </ShareButton>
               </Grid>
             </Grid>
