@@ -123,7 +123,20 @@ class CardClickedStep extends Component{
         <Grid>
         <SubmitButton onClick={this.submitResults}>
           <Typography variant="h6" >
-              <b><a style={{textDecoration:"none", color:"#ffffff"}} href="https://www.asufoundation.org/">Learn More</a></b>
+          {
+            (this.props.clickedvote === "environment")
+            ? <b><a style={{textDecoration:"none", color:"#ffffff"}} href="https://www.asufoundation.org/environment/">Learn More</a></b>
+            : (this.props.clickedvote === "artsculture")
+              ? <b><a style={{textDecoration:"none", color:"#ffffff"}} href="https://www.asufoundation.org/arts-and-community/">Learn More</a></b>
+              : (this.props.clickedvote === "health")
+                ? <b><a style={{textDecoration:"none", color:"#ffffff"}} href="https://www.asufoundation.org/health-and-welfare/">Learn More</a></b>
+                : (this.props.clickedvote === "education")
+                  ? <b><a style={{textDecoration:"none", color:"#ffffff"}} href="https://www.asufoundation.org/education-and-scholarship/">Learn More</a></b>
+                  : (this.props.clickedvote === "collegesprograms")
+                    ? <b><a style={{textDecoration:"none", color:"#ffffff"}} href="https://www.asufoundation.org/colleges-and-programs/">Learn More</a></b>
+                    : null
+          }
+
           </Typography>
         </SubmitButton>
         </Grid>
