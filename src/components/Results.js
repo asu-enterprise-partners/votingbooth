@@ -97,6 +97,7 @@ export default class Results extends Component {
                       }]
               },
               options: {
+
                   responsive: true,
                   //Customize chart options
                   "hover": {
@@ -116,7 +117,7 @@ export default class Results extends Component {
                           var meta = chartInstance.controller.getDatasetMeta(i);
                           meta.data.forEach(function(bar, index) {
                             var data = dataset.data[index];
-                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                            ctx.fillText(data, bar._model.x, bar._model.y);
                           });
                         });
                       }
@@ -157,7 +158,7 @@ export default class Results extends Component {
                         ticks: {
                               display: false,
                               fontColor: '#000000',
-                              beginAtZero: true
+                              beginAtZero: true,
                           }
                         }
                       ]
@@ -179,7 +180,7 @@ export default class Results extends Component {
             </Typography>
           </div>
 
-          <div style={{marginTop:"5%"}} className={classes.graphContainer}>
+          <div style={{marginTop:"5%", height:"auto"}} className={classes.graphContainer}>
               <canvas
                   id='myChart'
                   ref={this.chartRef}
