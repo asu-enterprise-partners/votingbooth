@@ -345,7 +345,7 @@ class StepDefault extends Component {
       (this.props.clickedvote === false)
       ?  null
       : <SubmitButton onClick={this.submitResults}>
-        <Typography variant="h6" >
+        <Typography style={{fontSize:"3vmin"}} >
           <b>Submit Your Vote</b>
         </Typography>
       </SubmitButton>
