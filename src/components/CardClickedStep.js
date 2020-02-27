@@ -75,9 +75,9 @@ class CardClickedStep extends Component{
               (this.props.clickedvote === "environment")
               ? <b>Environment</b>
               : (this.props.clickedvote === "artsculture")
-                ? <b>Arts &amp; Culture</b>
+                ? <b>Arts &amp; Community</b>
                 : (this.props.clickedvote === "health")
-                  ? <b>Health</b>
+                  ? <b>Health & Welfare</b>
                   : (this.props.clickedvote === "education")
                     ? <b>Education &amp; Scholarship</b>
                     : (this.props.clickedvote === "collegesprograms")
@@ -122,7 +122,7 @@ class CardClickedStep extends Component{
           </Grid>
         <Grid>
         <SubmitButton onClick={this.submitResults}>
-          <Typography style={{fontSize:"3vmin"}} >
+          <Typography>
           {
             (this.props.clickedvote === "environment")
             ? <b><a style={{textDecoration:"none", color:"#ffffff"}} target="_blank" href="https://www.asufoundation.org/environment/">Learn More</a></b>
