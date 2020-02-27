@@ -122,7 +122,7 @@ class CardClickedStep extends Component{
           </Grid>
         <Grid>
         <SubmitButton onClick={this.submitResults}>
-          <Typography style={{fontSize:"3vmin"}} >
+          <Typography>
           {
             (this.props.clickedvote === "environment")
             ? <b><a style={{textDecoration:"none", color:"#ffffff"}} target="_blank" href="https://www.asufoundation.org/environment/">Learn More</a></b>

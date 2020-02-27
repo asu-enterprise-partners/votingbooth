@@ -23,7 +23,7 @@ const styles = theme => ({
 class GraphicDisplayStep extends Component {
 
   timeOut(){
-    setTimeout(() => {this.props.nextStep()}, 3000)
+    setTimeout(() => {this.props.nextStep()}, 6000)
   }
 
   submitResults = (e) => {
@@ -72,15 +72,15 @@ class GraphicDisplayStep extends Component {
     <div style={{textAlign:"center"}}>
     {
       (this.props.clickedvote === "environment")
-      ? <img src={bartDancing} alt="alt description goes here" />
+      ? <img style={{width:"75%"}}src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/2df7b69e-b530-440b-9998-9d41507aa476.gif" alt="alt description goes here" />
       : (this.props.clickedvote === "artsculture")
-        ? <img src={catGIF} alt="alt description goes here" />
+        ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/e9103cb2-8b6e-4c60-9777-621ef6a602a0.gif" alt="alt description goes here" />
         : (this.props.clickedvote === "health")
-          ? <img src={drinkingGIF} alt="alt description goes here" />
+          ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/26cb08ce-903e-4941-8c9d-0cc6d0b23596.gif" alt="alt description goes here" />
           : (this.props.clickedvote === "education")
-            ? <img src={pugGIF} alt="alt description goes here" />
+            ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/d54f569b-a7f7-4c97-b1c8-79a70c5ea492.gif" alt="alt description goes here" />
             : (this.props.clickedvote === "collegesprograms")
-              ? <img src={turtleGIF} alt="alt description goes here" />
+              ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/28e36750-0316-4d2d-b22a-30e046de72e1.gif" alt="alt description goes here" />
               : null
     }
     </div>

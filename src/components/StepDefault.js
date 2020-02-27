@@ -137,7 +137,7 @@ class StepDefault extends Component {
         <b>Click these buttons below to learn more</b>
       </Typography>
     </div>
-    <div>
+    <div style={{alignItems:"center",}}>
       <Grid container direction="column" justify="flex-start" alignItems="center" spacing={3}>
         <Grid style={{marginBottom:"2%"}}>
           {
@@ -195,7 +195,7 @@ class StepDefault extends Component {
         {
           (this.props.clickedvote === "collegesprograms")
           ?
-           <VerticalButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice}  >
+           <VerticalButton style={{border:"solid 10px #5c6670"}} value="collegesprograms" onClick={this.collegeChoice}  >
               <Typography style={{fontSize:"1.2rem"}}><b>Colleges & Programs</b></Typography>
            </VerticalButton>
            :
@@ -211,7 +211,7 @@ class StepDefault extends Component {
         (this.props.clickedvote === false)
         ?  null
         : <SubmitButton onClick={this.submitResults}>
-          <Typography style={{fontSize:"3vmin"}} >
+          <Typography>
             <b>Submit Your Vote</b>
           </Typography>
         </SubmitButton>
