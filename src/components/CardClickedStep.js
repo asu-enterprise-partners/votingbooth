@@ -75,9 +75,9 @@ class CardClickedStep extends Component{
               (this.props.clickedvote === "environment")
               ? <b>Environment</b>
               : (this.props.clickedvote === "artsculture")
-                ? <b>Arts &amp; Culture</b>
+                ? <b>Arts &amp; Community</b>
                 : (this.props.clickedvote === "health")
-                  ? <b>Health</b>
+                  ? <b>Health & Welfare</b>
                   : (this.props.clickedvote === "education")
                     ? <b>Education &amp; Scholarship</b>
                     : (this.props.clickedvote === "collegesprograms")
