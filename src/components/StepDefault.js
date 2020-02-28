@@ -35,7 +35,7 @@ const VerticalButton = styled(Button)({
     paddingBottom: "",
     border: 'solid 10px #ffffff',
     position: 'relative',
-    width: '55vmin',
+    width: '100%',
     height: 'auto',
     "&:hover": {
       backgroundColor: "#ACACAC"
@@ -49,7 +49,7 @@ const ContentButton = styled(Button)({
   border: 'solid 10px #ffffff',
   position: 'relative',
   borderRadius: '20px',
-  width: '150px',
+  width: '100%',
   height: 'auto',
   "&:hover": {
     backgroundColor: "#ACACAC"
@@ -129,7 +129,7 @@ class StepDefault extends Component {
 
     return(
     <React.Fragment>
-    <div className={classes.defaultContent} style={{textAlign:"center"}}>
+    <div className={classes.defaultContent} style={{textAlign:"center", width:"100%"}}>
       <Typography style={{fontSize:"3.0vmin"}} color="textPrimary">
         <b>Vote for the cause you're passionate about!</b>
       </Typography>
@@ -137,12 +137,13 @@ class StepDefault extends Component {
         <b>Click these buttons below to learn more</b>
       </Typography>
     </div>
-    <div style={{alignItems:"center",}}>
+    <div style={{alignItems:"center"}}>
       <Grid container direction="column" justify="flex-start" alignItems="center" spacing={3}>
-        <Grid style={{marginBottom:"2%"}}>
-          {
+        <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
+        {
             (this.props.clickedvote === "environment")
             ?
+
              <VerticalButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice}>
                 <Typography style={{fontSize:"1.2rem"}}><b>Environment</b></Typography>
              </VerticalButton>
@@ -150,8 +151,9 @@ class StepDefault extends Component {
               <VerticalButton style={{fontSize:"1.2rem"}} value={"environment"} onClick={this.environmentChoice}>
                 <Typography style={{fontSize:"1.2rem"}}><b>Environment</b></Typography>
               </VerticalButton>
-       }
-        </Grid>
+        }
+        </div>
+        <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
           {
             (this.props.clickedvote === "artsculture")
@@ -165,6 +167,8 @@ class StepDefault extends Component {
               </VerticalButton>
           }
         </Grid>
+        </div>
+        <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
           {
             (this.props.clickedvote === "health")
@@ -178,6 +182,8 @@ class StepDefault extends Component {
               </VerticalButton>
           }
         </Grid>
+        </div>
+        <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
         {
           (this.props.clickedvote === "education")
@@ -191,6 +197,8 @@ class StepDefault extends Component {
             </VerticalButton>
         }
         </Grid>
+        </div>
+        <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
         {
           (this.props.clickedvote === "collegesprograms")
@@ -204,235 +212,21 @@ class StepDefault extends Component {
             </VerticalButton>
         }
         </Grid>
-      </Grid>
-
-      <div style={{marginTop:"20px", textAlign: "center"}}>
-      {
-        (this.props.clickedvote === false)
-        ?  null
-        : <SubmitButton onClick={this.submitResults}>
-          <Typography>
-            <b>Submit Your Vote</b>
-          </Typography>
-        </SubmitButton>
-      }
       </div>
-  </div>
-  </React.Fragment>
-
-    // <Grid container spacing={8} style={{padding:'5%'}} alignItems = "center" justify = "center">
-    //   <Grid style={{padding:'20px', marginBottom:'1%'}} align = "center">
-    //   {
-    //     (this.props.clickedvote === "environment")
-    //     ?
-    //         <ContentButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice} >
-    //         <Grid direction="column">
-    //           <Grid justify = "flex-end">
-    //             <Typography style={{fontSize:"3vmin"}} >
-    //             🛈
-    //             </Typography>
-    //           </Grid>
-    //           <Grid alignItems = "center">
-    //             <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
-    //           </Grid>
-    //           <Grid alignItems = "center">
-    //             <Typography style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}} >
-    //               <b>Environment</b>
-    //               </Typography>
-    //           </Grid>
-    //         </Grid>
-    //         </ContentButton>
-    //     :
-    //     <ContentButton value={"environment"} onClick={this.environmentChoice} >
-    //     <Grid direction="column">
-    //     <Grid justify = "flex-end">
-    //       <Typography style={{fontSize:"4vmin"}} >
-    //       🛈
-    //       </Typography>
-    //     </Grid>
-    //       <Grid alignItems = "center">
-    //         <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={growthIcon}/>
-    //       </Grid>
-    //       <Grid alignItems = "center">
-    //         <Typography style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //           <b>Environment</b>
-    //           </Typography>
-    //       </Grid>
-    //     </Grid>
-    //     </ContentButton>
-    //   }
-    //   </Grid>
-    //   <Grid style={{padding:'20px', marginBottom:'1%'}}  align = "center">
-    //   {
-    //     (this.props.clickedvote === "artsculture")
-    //     ?
-    //         <ContentButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice} >
-    //
-    //         <Grid direction="column">
-    //         <Grid justify = "flex-end">
-    //           <Typography style={{fontSize:"3vmin"}} >
-    //           🛈
-    //           </Typography>
-    //         </Grid>
-    //           <Grid alignItems = "center">
-    //             <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
-    //           </Grid>
-    //           <Grid alignItems = "center">
-    //             <Typography style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //               <b>Arts & Culture</b>
-    //               </Typography>
-    //           </Grid>
-    //         </Grid>
-    //         </ContentButton>
-    //     :
-    //     <ContentButton value="artsculture" onClick={this.artscultureChoice} >
-    //
-    //     <Grid direction="column">
-    //     <Grid justify = "flex-end">
-    //       <Typography style={{fontSize:"3vmin"}} >
-    //       🛈
-    //       </Typography>
-    //     </Grid>
-    //       <Grid alignItems = "center">
-    //         <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={artIcon}/>
-    //       </Grid>
-    //       <Grid alignItems = "center">
-    //         <Typography style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //           <b>Arts & Culture</b>
-    //           </Typography>
-    //       </Grid>
-    //     </Grid>
-    //     </ContentButton>
-    //   }
-    //   </Grid>
-    // <Grid style={{padding:'20px', marginBottom:'1%'}}  align = "center">
-    //   {
-    //     (this.props.clickedvote === "health")
-    //     ?
-    //         <ContentButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice} >
-    //         <Grid direction="column">
-    //         <Grid justify = "flex-end">
-    //           <Typography style={{fontSize:"3vmin"}} >
-    //           🛈
-    //           </Typography>
-    //         </Grid>
-    //           <Grid alignItems = "center">
-    //             <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
-    //           </Grid>
-    //           <Grid alignItems = "center">
-    //             <Typography variant="body1" style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //               <b>Health</b>
-    //               </Typography>
-    //           </Grid>
-    //         </Grid>
-    //         </ContentButton>
-    //     :
-    //     <ContentButton value="health" onClick={this.healthChoice} >
-    //     <Grid direction="column">
-    //     <Grid justify = "flex-end">
-    //       <Typography style={{fontSize:"3vmin"}} >
-    //       🛈
-    //       </Typography>
-    //     </Grid>
-    //       <Grid alignItems = "center">
-    //         <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={healthIcon}/>
-    //       </Grid>
-    //       <Grid alignItems = "center">
-    //         <Typography variant="body1" style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //           <b>Health</b>
-    //           </Typography>
-    //       </Grid>
-    //     </Grid>
-    //     </ContentButton>
-    //   }
-    //   </Grid>
-    // </Grid>
-    //
-    // <Grid container spacing ={8} justify = "center">
-    //   <Grid style={{padding:'20px', marginBottom:'1%'}}  align = "center">
-    //   {
-    //     (this.props.clickedvote === "education")
-    //     ?
-    //         <ContentButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
-    //         <Grid direction="column">
-    //         <Grid justify = "flex-end">
-    //           <Typography style={{fontSize:"3vmin"}} >
-    //           🛈
-    //           </Typography>
-    //         </Grid>
-    //           <Grid alignItems = "center">
-    //             <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
-    //           </Grid>
-    //           <Grid alignItems = "center">
-    //             <Typography variant="body1" style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //               <b>Education & Scholarship</b>
-    //               </Typography>
-    //           </Grid>
-    //         </Grid>
-    //         </ContentButton>
-    //     :
-    //     <ContentButton value="education" onClick={this.educationChoice} >
-    //     <Grid direction="column">
-    //     <Grid justify = "flex-end">
-    //       <Typography style={{fontSize:"3vmin"}} >
-    //       🛈
-    //       </Typography>
-    //     </Grid>
-    //       <Grid alignItems = "center">
-    //         <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={educationIcon}/>
-    //       </Grid>
-    //       <Grid alignItems = "center">
-    //         <Typography variant="body1" style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //           <b>Education & Scholarship</b>
-    //           </Typography>
-    //       </Grid>
-    //     </Grid>
-    //     </ContentButton>
-    //   }
-    //   </Grid>
-    //   <Grid style={{padding:'20px', marginBottom:'1%'}} align = "center">
-    //   {
-    //     (this.props.clickedvote === "collegesprograms")
-    //     ?
-    //         <ContentButton style={{border:"solid 10px #000000"}} value="collegesprograms" onClick={this.collegeChoice} >
-    //         <Grid direction="column">
-    //         <Grid justify = "flex-end">
-    //           <Typography style={{fontSize:"3vmin"}} >
-    //           🛈
-    //           </Typography>
-    //         </Grid>
-    //           <Grid alignItems = "center">
-    //             <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
-    //           </Grid>
-    //           <Grid alignItems = "center">
-    //             <Typography variant="body1" style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"} }  >
-    //               <b>Colleges & Programs</b>
-    //               </Typography>
-    //           </Grid>
-    //         </Grid>
-    //         </ContentButton>
-    //     :
-    //     <ContentButton value="collegesprograms" onClick={this.collegeChoice} >
-    //     <Grid direction="column">
-    //     <Grid justify = "flex-end">
-    //       <Typography style={{fontSize:"3vmin"}} >
-    //       🛈
-    //       </Typography>
-    //     </Grid>
-    //       <Grid alignItems = "center">
-    //         <img alt="alt tag description goes here" style={{height:"auto", width:"100%", maxWidth:"64px", padding:"5px"}} src={collegeIcon}/>
-    //       </Grid>
-    //       <Grid alignItems = "center">
-    //         <Typography style={{fontSize:"1.8vmin", lineHeight:"1.8vmin"}}  >
-    //           <b>Colleges & Programs</b>
-    //           </Typography>
-    //       </Grid>
-    //     </Grid>
-    //     </ContentButton>
-    //   }
-    //   </Grid>
-    // </Grid>
-
+      </Grid>
+      </div>
+      </React.Fragment>
+      // <div style={{marginTop:"20px", textAlign: "center"}}>
+      // {
+      //   (this.props.clickedvote === false)
+      //   ?  null
+      //   : <SubmitButton onClick={this.submitResults}>
+      //     <Typography>
+      //       <b>Submit Your Vote</b>
+      //     </Typography>
+      //   </SubmitButton>
+      // }
+      // </div>
 
     )
   }
