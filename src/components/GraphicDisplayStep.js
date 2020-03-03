@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import bartDancing from '../icons/bart-dancing.gif';
-import catGIF from '../icons/cat.gif';
-import drinkingGIF from '../icons/drinking.gif';
-import pugGIF from '../icons/pug.gif';
-import turtleGIF from '../icons/turtle.gif';
 
 const styles = theme => ({
   root: {

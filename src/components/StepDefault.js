@@ -5,11 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import growthIcon from '../icons/growth.png';
-import artIcon from '../icons/art.png';
-import healthIcon from '../icons/medicine.png';
-import educationIcon from '../icons/diploma.png';
-import collegeIcon from '../icons/school.png';
 
 import firebase from './../Firebase.js'
 
@@ -40,32 +35,6 @@ const VerticalButton = styled(Button)({
     "&:hover": {
       backgroundColor: "#ACACAC"
     },
-});
-
-
-const ContentButton = styled(Button)({
-  background: '#F1F1F1',
-  paddingBottom: 'inherit',
-  border: 'solid 10px #ffffff',
-  position: 'relative',
-  borderRadius: '20px',
-  width: '100%',
-  height: 'auto',
-  "&:hover": {
-    backgroundColor: "#ACACAC"
-  },
-});
-
-const SubmitButton = styled(Button)({
-  background: '#8c1d40',
-  color: '#ffffff',
-  border: '0',
-  borderRadius: '40px',
-  height: 48,
-  padding: '0 10%',
-  "&:hover": {
-    backgroundColor: "#353535"
-  },
 });
 
 class StepDefault extends Component {
