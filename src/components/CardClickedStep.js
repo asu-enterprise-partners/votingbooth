@@ -13,6 +13,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
+import firebase from './../Firebase.js'
 
 const styles = theme => ({
   root: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
 });
 
 const SubmitButton = styled(Button)({
-  background: '#000000',
+  background: '#8c1d40',
   color: '#ffffff',
   border: '0',
   borderRadius: '40px',
@@ -49,7 +50,27 @@ const SubmitButton = styled(Button)({
   },
 });
 
+
 class CardClickedStep extends Component{
+
+  submitResults = (e) => {
+
+    e.preventDefault()
+    this.props.nextStep()
+    console.log('you voted for:');
+    console.log(this.props.clickedvote);
+    console.log('now increment the value');
+
+    const db = firebase.firestore();
+
+    const increment = firebase.firestore.FieldValue.increment(1);
+
+    const voteIncrementRef = db.collection('causes').doc(this.props.clickedvote);
+
+    voteIncrementRef.update({ votes: increment });
+
+  }
+
 
   choiceOfUser = (e) => {
     e.preventDefault()
@@ -107,86 +128,35 @@ class CardClickedStep extends Component{
           <Typography style={{fontSize:"2.6vmin"}} color="black" component="p">
               {
                 (this.props.clickedvote === "environment")
-                ? <p>Climate change. Natural resources. Food production. Biodiversity. Our planet is plagued by sustainability issues. ASU is taking action and fighting for our environment through many programs and initiatives that are making a difference.</p>
+                ? <p>Climate change. Natural resources. Food production. Biodiversity. Our planet is plagued by sustainability issues. ASU is taking action and fighting for our environment through many programs and initiatives that are making a difference. <a style={{textDecoration:"", color:"#000000"}} target="_blank" href="https://www.asufoundation.org/environment/"> Learn More</a></p>
                 : (this.props.clickedvote === "artsculture")
-                  ? <p>ASU is committed to helping the arts thrive. Take ASU Gammage’s Cultural Participation program, which provides access to community arts programs, innovative academic tools and world-class artists to people of all ages, economic levels and backgrounds.</p>
+                  ? <p>ASU is committed to helping the arts thrive. Take ASU Gammage’s Cultural Participation program, which provides access to community arts programs, innovative academic tools and world-class artists to people of all ages, economic levels and backgrounds. <a style={{textDecoration:"", color:"#000000"}} target="_blank" href="https://www.asufoundation.org/arts-and-community/"> Learn More</a></p>
                   : (this.props.clickedvote === "health")
-                    ? <p>Fighting cancer. Curing disease. Alleviating hunger. Providing access to healthcare and educational programs for the underserved. Promoting healthy communities. Improving the quality of life for all. ASU is making a difference.</p>
+                    ? <p>Fighting cancer. Curing disease. Alleviating hunger. Providing access to healthcare and educational programs for the underserved. Promoting healthy communities. Improving the quality of life for all. ASU is making a difference. <a style={{textDecoration:"", color:"#000000"}} target="_blank" href="https://www.asufoundation.org/health-and-welfare/"> Learn More</a></p>
                     : (this.props.clickedvote === "education")
-                      ? <p>ASU is increasing access to higher education and opportunity for students from all walks of life and economic backgrounds. Many initiatives and scholarships are in place to advance this mission and help students thrive at ASU and beyond.</p>
+                      ? <p>ASU is increasing access to higher education and opportunity for students from all walks of life and economic backgrounds. Many initiatives and scholarships are in place to advance this mission and help students thrive at ASU and beyond. <a style={{textDecoration:"", color:"#000000"}} target="_blank" href="https://www.asufoundation.org/education-and-scholarship/"> Learn More</a></p>
                       : (this.props.clickedvote === "collegesprograms")
-                        ? <p>ASU is home to Sun Devil Athletics, the ASU Alumni Association, ASU Family and Arizona PBS, in addition to an assortment of schools and colleges, programs and centers that bring people together from all walks of life in pursuit of meaningful work.</p>
+                        ? <p>ASU is home to Sun Devil Athletics, the ASU Alumni Association, ASU Family and Arizona PBS, in addition to an assortment of schools and colleges, programs and centers that bring people together from all walks of life in pursuit of meaningful work. <a style={{textDecoration:"", color:"#000000"}} target="_blank" href="https://www.asufoundation.org/colleges-and-programs/">Learn More</a></p>
                         : null
               }
               </Typography>
           </Grid>
         <Grid>
-        <SubmitButton onClick={this.submitResults}>
-          <Typography>
+          <div style={{marginTop:"20px", textAlign: "center"}}>
           {
-            (this.props.clickedvote === "environment")
-            ? <b><a style={{textDecoration:"none", color:"#ffffff"}} target="_blank" href="https://www.asufoundation.org/environment/">Learn More</a></b>
-            : (this.props.clickedvote === "artsculture")
-              ? <b><a style={{textDecoration:"none", color:"#ffffff"}}target="_blank" href="https://www.asufoundation.org/arts-and-community/">Learn More</a></b>
-              : (this.props.clickedvote === "health")
-                ? <b><a style={{textDecoration:"none", color:"#ffffff"}}target="_blank" href="https://www.asufoundation.org/health-and-welfare/">Learn More</a></b>
-                : (this.props.clickedvote === "education")
-                  ? <b><a style={{textDecoration:"none", color:"#ffffff"}} target="_blank" href="https://www.asufoundation.org/education-and-scholarship/">Learn More</a></b>
-                  : (this.props.clickedvote === "collegesprograms")
-                    ? <b><a style={{textDecoration:"none", color:"#ffffff"}} target="_blank" href="https://www.asufoundation.org/colleges-and-programs/">Learn More</a></b>
-                    : null
+            (this.props.clickedvote === false)
+            ?  null
+            : <SubmitButton onClick={this.submitResults}>
+              <Typography>
+                <b>Submit Your Vote</b>
+              </Typography>
+            </SubmitButton>
           }
-          </Typography>
-        </SubmitButton>
+          </div>
         </Grid>
       </Grid>
       </div>
       </React.Fragment>
-
-
-      // <div style={{ display:'flex', justifyContent:'center' }}>
-      // <Card style={{maxWidth:345, backgroundColor:"#ffffff"}}className={useStyles.card}>
-      //   <div style={{ float:'left', margin:'20px' }}><IconButton onClick={this.back}><ArrowBackIcon style={{fontSize:35, fill:"black"}}/></IconButton></div>
-      //   <CardActionArea >
-      //     <CardContent style={{ display:'flex', justifyContent:'center' }}>
-      //     <Typography style={{fontSize:30, color:"#000000"}} color="textSecondary" gutterBottom>
-      //     {
-      //       (this.props.clickedvote === "environment")
-      //       ? <b>Environment</b>
-      //       : (this.props.clickedvote === "artsculture")
-      //         ? <b>Arts &amp; Culture</b>
-      //         : (this.props.clickedvote === "health")
-      //           ? <b>Health</b>
-      //           : (this.props.clickedvote === "education")
-      //             ? <b>Education</b>
-      //             : (this.props.clickedvote === "collegesprograms")
-      //               ? <b>Colleges &amp; Programs</b>
-      //               : null
-      //     }
-      //     </Typography>
-      //     </CardContent>
-      //     <CardMedia/>
-      //     <CardContent>
-      //       <Typography variant="body2" color="textSecondary" component="p">
-      //       {
-      //         (this.props.clickedvote === "environment")
-      //         ? <p>Paragraph about environment.</p>
-      //         : (this.props.clickedvote === "artsculture")
-      //           ? <p>Paragraph about arts and culture.</p>
-      //           : (this.props.clickedvote === "health")
-      //             ? <p>Paragraph about health programs.</p>
-      //             : (this.props.clickedvote === "education")
-      //               ? <p>Paragraph about education.</p>
-      //               : (this.props.clickedvote === "collegesprograms")
-      //                 ? <p>Paragraph about colleges and programs.</p>
-      //                 : null
-      //       }
-      //       </Typography>
-      //     </CardContent>
-      //   </CardActionArea>
-      // </Card>
-      // </div>
-
     )
   }
 }

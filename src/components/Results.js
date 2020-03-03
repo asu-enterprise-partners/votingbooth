@@ -6,16 +6,8 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { styled } from '@material-ui/styles';
-
 import firebase from './../Firebase.js'
-
-const styles = theme => ({
-  circle: {
-    height: '50px',
-    width:  '50px',
-    borderRadius: '50%'
-  }
-})
+import 'chartjs-plugin-labels'
 
 const SubmitButton = styled(Button)({
   background: '#8c1d40',
@@ -62,125 +54,54 @@ export default class Results extends Component {
                 labels: ['Environment', 'Arts & Culture', 'Health', 'Education', 'Colleges & Programs'],
                 datasets:[{
                   data: [voteData[3].votes, voteData[0].votes, voteData[4].votes, voteData[2].votes, voteData[1].votes],
-                  backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(0, 0, 0, 1)'],
+                  backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(92, 102, 112, 1)'],
                 }],
 
+              },
+              options: {
+                  maintainAspectRatio: false,
+                  responsive: true,
+                  //Customize chart options
+                  tooltips:{
+                    custom : function(tooltipModel){
+                      tooltipModel.opacity = 0;
+                    }
+                  },
+                  "hover": {
+                    "animationDuration": 0
+                  },
+                  title: {
+                      display: false,
+                      text: "",
+                      fontColor: '#000000',
+                  },
+                  legend: {
+                      onClick: function(e){
+                        e.stopPropagation();
+                      },
+                      display: true,
+                      position: 'bottom',
+                      labels: {
+                        fontSize: 15,
+                        fontColor: 'black',
+
+                      },
+                  },
+                  elements:{
+                    arc:{
+                      borderWidth: 0,
+                    }
+                  },
+                  plugins: {
+                    labels:{
+                      render: 'value',
+                      fontSize: 20,
+                      fontColor: '#ffffff',
+                      textShadow: true,
+                      shadowBlur: 3,
+                    }
+                  },
               }
-
-
-
-
-              // data: {
-              //     //Bring in data
-              //     //labels: ['Environment', 'Arts & Culture', 'Health', 'Education', 'Colleges & Programs'],
-              //     labels:['Total Votes'],
-              //     datasets: [
-              //         {
-              //             // label: 'Total Votes',
-              //             // data: [voteData[3].votes, voteData[0].votes, voteData[4].votes, voteData[2].votes, voteData[1].votes],
-              //             // backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(0, 0, 0, 1)']
-              //             label: 'Environment',
-              //             data: [voteData[3].votes],
-              //             backgroundColor: 'rgba(120, 190, 32, 1)'
-              //         },
-              //
-              //         {
-              //             label: 'Arts & Community',
-              //             data: [voteData[0].votes],
-              //             backgroundColor: 'rgba(0, 163, 224, 1)'
-              //         },
-              //
-              //         {
-              //             label: 'Health & Welfare',
-              //             data: [voteData[4].votes],
-              //             backgroundColor: 'rgba(255, 127, 50, 1)'
-              //         },
-              //
-              //         {
-              //             label: 'Education & Scholarship',
-              //             data: [voteData[2].votes],
-              //             backgroundColor: 'rgba(140, 29, 64, 1)'
-              //         },
-              //
-              //         {
-              //             label: 'Colleges & Programs',
-              //             data: [voteData[1].votes],
-              //             backgroundColor: 'rgba(92, 102, 112, 1)'
-              //         }]
-              // },
-              // options: {
-              //
-              //     responsive: true,
-              //     //Customize chart options
-              //     "hover": {
-              //       "animationDuration": 0
-              //     },
-              //      "animation": {
-              //         "duration": 1,
-              //         "onComplete": function() {
-              //           var chartInstance = this.chart,
-              //           ctx = chartInstance.ctx;
-              //
-              //           ctx.font = Chart.helpers.fontString(15, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-              //           ctx.textAlign = 'center';
-              //           ctx.textBaseline = 'middle';
-              //
-              //           this.data.datasets.forEach(function(dataset, i) {
-              //             var meta = chartInstance.controller.getDatasetMeta(i);
-              //             meta.data.forEach(function(bar, index) {
-              //               var data = dataset.data[index];
-              //               ctx.fillText(data, bar._model.x, bar._model.y+2);
-              //             });
-              //           });
-              //         }
-              //     },
-              //     title: {
-              //         display: false,
-              //         text: "",
-              //         fontColor: '#000000',
-              //     },
-              //     legend: {
-              //         onClick: function(e){
-              //           e.stopPropagation();
-              //         },
-              //         display: true,
-              //         position: 'bottom',
-              //         labels: {
-              //           fontSize: 15,
-              //           fontColor: 'black',
-              //
-              //         },
-              //     },
-              //     scales: {
-              //         xAxes: [
-              //           {
-              //           ticks: {
-              //                 display: false,
-              //                 autoSkip: false,
-              //                 maxRotation: 0,
-              //                 minRotation: 0,
-              //                 fontColor: '#000000',
-              //             }
-              //           }
-              //         ],
-              //         yAxes: [
-              //           {
-              //           gridLines: {
-              //                 drawBorder: false,
-              //                 display: false,
-              //             },
-              //           ticks: {
-              //                 display: false,
-              //                 fontColor: '#000000',
-              //                 beginAtZero: true,
-              //             }
-              //           }
-              //         ]
-              //       },
-              // }
-
-
-
           });
 
         });
@@ -197,8 +118,8 @@ export default class Results extends Component {
             </Typography>
           </div>
 
-          <div style={{marginTop:"5%", height:"auto"}} className={classes.graphContainer}>
-              <canvas
+          <div style={{marginTop:"2%", height:"200px !important" }} className={classes.graphContainer}>
+              <canvas style={{width:"300px", height: "300px"}}
                   id='myChart'
                   ref={this.chartRef}
               />
