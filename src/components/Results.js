@@ -1,295 +1,160 @@
-import React, { Component } from 'react';
-import { styled } from '@material-ui/styles';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from 'react'
+import Chart from 'chart.js';
+import classes from './BarGraph.module.css';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Link from '@material-ui/core/Link';
+import { styled } from '@material-ui/styles';
+import firebase from './../Firebase.js'
+import 'chartjs-plugin-labels'
 
-import { css } from '@emotion/core'
-
-const styles = theme => ({
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-  },
-  cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  recapSection: {
-    borderColor: '#8c1d40',
-    borderStyle: 'dotted',
-    borderWidth: '1px',
-    padding: '10px'
-  },
-  veCard: {
-    backgroundColor: '#ffc627',
-  },
-  fundName: {
-    fontWeight: 900
-  },
-  subFundName: {
-    fontWeight: 900
-  },
-  moreInfoLink: {
-    fontWeight: 900,
-    color: 'black'
-  }
-});
-
-const ASUButton = styled(Button)({
-  background: 'black',
-  border: 0,
-  borderRadius: 10,
-  color: '#ffc627',
+const SubmitButton = styled(Button)({
+  background: '#8c1d40',
+  color: '#ffffff',
+  border: '0',
+  borderRadius: '40px',
   height: 48,
-  padding: '0 30px',
-  marginRight: '10px',
+  padding: '0 10%',
   "&:hover": {
-      //you want this to be the same as the backgroundColor above
-      backgroundColor: "#353535"
-  }
+    backgroundColor: "#353535"
+  },
 });
 
-const ASUButtonEdit = styled(Button)({
-  background: 'black',
-  border: 0,
-  borderRadius: 10,
-  color: '#ffc627',
-  height: 24,
-  padding: '0 20px',
-  marginRight: '10px',
-  "&:hover": {
-      //you want this to be the same as the backgroundColor above
-      backgroundColor: "#353535"
-  }
+const ShareButton = styled(Button)({
+  background: 'none',
+  border: '0',
+  borderRadius: '40px',
+  height: 48,
+  padding: '0 10%',
 });
 
-// const ASUButtonSmall = styled(Button)({
-//   background: 'black',
-//   border: 0,
-//   borderRadius: 10,
-//   color: '#ffc627',
-//   height: 24,
-//   padding: '0 30px',
-//   "&:hover": {
-//       backgroundColor: "#353535"
-//   }
-// });
+export default class Results extends Component {
+    chartRef = React.createRef();
 
-class Results extends Component{
-    saveAndContinue = (e) => {
-        e.preventDefault();
-        this.props.nextStep();
+    startOverStep = (e) => {
+      e.preventDefault();
+      this.props.startOver();
     }
 
-    back = (e) => {
-        e.preventDefault();
-        this.props.prevStep();
+    componentDidMount() {
+        const myChartRef = this.chartRef.current.getContext('2d');
+        console.log('pull in the results here and distribute the data');
+
+        const db = firebase.firestore();
+        db.collection("causes")
+        .get()
+        .then(querySnapshot => {
+          const voteData = querySnapshot.docs.map(doc => doc.data());
+          console.log(voteData); // array of cities objects
+
+          new Chart(myChartRef, {
+              type: 'pie',
+              data: {
+                labels: ['Environment', 'Arts & Culture', 'Health', 'Education', 'Colleges & Programs'],
+                datasets:[{
+                  data: [voteData[3].votes, voteData[0].votes, voteData[4].votes, voteData[2].votes, voteData[1].votes],
+                  backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(92, 102, 112, 1)'],
+                }],
+
+              },
+              options: {
+                  maintainAspectRatio: false,
+                  responsive: true,
+                  //Customize chart options
+                  tooltips:{
+                    custom : function(tooltipModel){
+                      tooltipModel.opacity = 0;
+                    }
+                  },
+                  "hover": {
+                    "animationDuration": 0
+                  },
+                  title: {
+                      display: false,
+                      text: "",
+                      fontColor: '#000000',
+                  },
+                  legend: {
+                      onClick: function(e){
+                        e.stopPropagation();
+                      },
+                      display: true,
+                      position: 'bottom',
+                      labels: {
+                        fontSize: 15,
+                        fontColor: 'black',
+
+                      },
+                  },
+                  elements:{
+                    arc:{
+                      borderWidth: 0,
+                    }
+                  },
+                  plugins: {
+                    labels:{
+                      render: 'value',
+                      fontSize: 20,
+                      fontColor: '#ffffff',
+                      textShadow: true,
+                      shadowBlur: 3,
+                    }
+                  },
+              }
+          });
+
+        });
     }
-
-    firstStep = (e) => {
-        e.preventDefault();
-        this.props.firstStep();
-    }
-
-    secondStep = (e) => {
-        e.preventDefault();
-        this.props.secondStep();
-    }
-
-    startOver = (e) => {
-        e.preventDefault();
-        this.props.startOver();
-    }
-
-    render(){
-
-      const { classes } = this.props;
-
-      const affiliatedwithasu = this.props.isAffiliatedWithASU;
-      const anundergradstudent = this.props.isAnUndergradStudent;
-      const agraduatestudent = this.props.isAGraduateStudent;
-      const faculty = this.props.isFaculty;
-      const universitystaff = this.props.isUniversityStaff;
-      const community = this.props.isCommunity;
-      const anyone = this.props.isAnyone;
-
-      const companyvaluation = this.props.theCompanyValuation;
-
-      const interestedinfundingtosupport = this.props.theInterestedInFundingToSupport;
-      const manufacturinghardware = this.props.isManufacturingHardware;
-      const socialsports = this.props.isSocialSports;
-      const health = this.props.isHealth;
-      const veterans = this.props.isVeterans;
-      const media = this.props.isMedia;
-      const generaltechnology = this.props.isGeneralTechnology;
-      const edtech = this.props.idEdTech;
-      const internetofthings = this.props.isInternetOfThings;
-      const other = this.props.isOther;
-
-      const ourResults = this.props.ourResults;
-
-        return(
-
+    render() {
+        return (
           <React.Fragment>
+          <div style={{textAlign:"center", paddingBottom:"5%"}}>
+            <Typography style={{fontSize:"3.0vmin"}} color="textPrimary">
+              <b>Thanks for voting!</b>
+            </Typography>
+            <Typography style={{fontSize:"2.0vmin"}} color="textPrimary">
+              <b>Vote again or share with friends</b>
+            </Typography>
+          </div>
 
-              <Typography variant="h6" gutterBottom className={classes.recapSection}>
-                I am:
-                <ul>
-                  {affiliatedwithasu ? <li>affiliated with ASU</li> : ''}
-                  {anundergradstudent ? <li>an undergrad student</li> : ''}
-                  {agraduatestudent ? <li>a graduate student</li> : ''}
-                  {faculty ? <li>a faculty member</li> : ''}
-                  {universitystaff ? <li>university staff</li> : ''}
-                  {community ? <li>community</li> : ''}
-                  {anyone ? <li>anyone</li> : ''}
-                  {companyvaluation ? <li>the owner of a company valued between {companyvaluation}</li> : ''}
-                </ul>
-                {/*<ASUButtonEdit onClick={this.firstStep}>
-                  Edit
-                </ASUButtonEdit>*/}
-              </Typography>
+          <div style={{marginTop:"2%", height:"200px !important" }} className={classes.graphContainer}>
+              <canvas style={{width:"300px", height: "300px"}}
+                  id='myChart'
+                  ref={this.chartRef}
+              />
+          </div>
 
-              <Typography variant="h6" gutterBottom className={classes.recapSection}>
-                I am interested in funding to support:
-
-                <ul>
-                  {(function() {
-                          switch(interestedinfundingtosupport) {
-                            case 'ideationtoprototyping':
-                              return <li>Ideation to Prototyping</li>;
-                            case 'ideationtobusinessformation':
-                              return <li>Ideation to Business Formation</li>;
-                            case 'prototypetobusinessformation':
-                              return <li>Prototype to Business Formation</li>;
-                            case 'prototypetocustomeracquisition':
-                              return <li>Prototype to Customer Acquisition</li>;
-                            case 'customeracquisitionandemerginggrowth':
-                              return <li>Customer Acquisition & Emerging Growth</li>;
-                            default:
-                              return null;
-                          }
-                        })()}
-                </ul>
-                {/*<ASUButtonEdit onClick={this.secondStep}>
-                  Edit
-                </ASUButtonEdit>*/}
-              </Typography>
-
-              <Typography variant="h6" gutterBottom className={classes.recapSection}>
-                In the areas of:
-                <ul>
-                  {manufacturinghardware ? <li>Manufacturing / Hardware</li> : ''}
-                  {socialsports ? <li>Social / Sports</li> : ''}
-                  {health ? <li>Health</li> : ''}
-                  {veterans ? <li>Veterans</li> : ''}
-                  {media ? <li>Media</li> : ''}
-                  {generaltechnology ? <li>General Technology</li> : ''}
-                  {edtech ? <li>EdTech</li> : ''}
-                  {internetofthings ? <li>Internet of Things</li> : ''}
-                  {other ? <li>Other</li> : ''}
-                </ul>
-                {/*<ASUButtonEdit onClick={this.secondStep}>
-                  Edit
-                </ASUButtonEdit>*/}
-              </Typography>
-
-            <hr />
-
-            {ourResults.length > 0 ? <Typography variant="h6" gutterBottom>Here are the {ourResults.length} ways the ASU Venture Ecosystem can help:</Typography> : 'No results found. Please try again.'}
-            <ASUButton onClick={this.startOver}>
-              Start Over
-            </ASUButton>
-
-            <div className={classNames(classes.layout, classes.cardGrid)}>
-
-              <Grid container spacing={24}>
-                {ourResults.map((fund, id) => (
-                  <Grid item key={id} xs={6}>
-                    <Card className={classNames(classes.card, classes.veCard)}>
-                      <CardContent className={classes.cardContent}
-                        css={css`
-                          border-radius: 30px;
-                        `}
-                        >
-                        <Typography gutterBottom variant="h5" component="h2" className={classes.fundName}>
-                          {fund['Venture Ecosystem']}
-                        </Typography>
-                        <Typography>
-                          {fund.Description}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Program Type:
-                        </Typography>
-                        <Typography>
-                          {fund['Program Type']}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Funding Available:
-                        </Typography>
-                        <Typography>
-                          {fund.Min} - {fund.Max}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Funding Stage:
-                        </Typography>
-                        <Typography>
-                          {fund['Funding Stage']}
-                        </Typography>
-                        <Typography className={classes.subFundName}>
-                          Support Type:
-                        </Typography>
-                        <Typography>
-                          {fund['Support Type']}
-                        </Typography>
-                      </CardContent>
-                      <CardActions className={classes.moreInfoLink}>
-                          <Link href={fund.URL} className={classes.moreInfoLink} target="_blank">
-                            More info ...
-                          </Link>
-                      </CardActions>
-                    </Card>
-                  </Grid>
-                ))}
+          <div style={{marginTop:"20px", textAlign: "center"}}>
+            <Grid container spacing = {3} justify = "center">
+              <Grid item xs={6}>
+              <SubmitButton onClick={this.startOverStep}>
+                <Typography>
+                  <b>Vote Again</b>
+                </Typography>
+              </SubmitButton>
               </Grid>
-
-            </div>
-
-            <Grid item>
-              {/*<ASUButton onClick={this.back}>
-                Print
-              </ASUButton>
-              <ASUButton onClick={this.back}>
-                Email
-              </ASUButton>*/}
-              <ASUButton onClick={this.startOver}>
-                Start Over
-              </ASUButton>
             </Grid>
-
+            <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
+              <Grid item xs={6}>
+              <Typography style={{fontSize:"2.5vmin"}} >
+                <b>Share This</b>
+              </Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing = {0} justify = "center">
+              <Grid>
+              <ShareButton href="https://www.facebook.com/sharer/sharer.php?u=http://sdgdvote.com/" target="_blank">
+                <img style={{height:"auto", width:"60%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/>
+              </ShareButton>
+              </Grid>
+              <Grid>
+              <ShareButton href="https://twitter.com/intent/tweet?url=sdgdvote.com&text=Today%20I'm%20celebrating%20%23SunDevilGivingDay%20at%20ASU.%20This%20day%20gives%20me%20a%20chance%20to%20support%20what%20I'm%20passionate%20about%20and%20be%20a%20part%20of%20real%20change.%20I've%20voted%20for%20the%20cause%20I%20believe%20in%20—%20join%20me%20and%20vote%20now!%20sdgdvote.com" target="_blank">
+                <img style={{height:"auto", width:"60%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
+              </ShareButton>
+              </Grid>
+            </Grid>
+          </div>
           </React.Fragment>
-
         )
     }
 }
-
-Results.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Results);
