@@ -73,7 +73,7 @@ class CardClickedStep extends Component{
       <Grid direction="column" style={{textAlign:"center"}}>
       <IconButton onClick={this.back}><ArrowBackIcon style={{fontSize:50, fill:"black", margin:"10px"}}/></IconButton>
       <Grid>
-        <Typography style={{fontSize:"5.0vmin", color:"#000000", alignItems:"center"}} color="textSecondary" gutterBottom>
+        <Typography style={{fontSize:"6.0vmin", color:"#000000", alignItems:"center"}} color="textSecondary" gutterBottom>
             {
               (this.props.clickedvote === "environment")
               ? <b>Environment</b>
@@ -90,7 +90,7 @@ class CardClickedStep extends Component{
         </Typography>
         </Grid>
         <Grid>
-          <Typography style={{marginBottom:"20px", marginTop:"20px"}} variant="body2" color="textSecondary" component="p">
+          <Typography style={{marginBottom:"20px", marginTop:"20px"}} variant="h4" color="textSecondary" component="p">
               {
                 (this.props.clickedvote === "environment")
                 ? <img style={{height:"auto", width:"75%"}} src="https://www.asufoundation.org/dw/image/v2/BDKW_PRD/on/demandware.static/-/Sites-storefront-catalog-m-en/default/dwe3308e90/images/hi-res/Sustainability/sustainability-internship.jpg?sw=800&sh=424" alt="environment"/>
@@ -107,7 +107,7 @@ class CardClickedStep extends Component{
               </Typography>
         </Grid>
         <Grid>
-          <Typography style={{fontSize:"2.6vmin"}} color="black" component="p">
+          <Typography style={{fontSize:"3vmin"}} color="black" component="p">
               {
                 (this.props.clickedvote === "environment")
                 ? <p>Climate change. Natural resources. Food production. Biodiversity. Our planet is plagued by sustainability issues. ASU is taking action and fighting for our environment through many programs and initiatives that are making a difference. <a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/environment/"> Learn More</a></p>
@@ -129,7 +129,7 @@ class CardClickedStep extends Component{
             (this.props.clickedvote === false)
             ?  null
             : <SubmitButton onClick={this.submitResults}>
-              <Typography>
+              <Typography variant="h5">
                 <b>Submit Your Vote</b>
               </Typography>
             </SubmitButton>

@@ -99,10 +99,10 @@ class StepDefault extends Component {
     return(
     <React.Fragment>
     <div className={classes.defaultContent} style={{textAlign:"center", width:"100%"}}>
-      <Typography style={{fontSize:"3.0vmin"}} color="textPrimary">
-        <b>Vote for the cause you're passionate about!</b>
+      <Typography style={{fontSize:"5.5vmin"}} color="textPrimary">
+        <b>Vote for the cause you're <br></br> passionate about!</b>
       </Typography>
-      <Typography style={{fontSize:"2.0vmin"}} color="textPrimary">
+      <Typography style={{paddingTop: "3%", fontSize:"3.5vmin"}} color="textPrimary">
         <b>Click these buttons below to learn more</b>
       </Typography>
     </div>
@@ -114,11 +114,11 @@ class StepDefault extends Component {
             ?
 
              <VerticalButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Environment</b></Typography>
+                <Typography variant="h5"><b>Environment</b></Typography>
              </VerticalButton>
              :
-              <VerticalButton style={{fontSize:"1.2rem"}} value={"environment"} onClick={this.environmentChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Environment</b></Typography>
+              <VerticalButton value={"environment"} onClick={this.environmentChoice}>
+                <Typography variant="h5"><b>Environment</b></Typography>
               </VerticalButton>
         }
         </div>
@@ -128,11 +128,11 @@ class StepDefault extends Component {
             (this.props.clickedvote === "artsculture")
             ?
              <VerticalButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Arts & Community</b></Typography>
+                <Typography variant="h5"><b>Arts & Community</b></Typography>
              </VerticalButton>
              :
               <VerticalButton  value="artsculture" onClick={this.artscultureChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Arts & Community</b></Typography>
+                <Typography variant="h5"><b>Arts & Community</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -143,11 +143,11 @@ class StepDefault extends Component {
             (this.props.clickedvote === "health")
             ?
              <VerticalButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Health & Welfare</b></Typography>
+                <Typography variant="h5"><b>Health & Welfare</b></Typography>
              </VerticalButton>
              :
               <VerticalButton  value="health" onClick={this.healthChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Health & Welfare</b></Typography>
+                <Typography variant="h5"><b>Health & Welfare</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -158,11 +158,11 @@ class StepDefault extends Component {
           (this.props.clickedvote === "education")
           ?
            <VerticalButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
-              <Typography style={{fontSize:"1.2rem"}}><b>Education & Scholarship</b></Typography>
+              <Typography variant="h5"><b>Education & Scholarship</b></Typography>
            </VerticalButton>
            :
             <VerticalButton  value="education" onClick={this.educationChoice} >
-              <Typography style={{fontSize:"1.2rem"}}><b>Education & Scholarship</b></Typography>
+              <Typography variant="h5"><b>Education & Scholarship</b></Typography>
             </VerticalButton>
         }
         </Grid>
@@ -173,11 +173,11 @@ class StepDefault extends Component {
           (this.props.clickedvote === "collegesprograms")
           ?
            <VerticalButton style={{border:"solid 10px #5c6670"}} value="collegesprograms" onClick={this.collegeChoice}  >
-              <Typography style={{fontSize:"1.2rem"}}><b>Colleges & Programs</b></Typography>
+              <Typography variant="h5"><b>Colleges & Programs</b></Typography>
            </VerticalButton>
            :
             <VerticalButton  value="collegesprograms" onClick={this.collegeChoice} >
-              <Typography style={{fontSize:"1.2rem"}}><b>Colleges & Programs</b></Typography>
+              <Typography variant="h5"><b>Colleges & Programs</b></Typography>
             </VerticalButton>
         }
         </Grid>
