@@ -18,7 +18,7 @@ const styles = theme => ({
 class GraphicDisplayStep extends Component {
 
   timeOut(){
-    setTimeout(() => {this.props.nextStep()}, 4000)
+    setTimeout(() => {this.props.nextStep()}, 8000)
   }
 
   submitResults = (e) => {
@@ -67,15 +67,15 @@ class GraphicDisplayStep extends Component {
     <div style={{textAlign:"center"}}>
     {
       (this.props.clickedvote === "environment")
-      ? <img style={{width:"75%"}}src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/2df7b69e-b530-440b-9998-9d41507aa476.gif" alt="alt description goes here" />
+      ? <img style={{width:"75%"}}src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/35862765-f941-407b-ba01-b2d2905136ae.gif" alt="environment gif" />
       : (this.props.clickedvote === "artsculture")
-        ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/e9103cb2-8b6e-4c60-9777-621ef6a602a0.gif" alt="alt description goes here" />
+        ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/3a14ce79-1d23-4f5f-a79a-7a36859d1790.gif" alt="artscommunity gift" />
         : (this.props.clickedvote === "health")
-          ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/26cb08ce-903e-4941-8c9d-0cc6d0b23596.gif" alt="alt description goes here" />
+          ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/7534830c-6b07-4e45-8858-c9c3bcc8b54f.gif" alt="health gif" />
           : (this.props.clickedvote === "education")
-            ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/d54f569b-a7f7-4c97-b1c8-79a70c5ea492.gif" alt="alt description goes here" />
+            ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/76fc1630-c4d6-49e2-ba73-c8ef5ecd3120.gif" alt="education gif" />
             : (this.props.clickedvote === "collegesprograms")
-              ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/28e36750-0316-4d2d-b22a-30e046de72e1.gif" alt="alt description goes here" />
+              ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/512244bd-6d35-458c-98a8-d69f06f6e5bf.gif" alt="collegesprograms gif" />
               : null
     }
     </div>

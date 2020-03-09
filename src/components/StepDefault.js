@@ -108,7 +108,9 @@ class StepDefault extends Component {
     </div>
     <div style={{alignItems:"center"}}>
       <Grid container direction="column" justify="flex-start" alignItems="center" spacing={3}>
+
         <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
+        <Grid style={{marginBottom:"2%"}}>
         {
             (this.props.clickedvote === "environment")
             ?
@@ -121,6 +123,7 @@ class StepDefault extends Component {
                 <Typography variant="h5"><b>Environment</b></Typography>
               </VerticalButton>
         }
+        </Grid>
         </div>
         <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
