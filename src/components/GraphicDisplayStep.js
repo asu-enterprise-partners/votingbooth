@@ -31,33 +31,33 @@ class GraphicDisplayStep extends Component {
     this.props.nextStep()
   }
 
-  environmentChoice = (e) => {
+  areaofgreatestneedChoice = (e) => {
     e.preventDefault()
-    this.props.environmentChoice()
+    this.props.areaofgreatestneedChoice()
     this.props.nextStep()
   }
 
-  artscultureChoice = (e) => {
+  k12supportChoice = (e) => {
     e.preventDefault()
-    this.props.artscultureChoice()
+    this.props.k12supportChoice()
     this.props.nextStep()
   }
 
-  healthChoice = (e) => {
+  communityemergencysupportChoice = (e) => {
     e.preventDefault()
-    this.props.healthChoice()
+    this.props.communityemergencysupportChoice()
     this.props.nextStep()
   }
 
-  educationChoice = (e) => {
+  individualemergencysupportChoice = (e) => {
     e.preventDefault()
-    this.props.educationChoice()
+    this.props.individualemergencysupportChoice()
     this.props.nextStep()
   }
 
-  collegeChoice = (e) => {
+  researchsupportChoice = (e) => {
     e.preventDefault()
-    this.props.collegeChoice()
+    this.props.researchsupportChoice()
     this.props.nextStep()
   }
 
@@ -66,17 +66,17 @@ class GraphicDisplayStep extends Component {
     <React.Fragment>
     <div style={{textAlign:"center"}}>
     {
-      (this.props.clickedvote === "environment")
-      ? <img style={{width:"75%"}}src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/35862765-f941-407b-ba01-b2d2905136ae.gif" alt="environment gif" />
-      : (this.props.clickedvote === "artsculture")
-        ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/3a14ce79-1d23-4f5f-a79a-7a36859d1790.gif" alt="artscommunity gift" />
-        : (this.props.clickedvote === "health")
-          ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/7534830c-6b07-4e45-8858-c9c3bcc8b54f.gif" alt="health gif" />
-          : (this.props.clickedvote === "education")
-            ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/76fc1630-c4d6-49e2-ba73-c8ef5ecd3120.gif" alt="education gif" />
-            : (this.props.clickedvote === "collegesprograms")
-              ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/512244bd-6d35-458c-98a8-d69f06f6e5bf.gif" alt="collegesprograms gif" />
-              : null
+      (this.props.clickedvote === "areaofgreatestneed")
+      ? <img style={{width:"75%"}}src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/35862765-f941-407b-ba01-b2d2905136ae.gif" alt="areaofgreatestneed" />
+      : (this.props.clickedvote === "k12support")
+      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/3a14ce79-1d23-4f5f-a79a-7a36859d1790.gif" alt="k12support" />
+      : (this.props.clickedvote === "communityemergencysupport")
+      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/7534830c-6b07-4e45-8858-c9c3bcc8b54f.gif" alt="communityemergencysupport" />
+      : (this.props.clickedvote === "individualemergencysupport")
+      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/76fc1630-c4d6-49e2-ba73-c8ef5ecd3120.gif" alt="individualemergencysupport" />
+      : (this.props.clickedvote === "researchsupport")
+      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/512244bd-6d35-458c-98a8-d69f06f6e5bf.gif" alt="researchsupport" />
+      : null
     }
     </div>
       {this.timeOut()}
