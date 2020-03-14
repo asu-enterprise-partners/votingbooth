@@ -81,10 +81,10 @@ class CardClickedStep extends Component{
                 ? <b>K-12 Support</b>
                 : (this.props.clickedvote === "communityemergencysupport")
                   ? <b>Community Emergency Support</b>
-                  : (this.props.clickedvote === "education")
-                    ? <b>Education &amp; Scholarship</b>
-                    : (this.props.clickedvote === "collegesprograms")
-                      ? <b>Colleges &amp; Programs</b>
+                  : (this.props.clickedvote === "individualemergencysupport")
+                    ? <b>Individual Emergency Support</b>
+                    : (this.props.clickedvote === "researchsupport")
+                      ? <b>Research Support</b>
                       : null
             }
         </Typography>
