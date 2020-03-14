@@ -50,9 +50,9 @@ export default class Results extends Component {
           new Chart(myChartRef, {
               type: 'pie',
               data: {
-                labels: ['Environment', 'Arts & Culture', 'Health', 'Education', 'Colleges & Programs'],
+                labels: ['Area of Greatest Need', 'K-12 Support', 'Community Emergency Support', 'Individual Emergency Support', 'Research Support'],
                 datasets:[{
-                  data: [voteData[3].votes, voteData[0].votes, voteData[4].votes, voteData[2].votes, voteData[1].votes],
+                  data: [voteData[0].votes, voteData[8].votes, voteData[3].votes, voteData[7].votes, voteData[9].votes],
                   backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(92, 102, 112, 1)'],
                 }],
 
@@ -81,7 +81,7 @@ export default class Results extends Component {
                       display: true,
                       position: 'bottom',
                       labels: {
-                        fontSize: 15,
+                        fontSize: 20,
                         fontColor: 'black',
 
                       },
@@ -94,7 +94,7 @@ export default class Results extends Component {
                   plugins: {
                     labels:{
                       render: 'value',
-                      fontSize: 20,
+                      fontSize: 40,
                       fontColor: '#ffffff',
                       textShadow: true,
                       shadowBlur: 3,
@@ -109,16 +109,16 @@ export default class Results extends Component {
         return (
           <React.Fragment>
           <div style={{textAlign:"center", paddingBottom:"5%"}}>
-            <Typography style={{fontSize:"3.0vmin"}} color="textPrimary">
+            <Typography style={{fontSize:"5.5vmin"}} color="textPrimary">
               <b>Thanks for voting!</b>
             </Typography>
-            <Typography style={{fontSize:"2.0vmin"}} color="textPrimary">
+            <Typography style={{fontSize:"3.5vmin"}} color="textPrimary">
               <b>Vote again or share with friends</b>
             </Typography>
           </div>
 
           <div style={{marginTop:"2%", height:"200px !important" }} className={classes.graphContainer}>
-              <canvas style={{width:"300px", height: "300px"}}
+              <canvas style={{width:"400px", height: "400px"}}
                   id='myChart'
                   ref={this.chartRef}
               />
@@ -128,7 +128,7 @@ export default class Results extends Component {
             <Grid container spacing = {3} justify = "center">
               <Grid item xs={6}>
               <SubmitButton onClick={this.startOverStep}>
-                <Typography>
+                <Typography variant="h5">
                   <b>Vote Again</b>
                 </Typography>
               </SubmitButton>
@@ -136,7 +136,7 @@ export default class Results extends Component {
             </Grid>
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
-              <Typography style={{fontSize:"2.5vmin"}} >
+              <Typography style={{fontSize:"3.5vmin"}} >
                 <b>Share This</b>
               </Typography>
               </Grid>
@@ -144,12 +144,12 @@ export default class Results extends Component {
             <Grid container spacing = {0} justify = "center">
               <Grid>
               <ShareButton href="https://www.facebook.com/sharer/sharer.php?u=http://sdgdvote.com/" target="_blank">
-                <img style={{height:"auto", width:"60%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/>
+                <img style={{height:"auto", width:"80%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/88f28aec-c1f8-4a29-906e-46da08334b36.png"/>
               </ShareButton>
               </Grid>
               <Grid>
               <ShareButton href="https://twitter.com/intent/tweet?url=sdgdvote.com&text=Today%20I'm%20celebrating%20%23SunDevilGivingDay%20at%20ASU.%20This%20day%20gives%20me%20a%20chance%20to%20support%20what%20I'm%20passionate%20about%20and%20be%20a%20part%20of%20real%20change.%20I've%20voted%20for%20the%20cause%20I%20believe%20in%20—%20join%20me%20and%20vote%20now!%20sdgdvote.com" target="_blank">
-                <img style={{height:"auto", width:"60%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
+                <img style={{height:"auto", width:"80%"}} alt="alt tag description goes here" src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/a2b7f299-9aa7-4e99-8b50-1d294c3ce430.png"/>
               </ShareButton>
               </Grid>
             </Grid>

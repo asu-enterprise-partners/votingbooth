@@ -66,44 +66,38 @@ class MainForm extends Component {
         })
     }
 
-    environmentChoice = () => {
-        this.setState({
-          clickedvote: "environment"
-        })
-    }
-
-    artscultureChoice = () => {
-        this.setState({
-          clickedvote: "artsculture"
-        })
-    }
-
-    healthChoice = () => {
-        this.setState({
-          clickedvote: "health"
-        })
-    }
-
-    educationChoice = () => {
-        this.setState({
-          clickedvote: "education"
-        })
-    }
-
-    collegeChoice = () => {
-        this.setState({
-          clickedvote: "collegesprograms"
-        })
-    }
-
     handleChange = input => event => {
         this.setState({ [input] : event.target.value })
         console.log(input);
     }
 
-    chooseEnvironment = () => {
+    areaofgreatestneedChoice = () => {
         this.setState({
-            clickedvote : "environment"
+          clickedvote: "areaofgreatestneed"
+        })
+    }
+
+    k12supportChoice = () => {
+        this.setState({
+          clickedvote: "k12support"
+        })
+    }
+
+    communityemergencysupportChoice = () => {
+        this.setState({
+          clickedvote: "communityemergencysupport"
+        })
+    }
+
+    individualemergencysupportChoice = () => {
+        this.setState({
+          clickedvote: "individualemergencysupport"
+        })
+    }
+
+    researchsupportChoice = () => {
+        this.setState({
+          clickedvote: "researchsupport"
         })
     }
 
@@ -123,11 +117,11 @@ class MainForm extends Component {
 
       switch(step) {
       case 1:
-          return <StepDefault skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice} />
+          return <StepDefault skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange}  areaofgreatestneedChoice={this.areaofgreatestneedChoice} k12supportChoice={this.k12supportChoice} communityemergencysupportChoice={this.communityemergencysupportChoice} individualemergencysupportChoice={this.individualemergencysupportChoice} researchsupportChoice={this.researchsupportChoice} />
       case 2:
-          return <CardClickedStep skipStep={this.skipStep} showText={this.showText} prevStep={this.prevStep} nextStep={this.nextStep} clickedvote={clickedvote}  handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice} />
+          return <CardClickedStep skipStep={this.skipStep} showText={this.showText} prevStep={this.prevStep} nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange} areaofgreatestneedChoice={this.areaofgreatestneedChoice} k12supportChoice={this.k12supportChoice} communityemergencysupportChoice={this.communityemergencysupportChoice} individualemergencysupportChoice={this.individualemergencysupportChoice} researchsupportChoice={this.researchsupportChoice} />
       case 3:
-          return <GraphicDisplayStep showText={this.showText} skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange} environmentChoice={this.environmentChoice} artscultureChoice={this.artscultureChoice} healthChoice={this.healthChoice} educationChoice={this.educationChoice} collegeChoice={this.collegeChoice}/>
+          return <GraphicDisplayStep showText={this.showText} skipStep={this.skipStep} nextStep={this.nextStep} clickedvote={clickedvote} handleChange={this.handleChange} areaofgreatestneedChoice={this.areaofgreatestneedChoice} k12supportChoice={this.k12supportChoice} communityemergencysupportChoice={this.communityemergencysupportChoice} individualemergencysupportChoice={this.individualemergencysupportChoice} researchsupportChoice={this.researchsupportChoice} />
       case 4:
           return <Results initialState={this.initialState} firstStep={this.firstStep} startOver={this.startOver} />
       default:

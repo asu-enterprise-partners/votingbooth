@@ -62,33 +62,33 @@ class StepDefault extends Component {
     this.props.nextStep()
   }
 
-  environmentChoice = (e) => {
+  areaofgreatestneedChoice = (e) => {
     e.preventDefault()
-    this.props.environmentChoice()
+    this.props.areaofgreatestneedChoice()
     this.props.nextStep()
   }
 
-  artscultureChoice = (e) => {
+  k12supportChoice = (e) => {
     e.preventDefault()
-    this.props.artscultureChoice()
+    this.props.k12supportChoice()
     this.props.nextStep()
   }
 
-  healthChoice = (e) => {
+  communityemergencysupportChoice = (e) => {
     e.preventDefault()
-    this.props.healthChoice()
+    this.props.communityemergencysupportChoice()
     this.props.nextStep()
   }
 
-  educationChoice = (e) => {
+  individualemergencysupportChoice = (e) => {
     e.preventDefault()
-    this.props.educationChoice()
+    this.props.individualemergencysupportChoice()
     this.props.nextStep()
   }
 
-  collegeChoice = (e) => {
+  researchsupportChoice = (e) => {
     e.preventDefault()
-    this.props.collegeChoice()
+    this.props.researchsupportChoice()
     this.props.nextStep()
   }
 
@@ -99,40 +99,43 @@ class StepDefault extends Component {
     return(
     <React.Fragment>
     <div className={classes.defaultContent} style={{textAlign:"center", width:"100%"}}>
-      <Typography style={{fontSize:"3.0vmin"}} color="textPrimary">
-        <b>Vote for the cause you're passionate about!</b>
+      <Typography style={{fontSize:"5.5vmin"}} color="textPrimary">
+        <b>Vote for the cause you're <br></br> passionate about!</b>
       </Typography>
-      <Typography style={{fontSize:"2.0vmin"}} color="textPrimary">
+      <Typography style={{paddingTop: "3%", fontSize:"3.5vmin"}} color="textPrimary">
         <b>Click these buttons below to learn more</b>
       </Typography>
     </div>
     <div style={{alignItems:"center"}}>
       <Grid container direction="column" justify="flex-start" alignItems="center" spacing={3}>
+
         <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
+        <Grid style={{marginBottom:"2%"}}>
         {
-            (this.props.clickedvote === "environment")
+            (this.props.clickedvote === "areaofgreatestneed")
             ?
 
-             <VerticalButton style={{border:"solid 10px #78be20"}} value={"environment"} onClick={this.environmentChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Environment</b></Typography>
+             <VerticalButton style={{border:"solid 10px #78be20"}} value={"areaofgreatestneed"} onClick={this.areaofgreatestneedChoice}>
+                <Typography variant="h5"><b>Area of greatest need</b></Typography>
              </VerticalButton>
              :
-              <VerticalButton style={{fontSize:"1.2rem"}} value={"environment"} onClick={this.environmentChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Environment</b></Typography>
+              <VerticalButton value={"areaofgreatestneed"} onClick={this.areaofgreatestneedChoice}>
+                <Typography variant="h5"><b>Area of greatest need</b></Typography>
               </VerticalButton>
         }
+        </Grid>
         </div>
         <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
           {
-            (this.props.clickedvote === "artsculture")
+            (this.props.clickedvote === "k12support")
             ?
-             <VerticalButton style={{border:"solid 10px #00a3e0"}} value="artsculture" onClick={this.artscultureChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Arts & Community</b></Typography>
+             <VerticalButton style={{border:"solid 10px #00a3e0"}} value="k12support" onClick={this.k12supportChoice}>
+                <Typography variant="h5"><b>K-12 support</b></Typography>
              </VerticalButton>
              :
-              <VerticalButton  value="artsculture" onClick={this.artscultureChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Arts & Community</b></Typography>
+              <VerticalButton  value="k12support" onClick={this.k12supportChoice}>
+                <Typography variant="h5"><b>K-12 support</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -140,14 +143,14 @@ class StepDefault extends Component {
         <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
           {
-            (this.props.clickedvote === "health")
+            (this.props.clickedvote === "communityemergencysupport")
             ?
-             <VerticalButton style={{border:"solid 10px #ff7f32"}} value="health" onClick={this.healthChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Health & Welfare</b></Typography>
+             <VerticalButton style={{border:"solid 10px #ff7f32"}} value="communityemergencysupport" onClick={this.communityemergencysupportChoice}>
+                <Typography variant="h5"><b>Community emergency support</b></Typography>
              </VerticalButton>
              :
-              <VerticalButton  value="health" onClick={this.healthChoice}>
-                <Typography style={{fontSize:"1.2rem"}}><b>Health & Welfare</b></Typography>
+              <VerticalButton  value="communityemergencysupport" onClick={this.communityemergencysupportChoice}>
+                <Typography variant="h5"><b>Community emergency support</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -155,14 +158,14 @@ class StepDefault extends Component {
         <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
         {
-          (this.props.clickedvote === "education")
+          (this.props.clickedvote === "individualemergencysupport")
           ?
-           <VerticalButton style={{border:"solid 10px #8c1d40"}} value="education" onClick={this.educationChoice} >
-              <Typography style={{fontSize:"1.2rem"}}><b>Education & Scholarship</b></Typography>
+           <VerticalButton style={{border:"solid 10px #8c1d40"}} value="individualemergencysupport" onClick={this.individualemergencysupportChoice} >
+              <Typography variant="h5"><b>Individual emergency support</b></Typography>
            </VerticalButton>
            :
-            <VerticalButton  value="education" onClick={this.educationChoice} >
-              <Typography style={{fontSize:"1.2rem"}}><b>Education & Scholarship</b></Typography>
+            <VerticalButton  value="individualemergencysupport" onClick={this.individualemergencysupportChoice} >
+              <Typography variant="h5"><b>Individual emergency support</b></Typography>
             </VerticalButton>
         }
         </Grid>
@@ -170,14 +173,14 @@ class StepDefault extends Component {
         <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
         <Grid style={{marginBottom:"2%"}}>
         {
-          (this.props.clickedvote === "collegesprograms")
+          (this.props.clickedvote === "researchsupport")
           ?
-           <VerticalButton style={{border:"solid 10px #5c6670"}} value="collegesprograms" onClick={this.collegeChoice}  >
-              <Typography style={{fontSize:"1.2rem"}}><b>Colleges & Programs</b></Typography>
+           <VerticalButton style={{border:"solid 10px #5c6670"}} value="researchsupport" onClick={this.researchsupportChoice}  >
+              <Typography variant="h5"><b>Research support</b></Typography>
            </VerticalButton>
            :
-            <VerticalButton  value="collegesprograms" onClick={this.collegeChoice} >
-              <Typography style={{fontSize:"1.2rem"}}><b>Colleges & Programs</b></Typography>
+            <VerticalButton  value="researchsupport" onClick={this.researchsupportChoice} >
+              <Typography variant="h5"><b>Research support</b></Typography>
             </VerticalButton>
         }
         </Grid>
@@ -185,17 +188,6 @@ class StepDefault extends Component {
       </Grid>
       </div>
       </React.Fragment>
-      // <div style={{marginTop:"20px", textAlign: "center"}}>
-      // {
-      //   (this.props.clickedvote === false)
-      //   ?  null
-      //   : <SubmitButton onClick={this.submitResults}>
-      //     <Typography>
-      //       <b>Submit Your Vote</b>
-      //     </Typography>
-      //   </SubmitButton>
-      // }
-      // </div>
 
     )
   }

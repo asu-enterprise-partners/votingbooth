@@ -73,53 +73,41 @@ class CardClickedStep extends Component{
       <Grid direction="column" style={{textAlign:"center"}}>
       <IconButton onClick={this.back}><ArrowBackIcon style={{fontSize:50, fill:"black", margin:"10px"}}/></IconButton>
       <Grid>
-        <Typography style={{fontSize:"5.0vmin", color:"#000000", alignItems:"center"}} color="textSecondary" gutterBottom>
+        <Typography style={{fontSize:"6.0vmin", color:"#000000", alignItems:"center"}} color="textSecondary" gutterBottom>
             {
-              (this.props.clickedvote === "environment")
-              ? <b>Environment</b>
-              : (this.props.clickedvote === "artsculture")
-                ? <b>Arts &amp; Community</b>
-                : (this.props.clickedvote === "health")
-                  ? <b>Health & Welfare</b>
-                  : (this.props.clickedvote === "education")
-                    ? <b>Education &amp; Scholarship</b>
-                    : (this.props.clickedvote === "collegesprograms")
-                      ? <b>Colleges &amp; Programs</b>
+              (this.props.clickedvote === "areaofgreatestneed")
+              ? <b>Area of Greatest Need</b>
+              : (this.props.clickedvote === "k12support")
+                ? <b>K-12 Support</b>
+                : (this.props.clickedvote === "communityemergencysupport")
+                  ? <b>Community Emergency Support</b>
+                  : (this.props.clickedvote === "individualemergencysupport")
+                    ? <b>Individual Emergency Support</b>
+                    : (this.props.clickedvote === "researchsupport")
+                      ? <b>Research Support</b>
                       : null
             }
         </Typography>
         </Grid>
         <Grid>
-          <Typography style={{marginBottom:"20px", marginTop:"20px"}} variant="body2" color="textSecondary" component="p">
+          <Typography style={{fontSize:"3vmin"}} color="black" component="p">
               {
-                (this.props.clickedvote === "environment")
-                ? <img style={{height:"auto", width:"75%"}} src="https://www.asufoundation.org/dw/image/v2/BDKW_PRD/on/demandware.static/-/Sites-storefront-catalog-m-en/default/dwe3308e90/images/hi-res/Sustainability/sustainability-internship.jpg?sw=800&sh=424" alt="environment"/>
-                : (this.props.clickedvote === "artsculture")
-                  ? <img style={{height:"auto", width:"75%"}} src="https://www.asufoundation.org/dw/image/v2/BDKW_PRD/on/demandware.static/-/Sites-storefront-catalog-m-en/default/dw7f8ba8ac/images/hi-res/Design-Arts-Herberger-Institute/herberger-technology-students-fund.jpg?sw=800&sh=424" alt="artsculture"/>
-                  : (this.props.clickedvote === "health")
-                    ? <img style={{height:"auto", width:"75%"}} src="https://www.asufoundation.org/dw/image/v2/BDKW_PRD/on/demandware.static/-/Sites-storefront-catalog-m-en/default/dwd130ebe6/images/hi-res/Biodesign/biodesign-Cancer-Research.jpg?sw=800&sh=424" alt="health"/>
-                    : (this.props.clickedvote === "education")
-                      ? <img style={{height:"auto", width:"75%"}} src="https://www.asufoundation.org/dw/image/v2/BDKW_PRD/on/demandware.static/-/Sites-storefront-catalog-m-en/default/dwc95a126f/images/hi-res/Honors-Barrett/Barrett_honors_college_learning_opportunities.jpg?sw=800&sh=424" alt="education"/>
-                      : (this.props.clickedvote === "collegesprograms")
-                        ? <img style={{height:"auto", width:"75%"}} src="https://www.asufoundation.org/dw/image/v2/BDKW_PRD/on/demandware.static/-/Sites-storefront-catalog-m-en/default/dw93d8835e/images/hi-res/Public-Service-Community-Solutions-Watts/watts-scholarship-student-fund.jpg?sw=800&sh=424" alt="collegesprograms"/>
-                        : null
-              }
-              </Typography>
-        </Grid>
-        <Grid>
-          <Typography style={{fontSize:"2.6vmin"}} color="black" component="p">
-              {
-                (this.props.clickedvote === "environment")
-                ? <p>Climate change. Natural resources. Food production. Biodiversity. Our planet is plagued by sustainability issues. ASU is taking action and fighting for our environment through many programs and initiatives that are making a difference. <a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/environment/"> Learn More</a></p>
-                : (this.props.clickedvote === "artsculture")
-                  ? <p>ASU is committed to helping the arts thrive. Take ASU Gammage’s Cultural Participation program, which provides access to community arts programs, innovative academic tools and world-class artists to people of all ages, economic levels and backgrounds. <a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/arts-and-community/"> Learn More</a></p>
-                  : (this.props.clickedvote === "health")
-                    ? <p>Fighting cancer. Curing disease. Alleviating hunger. Providing access to healthcare and educational programs for the underserved. Promoting healthy communities. Improving the quality of life for all. ASU is making a difference. <a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/health-and-welfare/"> Learn More</a></p>
-                    : (this.props.clickedvote === "education")
-                      ? <p>ASU is increasing access to higher education and opportunity for students from all walks of life and economic backgrounds. Many initiatives and scholarships are in place to advance this mission and help students thrive at ASU and beyond. <a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/education-and-scholarship/"> Learn More</a></p>
-                      : (this.props.clickedvote === "collegesprograms")
-                        ? <p>ASU is home to Sun Devil Athletics, the ASU Alumni Association, ASU Family and Arizona PBS, in addition to an assortment of schools and colleges, programs and centers that bring people together from all walks of life in pursuit of meaningful work. <a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/colleges-and-programs/">Learn More</a></p>
-                        : null
+                (this.props.clickedvote === "areaofgreatestneed")
+                ? <React.Fragment><p>ASU has long been committed to reaching and serving people at scale. This year, on our annual day of giving and in a time of unprecedented crisis, ASU is committed to leveraging that strength to serve as many people as possible as quickly as possible. When you give to our area of greatest need, you enable us to provide meaningful and rapid support to our fellow community members.</p><p>When you support ASU’s area of greatest need, you assist students, faculty and staff with urgent life circumstances. You aid children experiencing learning disruptions and those who lack the online infrastructure for distance learning. You support individuals experiencing economic impacts from work closures. You support scientists conducting vaccine research and educators advancing health and well-being.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/colleges-and-programs/programs-and-centers/asu-area-of-greatest-need-CA112040.html"> Learn More</a></strong></p></React.Fragment>
+
+                : (this.props.clickedvote === "k12support")
+                ? <React.Fragment><p>In times of crisis, ASU’s mission to provide accessibility to education is as vital as ever. The university is committed to enabling schools to overcome any obstacle and deliver high-quality education to all who seek it.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/"> Learn More</a></strong></p></React.Fragment>
+
+                : (this.props.clickedvote === "communityemergencysupport")
+                ? <React.Fragment><p>ASU is committed to creating a strong, resilient community. With your support, we can meet the immediate and long-term needs of people in our community and work together for a better tomorrow.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/"> Learn More</a></strong></p></React.Fragment>
+
+                : (this.props.clickedvote === "individualemergencysupport")
+                ? <React.Fragment><p>ASU is committed to the well-being of every individual. In times of uncertainty, the university is resolute in its mission to provide a wide range of crisis- and emergency-support to help people in need.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/"> Learn More</a></strong></p></React.Fragment>
+
+                : (this.props.clickedvote === "researchsupport")
+                ? <React.Fragment><p>With the commitment to our community that drives us every day, ASU researchers are finding solutions to the problems we face. Whether developing crucial vaccines or economic development initiatives, ASU is working to promote human well-being and solve complex challenges.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://www.asufoundation.org/"> Learn More</a></strong></p></React.Fragment>
+
+                : null
               }
               </Typography>
           </Grid>
@@ -129,7 +117,7 @@ class CardClickedStep extends Component{
             (this.props.clickedvote === false)
             ?  null
             : <SubmitButton onClick={this.submitResults}>
-              <Typography>
+              <Typography variant="h5">
                 <b>Submit Your Vote</b>
               </Typography>
             </SubmitButton>

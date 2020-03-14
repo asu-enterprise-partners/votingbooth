@@ -6,16 +6,26 @@ import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import Container from '@material-ui/core/Container';
 
 const styles = theme => ({
   mainUnit: {
     backgroundColor: '#ffc627',
   },
-  mainContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 6}px`,
+  box:{
+    display: 'flex',
+    flexFlow: 'column',
+    height: '100%',
+    backgroundColor: '#ffc627',
   },
+
+  rowContent:{
+    flex: '1',
+    backgroundColor:'blue'
+  }
+
+
+
 });
 
 class App extends React.Component {
@@ -32,13 +42,13 @@ class App extends React.Component {
 
       <React.Fragment>
         <CssBaseline />
+          <div className={classes.box}>
           <Header/>
-           <div className={classes.mainUnit}>
-            <div className={classes.mainContent}>
+            <Container maxWidth="md">
               <MainForm />
-            </div>
+            </Container>
+          <Footer/>
           </div>
-        <Footer/>
         </React.Fragment>
 
       );
