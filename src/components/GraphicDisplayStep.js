@@ -66,16 +66,16 @@ class GraphicDisplayStep extends Component {
     <React.Fragment>
     <div style={{textAlign:"center"}}>
     {
-      (this.props.clickedvote === "areaofgreatestneed")
-      ? <img style={{width:"75%"}}src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/35862765-f941-407b-ba01-b2d2905136ae.gif" alt="areaofgreatestneed" />
-      : (this.props.clickedvote === "k12support")
-      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/3a14ce79-1d23-4f5f-a79a-7a36859d1790.gif" alt="k12support" />
-      : (this.props.clickedvote === "communityemergencysupport")
-      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/7534830c-6b07-4e45-8858-c9c3bcc8b54f.gif" alt="communityemergencysupport" />
-      : (this.props.clickedvote === "individualemergencysupport")
-      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/76fc1630-c4d6-49e2-ba73-c8ef5ecd3120.gif" alt="individualemergencysupport" />
-      : (this.props.clickedvote === "researchsupport")
-      ? <img style={{width:"75%"}} src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/512244bd-6d35-458c-98a8-d69f06f6e5bf.gif" alt="researchsupport" />
+      (this.props.clickedvote === "areaofgreatestneed") //green
+      ? <img style={{width:"100%"}}src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/084de0c1-e016-416e-823a-8a004e01478b.gif" alt="areaofgreatestneed" />
+      : (this.props.clickedvote === "k12support") //blue
+      ? <img style={{width:"100%"}} src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/e4a65925-8d49-41f0-b2fb-f08dfb706fcb.gif" alt="k12support" />
+      : (this.props.clickedvote === "communityemergencysupport") //orange
+      ? <img style={{width:"100%"}} src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/a3848dfd-6263-4d92-92ad-4b0dd4c55c57.gif" alt="communityemergencysupport" />
+      : (this.props.clickedvote === "individualemergencysupport") //maroon
+      ? <img style={{width:"100%"}} src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/c3a68a98-c6f8-4f0e-84af-96cd38bad4ea.gif" alt="individualemergencysupport" />
+      : (this.props.clickedvote === "researchsupport") //grey
+      ? <img style={{width:"100%"}} src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/434976e0-59e3-469b-b1a6-267b23fad3fd.gif" alt="researchsupport" />
       : null
     }
     </div>

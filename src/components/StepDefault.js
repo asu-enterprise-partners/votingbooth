@@ -116,11 +116,11 @@ class StepDefault extends Component {
             ?
 
              <VerticalButton style={{border:"solid 10px #78be20"}} value={"areaofgreatestneed"} onClick={this.areaofgreatestneedChoice}>
-                <Typography variant="h5"><b>Area of greatest need</b></Typography>
+                <Typography variant="h5"><b>Protecting the planet</b></Typography>
              </VerticalButton>
              :
               <VerticalButton value={"areaofgreatestneed"} onClick={this.areaofgreatestneedChoice}>
-                <Typography variant="h5"><b>Area of greatest need</b></Typography>
+                <Typography variant="h5"><b>Protecting the planet</b></Typography>
               </VerticalButton>
         }
         </Grid>
@@ -131,11 +131,11 @@ class StepDefault extends Component {
             (this.props.clickedvote === "k12support")
             ?
              <VerticalButton style={{border:"solid 10px #00a3e0"}} value="k12support" onClick={this.k12supportChoice}>
-                <Typography variant="h5"><b>K-12 support</b></Typography>
+                <Typography variant="h5"><b>Conducting research for the public good</b></Typography>
              </VerticalButton>
              :
               <VerticalButton  value="k12support" onClick={this.k12supportChoice}>
-                <Typography variant="h5"><b>K-12 support</b></Typography>
+                <Typography variant="h5"><b>Conducting research for the public good</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -146,11 +146,11 @@ class StepDefault extends Component {
             (this.props.clickedvote === "communityemergencysupport")
             ?
              <VerticalButton style={{border:"solid 10px #ff7f32"}} value="communityemergencysupport" onClick={this.communityemergencysupportChoice}>
-                <Typography variant="h5"><b>Community emergency support</b></Typography>
+                <Typography variant="h5"><b>Advancing student access</b></Typography>
              </VerticalButton>
              :
               <VerticalButton  value="communityemergencysupport" onClick={this.communityemergencysupportChoice}>
-                <Typography variant="h5"><b>Community emergency support</b></Typography>
+                <Typography variant="h5"><b>Advancing student access</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -161,11 +161,11 @@ class StepDefault extends Component {
           (this.props.clickedvote === "individualemergencysupport")
           ?
            <VerticalButton style={{border:"solid 10px #8c1d40"}} value="individualemergencysupport" onClick={this.individualemergencysupportChoice} >
-              <Typography variant="h5"><b>Individual emergency support</b></Typography>
+              <Typography variant="h5"><b>Serving our community</b></Typography>
            </VerticalButton>
            :
             <VerticalButton  value="individualemergencysupport" onClick={this.individualemergencysupportChoice} >
-              <Typography variant="h5"><b>Individual emergency support</b></Typography>
+              <Typography variant="h5"><b>Serving our community</b></Typography>
             </VerticalButton>
         }
         </Grid>
@@ -176,11 +176,11 @@ class StepDefault extends Component {
           (this.props.clickedvote === "researchsupport")
           ?
            <VerticalButton style={{border:"solid 10px #5c6670"}} value="researchsupport" onClick={this.researchsupportChoice}  >
-              <Typography variant="h5"><b>Research support</b></Typography>
+              <Typography variant="h5"><b>Creating equity in higher education</b></Typography>
            </VerticalButton>
            :
             <VerticalButton  value="researchsupport" onClick={this.researchsupportChoice} >
-              <Typography variant="h5"><b>Research support</b></Typography>
+              <Typography variant="h5"><b>Creating equity in higher education</b></Typography>
             </VerticalButton>
         }
         </Grid>

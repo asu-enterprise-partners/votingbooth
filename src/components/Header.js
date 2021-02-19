@@ -20,7 +20,7 @@ class Header extends Component {
     return (
       <div className={classes.heroUnit}>
         <div className={classes.heroContent} style={{textAlign:"center"}}>
-          <div style={{paddingBottom:"0px"}}> <img src="http://image.e.asu.edu/lib/fe9f13727565047b75/m/1/21c3dd97-09b6-4dcd-9236-8ada3931f513.png" height="auto" width="50%" alt="Sun Devil Giving Day" /></div>
+          <div style={{paddingBottom:"0px"}}> <img src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/331049e2-2ec1-463c-9c21-89a9bb559083.png" height="auto" width="50%" alt="Sun Devil Giving Day" /></div>
 
         </div>
       </div>
