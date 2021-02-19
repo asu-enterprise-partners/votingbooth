@@ -1,3 +1,5 @@
+Welcome to the Sun Devil Giving Day voting React app.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
