@@ -10,7 +10,7 @@ const styles = theme => ({
     width: '100%',
     height: 'auto',
     margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 1}px`,
+    padding: `${theme.spacing(8)}px 0 ${theme.spacing(1)}px`,
   },
 });
 

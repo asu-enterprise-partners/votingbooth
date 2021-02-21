@@ -5,7 +5,7 @@ const styles = theme => ({
   footer: {
     backgroundColor: '#ffc627',
     height: '35vh',
-    padding: theme.spacing.unit * 16,
+    padding: theme.spacing(16),
   },
   footerText: {
     color: '#fff !important'

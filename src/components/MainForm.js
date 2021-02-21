@@ -14,7 +14,7 @@ const styles = theme => ({
     maxWidth: 600,
     height: '100%',
     margin: '0 auto',
-    padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 6}px`,
+    padding: `${theme.spacing(2)}px 0 ${theme.spacing(6)}px`,
   },
 });
 

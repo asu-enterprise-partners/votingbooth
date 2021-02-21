@@ -20,7 +20,7 @@ const styles = theme => ({
     color: theme.palette.grey[500],
   },
   defaultContent: {
-    padding: `${theme.spacing.unit * 1}px 0 ${theme.spacing.unit * 6}px`,
+    padding: `${theme.spacing(1)}px 0 ${theme.spacing(6)}px`,
   },
 });
 
