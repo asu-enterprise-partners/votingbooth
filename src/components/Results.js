@@ -113,7 +113,7 @@ export default class Results extends Component {
               <b>Thanks for voting!</b>
             </Typography>
             <Typography style={{fontSize:"3.5vmin"}} color="textPrimary">
-              <b>Vote again or share with friends</b>
+              <b>Share with friends</b>
             </Typography>
           </div>
 
@@ -125,15 +125,6 @@ export default class Results extends Component {
           </div>
 
           <div style={{marginTop:"20px", textAlign: "center"}}>
-            <Grid container spacing = {3} justify = "center">
-              <Grid item xs={6}>
-              <SubmitButton onClick={this.startOverStep}>
-                <Typography variant="h5">
-                  <b>Vote Again</b>
-                </Typography>
-              </SubmitButton>
-              </Grid>
-            </Grid>
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
               <Typography style={{fontSize:"3.5vmin"}} >
