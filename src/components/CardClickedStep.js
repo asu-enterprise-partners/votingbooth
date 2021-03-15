@@ -73,7 +73,7 @@ class CardClickedStep extends Component{
       <Grid direction="column" style={{textAlign:"center"}}>
       <IconButton onClick={this.back}><ArrowBackIcon style={{fontSize:50, fill:"black", margin:"10px"}}/></IconButton>
       <Grid>
-        <Typography style={{fontSize:"6.0vmin", color:"#000000", alignItems:"center"}} color="textSecondary" gutterBottom>
+        <Typography style={{fontSize:"2.5rem", color:"#000000", alignItems:"center"}} color="textSecondary" gutterBottom>
             {
               (this.props.clickedvote === "areaofgreatestneed")
               ? <b>Protecting the planet</b>
@@ -90,7 +90,7 @@ class CardClickedStep extends Component{
         </Typography>
         </Grid>
         <Grid>
-          <Typography style={{fontSize:"3vmin"}} color="black" component="p">
+          <Typography style={{fontSize:"1.5rem"}} color="black" component="p">
               {
                 (this.props.clickedvote === "areaofgreatestneed")
                 ? <React.Fragment><p>ASU is tackling environmental challenges through impactful initiatives and real-world solutions dedicated to sustaining the integrity of our planet and its life-supporting systems.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/protecting-the-planet/"> Learn More</a></strong></p></React.Fragment>

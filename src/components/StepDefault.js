@@ -99,10 +99,13 @@ class StepDefault extends Component {
     return(
     <React.Fragment>
     <div className={classes.defaultContent} style={{textAlign:"center", width:"100%"}}>
-      <Typography style={{fontSize:"5.5vmin"}} color="textPrimary">
-        <b>Vote for the cause you're <br></br> passionate about!</b>
+      <Typography style={{fontSize:"4.5rem"}} color="textPrimary">
+        <b>Your vote matters!</b>
       </Typography>
-      <Typography style={{paddingTop: "3%", fontSize:"3.5vmin"}} color="textPrimary">
+      <Typography style={{paddingTop: "3%", fontSize:"1.5rem"}} color="textPrimary">
+        When you cast a vote for your favorite cause, $1 will be gifted to your passion area thanks to the generosity of <b>Desert Financial Credit Union</b>. In honor of Sun Devil Giving Day, they will give $1 per vote up to $5,000 as part of their Random Acts of Kindness campaign.
+      </Typography>      
+      <Typography style={{paddingTop: "3%", fontSize:"2.5rem"}} color="textPrimary">
         <b>Click these buttons below to learn more</b>
       </Typography>
     </div>

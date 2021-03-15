@@ -109,10 +109,10 @@ export default class Results extends Component {
         return (
           <React.Fragment>
           <div style={{textAlign:"center", paddingBottom:"5%"}}>
-            <Typography style={{fontSize:"5.5vmin"}} color="textPrimary">
+            <Typography style={{fontSize:"5.5rem"}} color="textPrimary">
               <b>Thanks for voting!</b>
             </Typography>
-            <Typography style={{fontSize:"3.5vmin"}} color="textPrimary">
+            <Typography style={{fontSize:"3.5rem"}} color="textPrimary">
               <b>Share with friends</b>
             </Typography>
           </div>
@@ -127,7 +127,7 @@ export default class Results extends Component {
           <div style={{marginTop:"20px", textAlign: "center"}}>
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
-              <Typography style={{fontSize:"3.5vmin"}} >
+              <Typography style={{fontSize:"3.5rem"}} >
                 <b>Share This</b>
               </Typography>
               </Grid>
