@@ -16,5 +16,6 @@ let config = {
 };
 
 firebase.initializeApp(config);
+firebase.analytics();
 
 export default firebase;
