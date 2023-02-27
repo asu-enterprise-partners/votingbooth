@@ -76,16 +76,14 @@ class CardClickedStep extends Component{
         <Typography style={{fontSize:"2.5rem", color:"#000000", alignItems:"center"}} color="textSecondary" gutterBottom>
             {
               (this.props.clickedvote === "areaofgreatestneed")
-              ? <b>Protecting the planet</b>
+              ? <b>ASU Counseling Services</b>
               : (this.props.clickedvote === "k12support")
-                ? <b>Conducting research for the public good</b>
+                ? <b>Pitchfork Pantry</b>
                 : (this.props.clickedvote === "communityemergencysupport")
-                  ? <b>Advancing student access</b>
+                  ? <b>Student Crisis Fund</b>
                   : (this.props.clickedvote === "individualemergencysupport")
-                    ? <b>Serving our community</b>
-                    : (this.props.clickedvote === "researchsupport")
-                      ? <b>Creating equity in higher education</b>
-                      : null
+                    ? <b>Project Humanities</b>
+                    : null
             }
         </Typography>
         </Grid>
@@ -93,20 +91,57 @@ class CardClickedStep extends Component{
           <Typography style={{fontSize:"1.5rem"}} color="black" component="p">
               {
                 (this.props.clickedvote === "areaofgreatestneed")
-                ? <React.Fragment><p>ASU is tackling environmental challenges through impactful initiatives and real-world solutions dedicated to sustaining the integrity of our planet and its life-supporting systems.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/protecting-the-planet/"> Learn More</a></strong></p></React.Fragment>
+                ? <React.Fragment>
+                  <p>
+                    ASU Counseling Services provides support for students at all four campuses and allows Sun Devils
+                    anywhere in the world, at any time of day or night, to reach someone through Open Call and Open Chat.
+                    In addition to clinical services, Counseling Services runs peer-led discussion and support groups where
+                    students support and connect with each other and conducts preventative and educational interventions
+                    for staff and students through training seminars and outreach programs. All services are confidential
+                    and free of charge for ASU students. Your support helps us to continue to offer these services and create
+                    more opportunities for our students to receive the support they need.
+                  </p> 
+                  {/* <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/protecting-the-planet/"> Learn More</a></strong></p> */}
+                  </React.Fragment>
 
                 : (this.props.clickedvote === "k12support")
-                ? <React.Fragment><p>ASU is committed to use-inspired research that positively impacts lives. Whether it’s generating crucial vaccines or economic development initiatives, ASU is working to promote human well-being and solve complex, shifting challenges for the public good.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/conducting-research-for-the-public-good/"> Learn More</a></strong></p></React.Fragment>
+                ? <React.Fragment>
+                  <p>
+                    Pitchfork Pantry is an organization that directly serves Arizona State University students by providing
+                    meals and food items, enabling students to combat hunger and food insecurity while working toward a
+                    degree. Thanks to generosity, we can purchase a variety of food items to stock the pantry, offer
+                    nutritious meals to students and provide education on tackling food insecurity.
+                  </p> 
+                  {/* <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/conducting-research-for-the-public-good/"> Learn More</a></strong></p> */}
+                  </React.Fragment>
 
                 : (this.props.clickedvote === "communityemergencysupport")
-                ? <React.Fragment><p>Everyone deserves access to higher education. First-generation students comprise nearly 40 percent of the student body at ASU, where students from all economic backgrounds are empowered to imagine new possibilities.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/advancing-student-access/"> Learn More</a></strong></p></React.Fragment>
+                ? <React.Fragment>
+                  <p>
+                    Food and housing insecurity. Unanticipated medical expenses. Family emergencies. Fires. Broken-down
+                    cars. Theft. Sudden financial stress makes everything else harder. Students who face a financial
+                    emergency can turn to the Student Crisis Fund. For many ASU students who have exhausted other
+                    financial options, it's the difference between dropping out and staying in school. Support for the Student
+                    Crisis Fund helps provide immediate financial assistance to students who are unable to meet essential
+                    expenses in times of crisis.
+                  </p>
+                  {/* <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/advancing-student-access/"> Learn More</a></strong></p> */}
+                  </React.Fragment>
 
                 : (this.props.clickedvote === "individualemergencysupport")
-                ? <React.Fragment><p>ASU assumes a fundamental responsibility for the economic, social, cultural and overall health of the communities we serve — through service initiatives, partnerships and programs that support those in need, and use-inspired research that fuels meaningful change.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/serving-our-community/"> Learn More</a></strong></p></React.Fragment>
-
-                : (this.props.clickedvote === "researchsupport")
-                ? <React.Fragment><p>ASU strives to be an accessible university to all students capable of pursuing a university degree, regardless of race. Through impactful programs and partnerships, we are building an inclusive community where everyone feels welcome and supported.</p> <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/creating-equity-in-higher-education/"> Learn More</a></strong></p></React.Fragment>
-
+                ? <React.Fragment>
+                  <p>
+                    Project Humanities facilitates conversations across diverse communities to build understanding through
+                    talking, listening and connecting. Project Humanities gives students the ability to respond to the
+                    perennial question: Are we losing our humanity? Because of the generosity of donors, Project
+                    Humanities can make a difference in the lives of others through lectures, panels, workshops, film
+                    screenings, symposia, student contests, performances, Hacks for Humanity and our homeless outreach
+                    called Service Saturdays. During Service Saturdays, volunteers distribute shoes, clothing and toiletries to
+                    unhoused community members. Our goal is to extend humanity through service to individuals most
+                    denied fundamental dignity through respect, kindness, compassion and empathy.
+                  </p>
+                  {/* <p><strong><a style={{textDecoration:"", color:"#000000"}} target="_blank" rel="noopener noreferrer" href="https://givingday.asu.edu/sdgd-causes/serving-our-community/"> Learn More</a></strong></p> */}
+                  </React.Fragment>
                 : null
               }
               </Typography>
