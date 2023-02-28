@@ -50,7 +50,7 @@ export default class Results extends Component {
           new Chart(myChartRef, {
               type: 'pie',
               data: {
-                labels: ['Protecting the planet', 'Conducting research for the public good', 'Advancing student access', 'Serving our community', 'Creating equity in higher education'],
+                labels: ['ASU Counseling Services', 'Pitchfork Pantry', 'Student Crisis Fund', 'Project Humanities'],
                 datasets:[{
                   data: [voteData[0].votes, voteData[3].votes, voteData[1].votes, voteData[2].votes, voteData[4].votes],
                   backgroundColor: ['rgba(120, 190, 32, 1)', 'rgba(0, 163, 224, 1)', 'rgba(255, 127, 50, 1)', 'rgba(140, 29, 64, 1)', 'rgba(92, 102, 112, 1)'],

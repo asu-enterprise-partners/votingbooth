@@ -103,7 +103,9 @@ class StepDefault extends Component {
         <b>Your vote matters!</b>
       </Typography>
       <Typography style={{paddingTop: "3%", fontSize:"1.5rem"}} color="textPrimary">
-        When you cast a vote for your favorite cause, $1 will be gifted to your passion area thanks to the generosity of <b>Desert Financial Credit Union</b>. In honor of Sun Devil Giving Day, they will give $1 per vote up to $5,000 as part of their Random Acts of Kindness campaign.
+        Participate in Sun Devil Giving Day by VOTING for the program you care about the most at Arizona State University.
+        Your vote makes a difference: Faithful ASU donor Desert Financial Credit Union will give $1 per vote up to $5,000 in honor of Sun Devil Giving Day.
+        <b>Vote any time between March 10-16</b>.
       </Typography>      
       <Typography style={{paddingTop: "3%", fontSize:"2.5rem"}} color="textPrimary">
         <b>Click these buttons below to learn more</b>
@@ -119,11 +121,11 @@ class StepDefault extends Component {
             ?
 
              <VerticalButton style={{border:"solid 10px #78be20"}} value={"areaofgreatestneed"} onClick={this.areaofgreatestneedChoice}>
-                <Typography variant="h5"><b>Protecting the planet</b></Typography>
+                <Typography variant="h5"><b>ASU Counseling Services</b></Typography>
              </VerticalButton>
              :
               <VerticalButton value={"areaofgreatestneed"} onClick={this.areaofgreatestneedChoice}>
-                <Typography variant="h5"><b>Protecting the planet</b></Typography>
+                <Typography variant="h5"><b>ASU Counseling Services</b></Typography>
               </VerticalButton>
         }
         </Grid>
@@ -134,11 +136,11 @@ class StepDefault extends Component {
             (this.props.clickedvote === "k12support")
             ?
              <VerticalButton style={{border:"solid 10px #00a3e0"}} value="k12support" onClick={this.k12supportChoice}>
-                <Typography variant="h5"><b>Conducting research for the public good</b></Typography>
+                <Typography variant="h5"><b>Pitchfork Pantry</b></Typography>
              </VerticalButton>
              :
               <VerticalButton  value="k12support" onClick={this.k12supportChoice}>
-                <Typography variant="h5"><b>Conducting research for the public good</b></Typography>
+                <Typography variant="h5"><b>Pitchfork Pantry</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -149,11 +151,11 @@ class StepDefault extends Component {
             (this.props.clickedvote === "communityemergencysupport")
             ?
              <VerticalButton style={{border:"solid 10px #ff7f32"}} value="communityemergencysupport" onClick={this.communityemergencysupportChoice}>
-                <Typography variant="h5"><b>Advancing student access</b></Typography>
+                <Typography variant="h5"><b>Student Crisis Fund</b></Typography>
              </VerticalButton>
              :
               <VerticalButton  value="communityemergencysupport" onClick={this.communityemergencysupportChoice}>
-                <Typography variant="h5"><b>Advancing student access</b></Typography>
+                <Typography variant="h5"><b>Student Crisis Fund</b></Typography>
               </VerticalButton>
           }
         </Grid>
@@ -164,30 +166,15 @@ class StepDefault extends Component {
           (this.props.clickedvote === "individualemergencysupport")
           ?
            <VerticalButton style={{border:"solid 10px #8c1d40"}} value="individualemergencysupport" onClick={this.individualemergencysupportChoice} >
-              <Typography variant="h5"><b>Serving our community</b></Typography>
+              <Typography variant="h5"><b>Project Humanities</b></Typography>
            </VerticalButton>
            :
             <VerticalButton  value="individualemergencysupport" onClick={this.individualemergencysupportChoice} >
-              <Typography variant="h5"><b>Serving our community</b></Typography>
+              <Typography variant="h5"><b>Project Humanities</b></Typography>
             </VerticalButton>
         }
         </Grid>
         </div>
-        <div style={{width:"75%", marginLeft: "10px", marginRight:"10px", paddingBottom:"2%"}}>
-        <Grid style={{marginBottom:"2%"}}>
-        {
-          (this.props.clickedvote === "researchsupport")
-          ?
-           <VerticalButton style={{border:"solid 10px #5c6670"}} value="researchsupport" onClick={this.researchsupportChoice}  >
-              <Typography variant="h5"><b>Creating equity in higher education</b></Typography>
-           </VerticalButton>
-           :
-            <VerticalButton  value="researchsupport" onClick={this.researchsupportChoice} >
-              <Typography variant="h5"><b>Creating equity in higher education</b></Typography>
-            </VerticalButton>
-        }
-        </Grid>
-      </div>
       </Grid>
       </div>
       </React.Fragment>
