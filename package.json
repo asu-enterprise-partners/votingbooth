@@ -2,6 +2,9 @@
   "name": "sdgdvoting",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "@material-ui/core": "^4.9.0",
@@ -19,10 +22,7 @@
     "react-albus": "^2.0.0",
     "react-dom": "^17.0.1",
     "react-scripts": "^4.0.2",
-    "react-with-firebase-auth": "^1.3.0",
-    "engines": {
-      "node": "18.x"
-    }    
+    "react-with-firebase-auth": "^1.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
