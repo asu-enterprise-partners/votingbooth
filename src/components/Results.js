@@ -112,9 +112,9 @@ export default class Results extends Component {
             <Typography style={{fontSize:"5.5rem"}} color="textPrimary">
               <b>Thanks for voting!</b>
             </Typography>
-            {/* <Typography style={{fontSize:"3.5rem"}} color="textPrimary">
-              <b>Share with friends</b>
-            </Typography> */}
+            <Typography style={{fontSize:"3.5rem"}} color="textPrimary">
+              {/* <b>Share with friends</b> */}
+            </Typography>
           </div>
 
           <div style={{marginTop:"2%", height:"200px !important" }} className={classes.graphContainer}>
@@ -127,23 +127,23 @@ export default class Results extends Component {
           <div style={{marginTop:"20px", textAlign: "center"}}>
             <Grid container spacing = {3} justify = "center" style={{paddingTop:"5%"}}>
               <Grid item xs={6}>
-              {/* <Typography style={{fontSize:"3.5rem"}} >
-                <b>Share This</b>
-              </Typography> */}
+              <Typography style={{fontSize:"3.5rem"}} >
+                {/* <b>Share This</b> */}
+              </Typography>
               </Grid>
             </Grid>
-            {/* <Grid container spacing = {0} justify = "center">
+            <Grid container spacing = {0} justify = "center">
               <Grid>
               <ShareButton href="https://www.facebook.com/sharer/sharer.php?u=http://sdgdvote.com/" target="_blank">
-                <img style={{height:"auto", width:"80%"}} alt="share on facebook" src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/8322dcab-9e1c-4db4-be6f-b4242b472ca2.png"/>
+                {/* <img style={{height:"auto", width:"80%"}} alt="share on facebook" src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/8322dcab-9e1c-4db4-be6f-b4242b472ca2.png"/> */}
               </ShareButton>
               </Grid>
               <Grid>
               <ShareButton href="https://twitter.com/intent/tweet?url=sdgdvote.com&text=Today%20I'm%20celebrating%20%23SunDevilGivingDay%20at%20ASU.%20This%20day%20gives%20me%20a%20chance%20to%20support%20what%20I'm%20passionate%20about%20and%20be%20a%20part%20of%20real%20change.%20I've%20voted%20for%20the%20cause%20I%20believe%20in%20—%20join%20me%20and%20vote%20now!%20sdgdvote.com" target="_blank">
-                <img style={{height:"auto", width:"80%"}} alt="share on twitter" src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/82115465-f2d4-4d9e-bee1-94976b3958bb.png"/>
+                {/* <img style={{height:"auto", width:"80%"}} alt="share on twitter" src="https://image.s11.sfmc-content.com/lib/fe3415717564047b721c74/m/1/82115465-f2d4-4d9e-bee1-94976b3958bb.png"/> */}
               </ShareButton>
               </Grid>
-            </Grid> */}
+            </Grid>
           </div>
           </React.Fragment>
         )
